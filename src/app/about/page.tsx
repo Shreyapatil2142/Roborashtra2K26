@@ -21,14 +21,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 
- 
+ import { robots, achievements } from "../constants/about";
+
 export default ClanSection
 
 export function ClanSection() {
-  const achievements = [
-    { icon: Award, value: "2+", label: "Events Organized" },
-    { icon: Users, value: "45+", label: "Members count" },
-  ];
+ 
 
   return (
 <section className="h-screen lg:h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
@@ -162,23 +160,7 @@ export function ClanSection() {
   {(() => {
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const robots = [
-      {
-        id: 1,
-        title: "Autonomous Rover",
-        image: "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg2.27ba7ad2.jpg&w=3840&q=75",
-      },
-      {
-        id: 2,
-        title: "Surveillance Drone",
-        image: "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg3.f6a0998b.jpg&w=3840&q=75",
-      },
-      {
-        id: 3,
-        title: "Humanoid Prototype",
-        image: "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg4.a13fe0d2.jpg&w=3840&q=75",
-      },
-    ];
+  
     useEffect(() => {
       const interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % robots.length);

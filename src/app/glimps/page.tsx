@@ -14,77 +14,13 @@ import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback"
 import { ChevronLeft, ChevronRight, Eye, Calendar, Award } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { glimpses } from "../constants/gimps";
 
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const glimpses = [
-    {
-      id: 1,
-      title: "RoboWars Championship 2024",
-      date: "March 2024",
-      image: "https://images.unsplash.com/photo-1632017734927-48988a0efae7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb2JvdGljJTIwY29tcGV0aXRpb24lMjBhcmVuYSUyMGxpZ2h0c3xlbnwxfHx8fDE3NTYxMDAxMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Epic battles between autonomous fighting robots",
-      stats: "32 Teams, 5 Countries"
-    },
-    {
-      id: 2,
-      title: "AI Innovation Summit",
-      date: "July 2024",
-      image: "https://images.unsplash.com/photo-1752253604157-65fb42c30816?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2xvZ3JhcGhpYyUyMGZ1dHVyaXN0aWMlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU2MTAwMTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Cutting-edge AI demonstrations and breakthroughs",
-      stats: "150+ Participants, 20 Projects"
-    },
-    {
-      id: 3,
-      title: "Drone Racing Spectacular",
-      date: "September 2024",
-      image: "https://images.unsplash.com/photo-1625314887424-9f190599bd56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwbWVjaCUyMHJvYm90JTIwc2lsaG91ZXR0ZXxlbnwxfHx8fDE3NTYxMDAxMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "High-speed autonomous drone racing through obstacle courses",
-      stats: "64 Pilots, 12 Countries"
-    },
-    {
-      id: 4,
-      title: "Humanoid Showcase",
-      date: "December 2024",
-      image: "https://images.unsplash.com/photo-1716237921133-7e0e8d790a5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnB1bmslMjBuZW9uJTIwZ2VhcnMlMjBtZWNoYW5pY2FsfGVufDF8fHx8MTc1NjEwMDExNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Advanced humanoid robots demonstrating human-like capabilities",
-      stats: "25 Robots, 18 Universities"
-    },
-     {
-      id: 5,
-      title: "RoboWars Championship 2024",
-      date: "March 2024",
-      image: "https://images.unsplash.com/photo-1632017734927-48988a0efae7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb2JvdGljJTIwY29tcGV0aXRpb24lMjBhcmVuYSUyMGxpZ2h0c3xlbnwxfHx8fDE3NTYxMDAxMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Epic battles between autonomous fighting robots",
-      stats: "32 Teams, 5 Countries"
-    },
-    {
-      id: 6,
-      title: "AI Innovation Summit",
-      date: "July 2024",
-      image: "https://images.unsplash.com/photo-1752253604157-65fb42c30816?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob2xvZ3JhcGhpYyUyMGZ1dHVyaXN0aWMlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU2MTAwMTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Cutting-edge AI demonstrations and breakthroughs",
-      stats: "150+ Participants, 20 Projects"
-    },
-    {
-      id: 7,
-      title: "Drone Racing Spectacular",
-      date: "September 2024",
-      image: "https://images.unsplash.com/photo-1625314887424-9f190599bd56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwbWVjaCUyMHJvYm90JTIwc2lsaG91ZXR0ZXxlbnwxfHx8fDE3NTYxMDAxMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "High-speed autonomous drone racing through obstacle courses",
-      stats: "64 Pilots, 12 Countries"
-    },
-    {
-      id: 8,
-      title: "Humanoid Showcase",
-      date: "December 2024",
-      image: "https://images.unsplash.com/photo-1716237921133-7e0e8d790a5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnB1bmslMjBuZW9uJTIwZ2VhcnMlMjBtZWNoYW5pY2FsfGVufDF8fHx8MTc1NjEwMDExNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      description: "Advanced humanoid robots demonstrating human-like capabilities",
-      stats: "25 Robots, 18 Universities"
-    }
-  ];
+ 
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % glimpses.length);
@@ -271,8 +207,9 @@ export default function GlimpsPage() {
   {glimpses.map((glimpse, index) => (
     <motion.button
       key={glimpse.id}
-     ref={(el) => (thumbnailRefs.current[index] = el)}
-      onClick={() => setActiveIndex(index)}
+ref={(el) => {
+  thumbnailRefs.current[index] = el;
+}}      onClick={() => setActiveIndex(index)}
       className={`
         relative shrink-0 
         h-24 w-36 md:h-28 md:w-full 

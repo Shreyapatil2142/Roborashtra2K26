@@ -12,72 +12,12 @@
 "use client"
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { events } from "../constants/event";
 
 export default function EventsPage() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   
-  const events = [
-    {
-      id: 1,
-      title: "RoboSumo Championship",
-      category: "Combat",
-      description: "Ultimate robot combat arena where steel meets strategy",
-      date: "March 15, 2025",
-      time: "10:00 AM - 6:00 PM",
-      location: "Arena Alpha",
-      participants: "32 Teams",
-      prize: "₹2,50,000",
-      icon: "⚡",
-      gradient: "from-[#0a91ab] to-[#065471]",
-      glowColor: "#0a91ab",
-      coverImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 2,
-      title: "Autonomous Racing",
-      category: "Speed",
-      description: "High-speed autonomous navigation through challenging circuits",
-      date: "March 16, 2025",
-      time: "9:00 AM - 5:00 PM",
-      location: "Speed Track Beta",
-      participants: "24 Teams",
-      prize: "₹3,00,000",
-      icon: "🎯",
-      gradient: "from-[#ffc045] to-[#ff8c00]",
-      glowColor: "#ffc045",
-      coverImage: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 3,
-      title: "AI Innovation Challenge",
-      category: "Intelligence",
-      description: "Showcase cutting-edge AI algorithms and machine learning",
-      date: "March 17, 2025",
-      time: "11:00 AM - 7:00 PM",
-      location: "Tech Hub Gamma",
-      participants: "40 Teams",
-      prize: "₹4,00,000",
-      icon: "🏆",
-      gradient: "from-[#9333ea] to-[#7c3aed]",
-      glowColor: "#9333ea",
-      coverImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 4,
-      title: "Humanoid Performance",
-      category: "Mobility",
-      description: "Advanced humanoid robots demonstrating human-like capabilities",
-      date: "March 18, 2025",
-      time: "2:00 PM - 8:00 PM",
-      location: "Performance Delta",
-      participants: "16 Teams",
-      prize: "₹2,00,000",
-      icon: "🎮",
-      gradient: "from-[#059669] to-[#047857]",
-      glowColor: "#059669",
-      coverImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
-  ];
+ 
 
   return (
     <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">

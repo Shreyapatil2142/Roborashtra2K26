@@ -16,6 +16,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { useState } from "react";
+import { contactInfo, socialLinks } from "../constants/contact";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -31,30 +32,7 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      info: "info@roborashtra2k25.com",
-      subInfo: "support@roborashtra2k25.com",
-      color: "#ffc045"
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      info: "+91 98765 43210",
-      subInfo: "+91 87654 32109",
-      color: "#0a91ab"
-    },
  
-  ];
-
-  const socialLinks = [
-    { icon: Github, name: "GitHub", url: "#", color: "#0a91ab" },
-    { icon: Twitter, name: "Twitter", url: "#", color: "#ffc045" },
-    { icon: Linkedin, name: "LinkedIn", url: "#", color: "#0a91ab" },
-    { icon: Instagram, name: "Instagram", url: "#", color: "#ffc045" }
-  ];
 
   return (
 <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
