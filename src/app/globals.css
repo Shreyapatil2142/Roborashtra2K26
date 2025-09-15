@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #0b2238;
   --foreground: #171717;
 }
 
@@ -12,15 +12,65 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Glimpse page css */
+/* Flashy Neon Yellow + Blue Scrollbar */
+.thumbnail-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffc045, #0a91ab);
+  box-shadow: 0 0 10px #ffc045, 0 0 20px #0a91ab, 0 0 40px #ffc045;
+  animation: neonPulse 1.5s infinite alternate;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0a91ab, #ffc045);
+  box-shadow: 0 0 20px #0a91ab, 0 0 40px #ffc045, 0 0 60px #0a91ab;
+  animation: neonPulseFast 0.8s infinite alternate;
+}
+
+/* Firefox */
+.thumbnail-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ffc045 #0a91ab;
+}
+
+/* Keyframes for flashing effect */
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 8px #ffc045, 0 0 16px #0a91ab, 0 0 30px #ffc045;
+  }
+  100% {
+    box-shadow: 0 0 20px #ffc045, 0 0 40px #0a91ab, 0 0 60px #ffc045;
+  }
+}
+
+@keyframes neonPulseFast {
+  0% {
+    box-shadow: 0 0 15px #0a91ab, 0 0 30px #ffc045, 0 0 50px #0a91ab;
+  }
+  100% {
+    box-shadow: 0 0 25px #ffc045, 0 0 50px #0a91ab, 0 0 80px #ffc045;
+  }
 }
