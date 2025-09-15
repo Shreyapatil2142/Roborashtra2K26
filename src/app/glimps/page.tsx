@@ -13,10 +13,11 @@
 import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback"
 import { ChevronLeft, ChevronRight, Eye, Calendar, Award } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const glimpses = [
     {
@@ -92,7 +93,15 @@ export default function GlimpsPage() {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + glimpses.length) % glimpses.length);
   };
-
+ useEffect(() => {
+    if (thumbnailRefs.current[activeIndex]) {
+      thumbnailRefs.current[activeIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeIndex]);
   return (
 <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
   <div className="max-w-7xl mx-auto relative z-10 flex flex-col min-h-screen">        {/* Section Header */}
@@ -233,16 +242,15 @@ export default function GlimpsPage() {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#065471]/80 hover:bg-[#065471] border-2 border-[#0a91ab]/50 hover:border-[#0a91ab] p-3 transition-all duration-300 group"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#065471]/70 hover:bg-[#065471] border-2 border-[#ffc045] p-3 transition-all"
             >
-              <ChevronLeft className="h-6 w-6 text-[#0a91ab] group-hover:text-white" />
+              <ChevronLeft className="h-6 w-6 text-[#ffc045]" />
             </button>
-
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#065471]/80 hover:bg-[#065471] border-2 border-[#0a91ab]/50 hover:border-[#0a91ab] p-3 transition-all duration-300 group"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#065471]/70 hover:bg-[#065471] border-2 border-[#ffc045] p-3 transition-all"
             >
-              <ChevronRight className="h-6 w-6 text-[#0a91ab] group-hover:text-white" />
+              <ChevronRight className="h-6 w-6 text-[#ffc045]" />
             </button>
           </motion.div>
 
@@ -252,7 +260,7 @@ export default function GlimpsPage() {
   className="
     flex gap-2 mt-4
     md:mt-0 md:flex-col md:w-1/4 md:max-h-[600px] md:overflow-y-auto md:gap-3 md:pr-2
-    overflow-x-hidden
+    overflow-x-auto
     p-4 thumbnail-scroll
   "
   initial={{ opacity: 0, x: 30 }}
@@ -263,6 +271,7 @@ export default function GlimpsPage() {
   {glimpses.map((glimpse, index) => (
     <motion.button
       key={glimpse.id}
+     ref={(el) => (thumbnailRefs.current[index] = el)}
       onClick={() => setActiveIndex(index)}
       className={`
         relative shrink-0 
