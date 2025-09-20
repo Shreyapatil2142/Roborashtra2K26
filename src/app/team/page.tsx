@@ -36,7 +36,7 @@ export default function TeamPage() {
       </div>
 
       {/* Hero Heading Section */}
-      <div className="flex flex-col items-center z-20 mt-8 md:mt-12 text-center px-4">
+      <div className="flex flex-col items-center z-20 mt-6 md:mt-8 text-center px-4">
         <div className="flex items-center gap-2 sm:gap-4">
           <img
             src="/images/logo.png"
@@ -87,11 +87,12 @@ export default function TeamPage() {
 
 
       {/* Members */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mt-6 px-4">
+      <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4">
         {teamData[activeCategory]?.map((member, index) => (
           <TeamCard key={index} {...member} />
         ))}
       </div>
+
 
     </>
   );
