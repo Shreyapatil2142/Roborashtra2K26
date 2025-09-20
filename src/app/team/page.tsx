@@ -1,14 +1,98 @@
-import TeamCards from "./teamcards/page";
+"use client";
+import { useState } from "react";
+import TeamCard from "./teamcards/page";
+import { teamData } from "./teamData";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 export default function TeamPage() {
+  const categories = Object.keys(teamData) as (keyof typeof teamData)[];
+  const [activeCategory, setActiveCategory] = useState<keyof typeof teamData>(categories[0]);
+
   return (
-    <div className="p-6">
-        
-      <h1 className="text-3xl font-bold mb-4">Team</h1>
-      <p className="text-lg text-gray-700">
-        This page can showcase highlights, photos, or a quick glimpse of your work.
-      </p>
-      <TeamCards />
-    </div>
+    <>
+      {/* Background Grid */}
+      {/* Top-left Background */}
+      <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
+        <Image
+          src="/images/teamPageBG1.png"
+          alt="Card Background"
+          width={512}
+          height={512}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Bottom-right Background */}
+      <div className="absolute bottom-0 right-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
+        <Image
+          src="/images/teamPageBG2.png"
+          alt="Card Background"
+          width={512}
+          height={512}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Hero Heading Section */}
+      <div className="flex flex-col items-center z-20 mt-8 md:mt-12 text-center px-4">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <img
+            src="/images/logo.png"
+            alt="Roborashtra Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
+          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold tracking-wide 
+      bg-gradient-to-r from-[#FFC045] to-[#01ABEF] bg-clip-text text-transparent">
+            ROBORASHTRA
+          </h1>
+        </div>
+
+        <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2">
+          Meet our amazing <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
+          <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
+          <span className="text-yellow-300 font-semibold">co-leads!</span>
+        </p>
+      </div>
+
+
+      {/* Navbar */}
+      <nav className="bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] 
+  bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg
+  rounded-2xl px-4 py-3 mt-8 flex space-x-3 overflow-x-auto no-scrollbar 
+  text-sm font-semibold md:w-fit sm:w-fit md:mx-auto z-20 w-full">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300
+        ${activeCategory === cat
+                ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
+                : "text-white hover:text-yellow-300 hover:bg-white/10"
+              }`}
+          >
+            {cat.replace(/([A-Z])/g, " $1").trim()}
+          </button>
+        ))}
+      </nav>
+
+
+
+      {/* Heading */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 sm:mt-7 z-20 
+  text-yellow-400 tracking-wide uppercase text-center px-2">
+        {activeCategory.replace(/([A-Z])/g, " $1").trim()} Team
+      </h1>
+
+
+      {/* Members */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 mt-6 px-4">
+        {teamData[activeCategory]?.map((member, index) => (
+          <TeamCard key={index} {...member} />
+        ))}
+      </div>
+
+    </>
   );
 }
