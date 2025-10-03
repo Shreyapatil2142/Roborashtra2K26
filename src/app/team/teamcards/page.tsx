@@ -17,7 +17,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedin, contac
     <div className="relative w-72 h-[400px] py-6 flex flex-col items-center justify-between">
       {/* Background Card Shape */}
       <Image
-        src="/images/teambg.svg"
+        src="/images/teambg.png"
         alt="Card Background"
         fill
         className="absolute object-contain"
