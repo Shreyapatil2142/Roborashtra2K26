@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* No Scoll bars on entire site */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
 /* Import Mokoto font (download or link via @font-face) */
 @font-face {
   font-family: "Mokoto";
@@ -183,4 +193,36 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
 }

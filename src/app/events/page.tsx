@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { events } from "../constants/event";
 import Frame from "../components/frame";
+import Image from "next/image";
 export default function EventsPage() {
-const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  
- 
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+
 
   return (
     <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* Background Effects */}
- 
+
       <Frame />
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -29,7 +30,7 @@ const [hoveredCard, setHoveredCard] = useState<number | null>(null);
             <span className="text-white">Events</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Four legendary competitions. One ultimate champion. 
+            Four legendary competitions. One ultimate champion.
             Experience the future of robotics across multiple domains.
           </p>
         </motion.div>
@@ -49,19 +50,20 @@ const [hoveredCard, setHoveredCard] = useState<number | null>(null);
             >
               <div className="card relative w-full h-full flex justify-center items-end p-[0_20px] perspective-2500">
                 <div className="wrapper absolute w-full h-full z-[-1] transition-all duration-500 overflow-hidden rounded-xl">
-                  <img 
-                    src={event.coverImage} 
-                    className="cover-image w-full h-full object-cover rounded-xl" 
+                  <Image
+                    src={event.coverImage}
                     alt={event.title}
+                    fill
+                    className="cover-image object-cover rounded-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
-                  
+
                   {/* Holographic Corners */}
                   <div className={`holographic-corner corner-tl border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
                   <div className={`holographic-corner corner-tr border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
                   <div className={`holographic-corner corner-bl border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
                   <div className={`holographic-corner corner-br border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
-                  
+
                   {/* Particles */}
                   {hoveredCard === event.id && (
                     <>
@@ -71,7 +73,7 @@ const [hoveredCard, setHoveredCard] = useState<number | null>(null);
                     </>
                   )}
                 </div>
-                
+
                 <div className="title w-full transition-transform duration-500 text-center mb-4">
                   <h3 className="text-xl font-bold text-white group-hover:translate-y-[-20px] hover:opacity-0 transition-transform duration-500 ">
                     {event.title}
@@ -80,13 +82,13 @@ const [hoveredCard, setHoveredCard] = useState<number | null>(null);
                     {event.category}
                   </span>
                 </div>
-                
+
                 <div className="character absolute w-full opacity-0 transition-all duration-500 z-[-1] group-hover:opacity-100 group-hover:translate-y-[-30%] flex justify-center">
                   <div className={`p-3 rounded-full bg-gradient-to-br ${event.gradient}`}>
                     <span className="text-2xl text-white">{event.icon}</span>
                   </div>
                 </div>
-                
+
                 <div className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'} rounded-b-xl`}>
                   <p className="text-xl mb-2">{event.description}</p>
                   <div className="flex justify-between items-center">

@@ -4,6 +4,7 @@ import TeamCard from "./teamcards/page";
 import { teamData } from "../constants/TeamData";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Frame from "../components/frame";
 
 
 export default function TeamPage() {
@@ -12,6 +13,7 @@ export default function TeamPage() {
 
   return (
     <>
+    <Frame />
       {/* Background Grid */}
       {/* Top-left Background */}
       <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
@@ -39,7 +41,7 @@ export default function TeamPage() {
       <div className="flex flex-col items-center z-20 mt-6 md:mt-8 text-center px-4">
         <div className="flex items-center gap-2 sm:gap-4">
           <img
-            src="/images/logo.png"
+            src="/roborashtra.png"
             alt="Roborashtra Logo"
             className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
           />
@@ -49,7 +51,7 @@ export default function TeamPage() {
           </h1>
         </div>
 
-        <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2">
+        <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2 selection:bg-[#0a91ab] selection:text-yellow-300">
           Meet our amazing <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
           <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
           <span className="text-yellow-300 font-semibold">co-leads!</span>
@@ -66,7 +68,7 @@ export default function TeamPage() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300
+            className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300 
         ${activeCategory === cat
                 ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
                 : "text-white hover:text-yellow-300 hover:bg-white/10"
@@ -76,7 +78,6 @@ export default function TeamPage() {
           </button>
         ))}
       </nav>
-
 
 
       {/* Heading */}

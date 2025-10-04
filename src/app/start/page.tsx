@@ -1,5 +1,6 @@
 import Navbar from "@/app/components/navbar";
 import { SocialMediaButton } from "@/app/components/social";
+import Image from "next/image";
 
 import {
   FaFacebook,
@@ -17,16 +18,19 @@ export default function HomePage() {
         autoPlay
         loop
         muted
+        playsInline
         className="absolute w-full h-full object-cover"
       >
         <source src="/bg.mp4" type="video/mp4" />
       </video>
 
       {/* Frame Overlay */}
-      <img
+      <Image
         src="/frame.png"
         alt="frame"
-        className="absolute w-full h-full overflow-hidden pointer-events-none"
+        fill
+        priority
+        className="absolute object-cover pointer-events-none"
       />
 
       {/* Top Center Title */}
@@ -37,15 +41,31 @@ export default function HomePage() {
       </div>
       <div className="absolute top-50 left-1/2 -translate-x-1/2 ">
         <span className="block text-xl text-[#02ccffc2] font-mono tracking-widest mt-2 ml-190">
-          by <span className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-[#ffffff]">RoboHawk</span>
+          by{" "}
+          <span className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-[#ffffff]">
+            RoboHawk
+          </span>
         </span>
       </div>
 
-
       {/* Top Right Logos */}
       <div className="absolute top-15 left-40 flex gap-4">
-        <img src="/PCCOER.png" alt="logo1" className="h-30 w-auto" />
-        <img src="/roborashtra.png" alt="logo2" className="h-30 w-auto" />
+        <Image
+          src="/PCCOER.png"
+          alt="logo1"
+          width={120}
+          height={120}
+          priority
+          className="h-30 w-auto"
+        />
+        <Image
+          src="/roborashtra.png"
+          alt="logo2"
+          width={120}
+          height={120}
+          priority
+          className="h-30 w-auto"
+        />
       </div>
 
       {/* Navbar (sidebars) */}
@@ -53,13 +73,22 @@ export default function HomePage() {
 
       {/* Social Media Buttons */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 sm:gap-6 text-xl sm:text-2xl text-yellow-400">
-        <SocialMediaButton><FaFacebook /></SocialMediaButton>
-        <SocialMediaButton><FaTwitter /></SocialMediaButton>
-        <SocialMediaButton><FaInstagram /></SocialMediaButton>
-        <SocialMediaButton><FaLinkedin /></SocialMediaButton>
-        <SocialMediaButton><FaYoutube /></SocialMediaButton>
+        <SocialMediaButton>
+          <FaFacebook />
+        </SocialMediaButton>
+        <SocialMediaButton>
+          <FaTwitter />
+        </SocialMediaButton>
+        <SocialMediaButton>
+          <FaInstagram />
+        </SocialMediaButton>
+        <SocialMediaButton>
+          <FaLinkedin />
+        </SocialMediaButton>
+        <SocialMediaButton>
+          <FaYoutube />
+        </SocialMediaButton>
       </div>
-
     </div>
   );
 }
