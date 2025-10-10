@@ -14,24 +14,26 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedin, contact, mail }) => {
   return (
-    <div className="relative w-72 h-[400px] py-6 flex flex-col items-center justify-between">
+    <div className="relative w-[328px] h-[442px] py-6 flex flex-col items-center">
       {/* Background Card Shape */}
       <Image
-        src="/images/teambg.svg"
+        src="/images/teambg.png"
         alt="Card Background"
         fill
         className="absolute object-contain"
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-4 py-6">
-        <h2
-          className="text-xl font-bold text-yellow-300 mt-2 uppercase tracking-wide 
+      <div className="relative h-full z-10 flex flex-col justify-between items-center px-4 py-6">
+        <div>
+          <h2
+            className="text-xl font-bold text-yellow-300 mt-2 uppercase tracking-wide 
                text-center break-words max-w-[220px] leading-snug"
-        >
-          {name}
-        </h2>
-        <p className="text-white text-sm mb-3 text-center">{role}</p>
+          >
+            {name}
+          </h2>
+          <p className="text-white text-sm mb-3 text-center">{role}</p>
+        </div>
 
 
         {/* Member Image */}
@@ -39,8 +41,8 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedin, contac
           <Image
             src={image}
             alt={name}
-            width={128}
-            height={128}
+            width={256}
+            height={256}
             className="object-cover w-full h-full"
           />
         </div>
