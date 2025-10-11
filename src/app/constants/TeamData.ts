@@ -164,7 +164,7 @@ export const teamData: Record<string, any[]> = {
       linkedin: "https://linkedin.com/in/jagruti",
       contact: "+91 9876543226",
       mail: "jagruti@example.com",
-      image: "/members/jagruti.png",
+      image: "/members/jagruti.jpg",
     },
   ],
 };

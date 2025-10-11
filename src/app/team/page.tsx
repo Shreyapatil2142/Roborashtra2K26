@@ -13,7 +13,7 @@ export default function TeamPage() {
 
   return (
     <>
-    <Frame />
+   
       {/* Background Grid */}
       {/* Top-left Background */}
       <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">

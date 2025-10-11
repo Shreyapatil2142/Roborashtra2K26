@@ -14,12 +14,14 @@
   scrollbar-width: none;     
 }
 
-/* Import Mokoto font (download or link via @font-face) */
 @font-face {
-  font-family: "Mokoto";
-  src: url("/fonts/mokoto.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Mokoto';
+  src: url('/public/fonts/MokotoDemo.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Mortend';
+  src: url('/public/fonts/MortendBold.ttf') format('truetype');
 }
 
 @theme inline {

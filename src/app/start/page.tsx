@@ -34,29 +34,30 @@ export default function HomePage() {
       />
 
       {/* Top Center Title */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 ">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent font-bold text-center tracking-widest">
+      <div className="absolute font-mokoto top-20 left-1/2 -translate-x-1/2 ">
+        <h1 className="text-4xl font-mokoto sm:text-6xl md:text-7xl lg:text-7xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent text-center tracking-widest">
           Roborastra 2k26
         </h1>
+
       </div>
-      <div className="absolute top-50 left-1/2 -translate-x-1/2 ">
-        <span className="block text-xl text-[#02ccffc2] font-mono tracking-widest mt-2 ml-190">
+      <div className="absolute top-30 left-1/2 -translate-x-1/2 ">
+        <span className="block text-xl text-[#02ccffc2] font-mortend tracking-widest mt-2 ml-180">
           by{" "}
-          <span className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold text-[#ffffff]">
+          <span className="text-2xl font-mortend sm:text-xl md:text-2xl lg:text-4xl font-bold text-[#ffffff]">
             RoboHawk
           </span>
         </span>
       </div>
 
       {/* Top Right Logos */}
-      <div className="absolute top-15 left-40 flex gap-4">
+      <div className="absolute top-15 left-25 flex gap-4">
         <Image
           src="/PCCOER.png"
           alt="logo1"
           width={120}
           height={120}
           priority
-          className="h-30 w-auto"
+          className="h-25 w-auto"
         />
         <Image
           src="/roborashtra.png"
@@ -64,7 +65,7 @@ export default function HomePage() {
           width={120}
           height={120}
           priority
-          className="h-30 w-auto"
+          className="h-25 w-auto"
         />
       </div>
 

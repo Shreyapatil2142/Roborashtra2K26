@@ -24,7 +24,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedin, contac
       />
 
       {/* Content */}
-      <div className="relative h-full z-10 flex flex-col justify-between items-center px-4 py-6">
+      <div className="relative h-full z-10 flex flex-col justify-evenly items-center px-4 py-6">
         <div>
           <h2
             className="text-xl font-bold text-yellow-300 mt-2 uppercase tracking-wide 
@@ -37,7 +37,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, image, linkedin, contac
 
 
         {/* Member Image */}
-        <div className="w-32 h-32 mb-4 overflow-hidden rounded-lg shadow-lg">
+        <div className="w-46 h-46 mb-4 overflow-hidden rounded-lg shadow-lg">
           <Image
             src={image}
             alt={name}
