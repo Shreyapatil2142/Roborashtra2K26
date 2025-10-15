@@ -1,6 +1,23 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local'
+
+const MokotoDemo = localFont({
+  src: [
+    { path: '../../public/fonts/MokotoDemo.ttf', weight: '400', style: 'normal' },
+  ],
+  variable: '--font-mokoto',   // optional: CSS variable name
+  display: 'swap',             // recommended
+})
+
+const MortendBold = localFont({
+  src: [
+    { path: '../../public/fonts/MortendBold.ttf', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-mortend',
+  display: 'swap',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${MokotoDemo.variable} ${MortendBold.variable}`}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -2,22 +2,22 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function NotFound() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+// Type for mouse position
+type Position = { x: number; y: number };
 
+export default function NotFound() {
+  const [mousePosition, setMousePosition] = useState<Position>({ x: 0, y: 0 });
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [sparkles, setSparkles] = useState<{ x: number; y: number; size: number; delay: number; duration: number }[]>([]);
+
+  // Initialize window size and mouse movement
   useEffect(() => {
     if (typeof window !== "undefined") {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     }
 
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY });
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("resize", handleResize);
@@ -28,10 +28,20 @@ export default function NotFound() {
     };
   }, []);
 
-  const offsetX =
-    windowSize.width > 0 ? (mousePosition.x / windowSize.width - 0.5) * 30 : 0;
-  const offsetY =
-    windowSize.height > 0 ? (mousePosition.y / windowSize.height - 0.5) * 30 : 0;
+  // Generate sparkles once
+  useEffect(() => {
+    const generated = Array.from({ length: 30 }, () => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 3 + 2,
+      delay: Math.random() * 5,
+      duration: Math.random() * 5 + 5,
+    }));
+    setSparkles(generated);
+  }, []);
+
+  const offsetX = windowSize.width ? (mousePosition.x / windowSize.width - 0.5) * 30 : 0;
+  const offsetY = windowSize.height ? (mousePosition.y / windowSize.height - 0.5) * 30 : 0;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden select-none">
@@ -45,7 +55,7 @@ export default function NotFound() {
         style={{ transform: `translate(${-offsetX}px, ${-offsetY}px)` }}
       ></div>
 
-      {/* Floating 404 with glow and hover scale */}
+      {/* Floating 404 */}
       <h1 className="text-[8rem] md:text-[10rem] font-extrabold tracking-widest text-[#ffc045] drop-shadow-[0_0_20px_rgba(255,192,69,0.6)] transition-transform duration-500 hover:scale-110">
         404
       </h1>
@@ -55,8 +65,7 @@ export default function NotFound() {
       </p>
 
       <p className="text-gray-400 mt-3 max-w-md text-center leading-relaxed">
-        The page you’re looking for doesn’t exist or might have been moved.
-        Let’s get you back on track!
+        The page you’re looking for doesn’t exist or might have been moved. Let’s get you back on track!
       </p>
 
       <div className="mt-10 flex flex-wrap gap-5 justify-center">
@@ -74,25 +83,43 @@ export default function NotFound() {
         </Link>
       </div>
 
-      {/* Floating sparkles for ambiance */}
+      {/* Floating sparkles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {sparkles.map((s, i) => (
           <span
             key={i}
-            className="absolute bg-white rounded-full opacity-20 animate-float"
+            className="absolute bg-white rounded-full opacity-20"
             style={{
-              width: Math.random() * 4 + 2 + "px",
-              height: Math.random() * 4 + 2 + "px",
-              top: Math.random() * 100 + "%",
-              left: Math.random() * 100 + "%",
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 5}s`,
+              width: `${s.size}px`,
+              height: `${s.size}px`,
+              top: `${s.y}%`,
+              left: `${s.x}%`,
+              animation: `float ${s.duration}s ease-in-out ${s.delay}s infinite alternate`,
             }}
           ></span>
         ))}
       </div>
 
       <div className="absolute bottom-10 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+
+      {/* Add keyframes for floating animation */}
+      <style jsx>{`
+        @keyframes float {
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+
+        .animate-bounce-slow {
+          animation: bounce 2s infinite;
+        }
+      `}</style>
     </div>
   );
 }

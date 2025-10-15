@@ -10,7 +10,7 @@ interface SocialMediaButtonProps {
 export function SocialMediaButton({ children, onClick }: SocialMediaButtonProps) {
   return (
     <motion.div
-      className="backdrop-blur-[5px] backdrop-filter size-[50px] relative rounded-[12px] cursor-pointer"
+      className="backdrop-blur-[5px] backdrop-filter size-[50px] bg-[#065471] relative rounded-[12px] cursor-pointer"
       whileHover={{ 
         scale: 1.1,
         boxShadow: "0 0 20px rgba(2, 204, 255, 0.8), 0 0 40px rgba(2, 204, 255, 0.4)",

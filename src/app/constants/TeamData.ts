@@ -74,12 +74,12 @@ export const teamData: Record<string, any[]> = {
 
   PR: [
     {
-      name: "Sameuddhi",
+      name: "samruddhi",
       role: "Head",
-      linkedin: "https://linkedin.com/in/sameuddhi",
+      linkedin: "https://linkedin.com/in/samruddhi",
       contact: "+91 9876543218",
-      mail: "sameuddhi@example.com",
-      image: "/members/sameuddhi.png",
+      mail: "samruddhi@example.com",
+      image: "/members/samruddhi.png",
     },
   ],
 
@@ -164,7 +164,7 @@ export const teamData: Record<string, any[]> = {
       linkedin: "https://linkedin.com/in/jagruti",
       contact: "+91 9876543226",
       mail: "jagruti@example.com",
-      image: "/members/jagruti.jpg",
+      image: "/members/jagruti.png",
     },
   ],
 };
