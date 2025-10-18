@@ -40,22 +40,35 @@ export default function TeamPage() {
       {/* Hero Heading Section */}
       <div className="flex flex-col items-center z-20 mt-6 md:mt-8 text-center px-4">
         <div className="flex items-center gap-2 sm:gap-4">
-          <img
-            src="/roborashtra.png"
-            alt="Roborashtra Logo"
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
-          />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold tracking-wide 
-      bg-gradient-to-r from-[#FFC045] to-[#01ABEF] bg-clip-text text-transparent">
-            ROBORASHTRA
-          </h1>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-6 h-full flex flex-col justify-center pr-2"
+        >
 
-        <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2 selection:bg-[#0a91ab] selection:text-yellow-300">
+          <h2 className="font-bold mb-4 mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            <span className="text-white">OUR_</span>
+            <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
+              TEAM
+            </span>
+          </h2>
+
+          <motion.p
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2 selection:bg-[#0a91ab] selection:text-yellow-300">
           Meet our amazing <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
           <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
           <span className="text-yellow-300 font-semibold">co-leads!</span>
         </p>
+          </motion.p>
+        </motion.div>
+
+        </div>
       </div>
 
 
@@ -63,7 +76,7 @@ export default function TeamPage() {
       <nav className="bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] 
   bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg
   rounded-2xl px-4 py-3 mt-8 flex space-x-3 overflow-x-auto no-scrollbar 
-  text-sm font-semibold md:w-fit sm:w-fit md:mx-auto z-20 w-full">
+  text-xm font-semibold md:w-fit sm:w-fit md:mx-auto z-20 w-full">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -81,8 +94,10 @@ export default function TeamPage() {
 
 
       {/* Heading */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 sm:mt-7 z-20 
-  text-yellow-400 tracking-wide uppercase text-center px-2">
+      <h1 className="text-2xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text 
+      text-transparent sm:text-3xl md:text-4xl font-mortend mt-12 z-20
+       tracking-wide uppercase text-center px-2 mb-4">
+              
         {activeCategory.replace(/([A-Z])/g, " $1").trim()} Team
       </h1>
 

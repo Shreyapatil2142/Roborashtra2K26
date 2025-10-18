@@ -38,7 +38,7 @@ export default function ContactPage() {
         >
         
           
-          <h2 className="text-5xl md:text-6xl mt-12 font-bold mb-6 font-mono">
+          <h2 className="text-5xl md:text-6xl mt-12 font-bold mb-6 font-mokoto tracking-widest">
             <span className="text-white">ESTABLISH_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               CONTACT

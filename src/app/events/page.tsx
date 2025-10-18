@@ -23,7 +23,7 @@ export default function EventsPage() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-mokoto tracking-widest font-bold mb-6">
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               Championship
             </span>{" "}
@@ -36,7 +36,7 @@ export default function EventsPage() {
         </motion.div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
             <motion.div
               key={event.id}

@@ -24,7 +24,7 @@ export function ClanSection() {
       <Frame />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="h-full max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-8 px-6">
+        <div className="h-full max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-8 px-15">
           {/* Left Column - Content */}
           <motion.div
             className="h-full flex flex-col justify-center  pr-2"
@@ -35,7 +35,7 @@ export function ClanSection() {
           >            {/* Section Header */}
 
 
-            <motion.h2 className="text-5xl md:text-6xl font-bold mb-8 mt-15 font-mono" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+            <motion.h2 className="text-5xl md:text-6xl font-bold mb-8 mt-15 font-mokoto tracking-widest" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
               <span className="text-white">OUR_</span>
               <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">CLAN</span>
             </motion.h2>
@@ -50,7 +50,7 @@ export function ClanSection() {
                 <div className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-[#ffc045]" />
 
                 <div className="relative z-10 text-center">
-                  <motion.div className="text-6xl font-bold font-mono mb-4" animate={{ textShadow: ["0 0 10px #0a91ab40", "0 0 20px #0a91ab80", "0 0 10px #0a91ab40"] }} transition={{ duration: 3, repeat: Infinity }}>
+                  <motion.div className="text-6xl font-bold font-mokoto tracking-widest mb-4" animate={{ textShadow: ["0 0 10px #0a91ab40", "0 0 20px #0a91ab80", "0 0 10px #0a91ab40"] }} transition={{ duration: 3, repeat: Infinity }}>
                     <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">ROBOHAWK</span>
                   </motion.div>
                   <motion.div className="text-lg text-gray-400 font-mono" animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2, repeat: Infinity }}>
@@ -62,10 +62,9 @@ export function ClanSection() {
 
             {/* Description using original website content */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }} className="mb-8">
-              <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 leading-relaxed">
                 Welcome to <span className="text-[#0a91ab]">RoboHawk</span>, where innovation meets passion. Our student-driven Robotics Club at PCCOE&R under the guidance of Dr. Mahendra B. Salunke, is led by the dynamic leader Om Khare.
-              </p>
-              <p className="text-lg text-gray-400 mb-6">
+              </p><p className="text-lg text-gray-400 mb-6">
                 RoboHawk has successfully executed diverse projects, including 3D printing, various types of drones, and robotics projects. It offers students hands-on learning, team collaboration, and opens doors to opportunities in the field of robotics.
               </p>
               <motion.div className="w-24 h-0.5 bg-gradient-to-r from-[#0a91ab] to-[#ffc045] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.8 }} animate={{ opacity: [0.6, 1, 0.6] }} />

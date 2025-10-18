@@ -24,7 +24,7 @@ export default function HomePage() {
         >
         <source src="/bg.mp4" type="video/mp4" />
         </video>
-        {/* <div className="absolute inset-0 backdrop-blur-sm"></div> */}
+        <div className="absolute inset-0 backdrop-blur-sm"></div>
       </div>
 
 
@@ -34,7 +34,6 @@ export default function HomePage() {
         alt="frame"
         fill
         priority
-        className="absolute object-cover pointer-events-none"
       />
 
       {/* Top Center Title */}

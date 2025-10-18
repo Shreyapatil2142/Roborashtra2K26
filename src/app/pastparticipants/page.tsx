@@ -169,7 +169,7 @@ export default function ParticipantsSection() {
       <div className="max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-mono font-bold mb-4">
+          <h2 className="text-5xl font-mokoto tracking-widest font-bold mb-4">
             <span className="text-white">EVENT_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               TEAMS
