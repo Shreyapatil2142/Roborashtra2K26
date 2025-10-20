@@ -60,12 +60,12 @@ export default function Navbar() {
       {/* ===== DESKTOP SIDE NAV ===== */}
       <div className="hidden lg:flex">
         {/* Left Sidebar */}
-        <div className="absolute top-2/3 -translate-y-1/2 left-6 xl:left-20 flex flex-col gap-4">
+        <div className="absolute top-1/2 -translate-y-1/2 left-6 xl:left-20 flex flex-col gap-4">
           {leftButtons.map(renderButton)}
         </div>
 
         {/* Right Sidebar */}
-        <div className="absolute top-2/3 -translate-y-1/2 right-6 xl:right-20 flex flex-col gap-4">
+        <div className="absolute top-1/2 -translate-y-1/2 right-6 xl:right-20 flex flex-col gap-4">
           {rightButtons.map(renderButton)}
         </div>
       </div>

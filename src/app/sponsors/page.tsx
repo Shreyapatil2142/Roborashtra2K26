@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Building2, Star, Zap } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, Tier, TierConfig } from "../constants/sponsers";
 import Frame from "../components/frame";
+import Navbar from "@/app/components/SidebarStrip";
 
 export default function Sponsors() {
  
@@ -104,6 +105,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
   return (
     <section className="py-24 px-6 relative overflow-hidden">
      <Frame />
+     
    
 
       <div className="max-w-7xl mx-auto relative z-10">

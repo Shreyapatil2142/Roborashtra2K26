@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Eye, Calendar, Award } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { glimpses } from "../constants/glimps";
 import Frame from "../components/frame";
+import Navbar from "@/app/components/SidebarStrip";
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -31,6 +32,7 @@ export default function GlimpsPage() {
     <section className="min-h-screen w-screen h-screen lg:h-screen relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
 
       <Frame />
+      
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

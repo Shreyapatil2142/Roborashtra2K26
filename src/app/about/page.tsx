@@ -14,6 +14,8 @@ import {
 import Frame from "../components/frame";
 import { robots, achievements } from "../constants/about";
 import Image from "next/image";
+import Navbar from "@/app/components/SidebarStrip";
+
 export default ClanSection
 
 export function ClanSection() {
@@ -22,7 +24,7 @@ export function ClanSection() {
   return (
     <section className="h-screen lg:h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
       <Frame />
-
+<Navbar />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="h-full max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-8 px-15">
           {/* Left Column - Content */}

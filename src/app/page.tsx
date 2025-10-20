@@ -3,7 +3,7 @@ import HomePage from "./start/page";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative w-full h-screen overflow-hidden">
       <HomePage />
     </div>
   );

@@ -5,7 +5,7 @@ import { teamData } from "../constants/TeamData";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Frame from "../components/frame";
-
+import Navbar from "@/app/components/SidebarStrip";
 
 export default function TeamPage() {
   const categories = Object.keys(teamData) as (keyof typeof teamData)[];
@@ -13,7 +13,6 @@ export default function TeamPage() {
 
   return (
     <>
-   
       {/* Background Grid */}
       {/* Top-left Background */}
       <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
@@ -47,7 +46,6 @@ export default function TeamPage() {
           viewport={{ once: true }}
           className="text-center mb-6 h-full flex flex-col justify-center pr-2"
         >
-
           <h2 className="font-bold mb-4 mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-white">OUR_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
@@ -55,7 +53,7 @@ export default function TeamPage() {
             </span>
           </h2>
 
-          <motion.p
+          <motion.div
             className="text-xl text-gray-300 max-w-3xl mx-auto"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -65,12 +63,11 @@ export default function TeamPage() {
           <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
           <span className="text-yellow-300 font-semibold">co-leads!</span>
         </p>
-          </motion.p>
+          </motion.div>
         </motion.div>
 
         </div>
       </div>
-
 
       {/* Navbar */}
       <nav className="bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] 
@@ -92,7 +89,6 @@ export default function TeamPage() {
         ))}
       </nav>
 
-
       {/* Heading */}
       <h1 className="text-2xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text 
       text-transparent sm:text-3xl md:text-4xl font-mortend mt-12 z-20
@@ -101,15 +97,12 @@ export default function TeamPage() {
         {activeCategory.replace(/([A-Z])/g, " $1").trim()} Team
       </h1>
 
-
       {/* Members */}
       <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4">
         {teamData[activeCategory]?.map((member, index) => (
           <TeamCard key={index} {...member} />
         ))}
       </div>
-
-
     </>
   );
 }

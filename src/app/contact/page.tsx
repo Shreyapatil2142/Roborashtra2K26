@@ -7,6 +7,8 @@ import { Textarea } from "../ui/textarea";
 import { useState } from "react";
 import { contactInfo, socialLinks } from "../constants/contact";
 import Frame from "../components/frame";
+import Navbar from "@/app/components/SidebarStrip";
+
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,12 +24,12 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
- 
+
 
   return (
-<section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
-  <Frame />
-    <div className="w-full h-full max-w-7xl mx-auto mb-20 relative z-10">
+    <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
+      <Frame />
+      <div className="w-full h-full max-w-7xl mx-auto mb-20 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -36,16 +38,16 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-        
-          
+
+
           <h2 className="text-5xl md:text-6xl mt-12 font-bold mb-6 font-mokoto tracking-widest">
             <span className="text-white">ESTABLISH_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               CONTACT
             </span>
           </h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl text-gray-300 max-w-3xl mx-auto"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -85,11 +87,11 @@ export default function ContactPage() {
                         className="flex items-center gap-4 mb-4"
                         whileHover={{ scale: 1.05 }}
                       >
-                        <div 
+                        <div
                           className="p-3 rounded-full border-2"
                           style={{ borderColor: contact.color + "60" }}
                         >
-                          <contact.icon 
+                          <contact.icon
                             className="h-6 w-6"
                             style={{ color: contact.color }}
                           />
@@ -100,8 +102,8 @@ export default function ContactPage() {
                           </h3>
                         </div>
                       </motion.div>
-                      
-                      <motion.div 
+
+                      <motion.div
                         className="text-sm font-mono mb-1"
                         style={{ color: contact.color }}
                         animate={{ opacity: [0.8, 1, 0.8] }}
@@ -109,7 +111,7 @@ export default function ContactPage() {
                       >
                         {contact.info}
                       </motion.div>
-                      
+
                       <div className="text-xs text-gray-400">
                         {contact.subInfo}
                       </div>
@@ -145,7 +147,7 @@ export default function ContactPage() {
                 {/* Grid Lines */}
                 <motion.div
                   className="absolute inset-0 opacity-30"
-                  animate={{ 
+                  animate={{
                     backgroundPosition: ["0px 0px", "20px 20px"],
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -161,7 +163,7 @@ export default function ContactPage() {
                 {/* Location Marker */}
                 <motion.div
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.2, 1],
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -179,7 +181,7 @@ export default function ContactPage() {
                 {/* Scanning Lines */}
                 <motion.div
                   className="absolute inset-0"
-                  animate={{ 
+                  animate={{
                     background: [
                       "linear-gradient(90deg, transparent 0%, #0a91ab20 50%, transparent 100%)",
                       "linear-gradient(0deg, transparent 0%, #0a91ab20 50%, transparent 100%)"
@@ -194,147 +196,147 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </motion.div>
-{/* Right Column - Contact Form */}
-<motion.div
-  initial={{ opacity: 0, x: 50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 relative overflow-hidden">
-    <div className="relative z-10">
-      <h3 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
-        <Send className="h-6 w-6 text-[#0a91ab]" />
-        Contact Us
-      </h3>
-
-      <form className="space-y-3">
-        {/* Name Field */}
-        <div>
-          <label className="block text-sm text-gray-300 mb-1">
-            Your Name
-          </label>
-          <Input
-            type="text"
-            value={formData.name}
-            onChange={(e) => handleInputChange('name', e.target.value)}
-            placeholder="Enter your name"
-            className="bg-[#022333]/50 border-2 text-white"
-          />
-        </div>
-
-        {/* Email Field */}
-        <div>
-          <label className="block text-sm text-gray-300 mb-1">
-            Your Email
-          </label>
-          <Input
-            type="email"
-            value={formData.email}
-            onChange={(e) => handleInputChange('email', e.target.value)}
-            placeholder="Enter your email"
-            className="bg-[#022333]/50 border-2 text-white"
-          />
-        </div>
-
-        {/* Subject Field */}
-        <div>
-          <label className="block text-sm text-gray-300 mb-1">
-            Subject
-          </label>
-          <Input
-            type="text"
-            value={formData.subject}
-            onChange={(e) => handleInputChange('subject', e.target.value)}
-            placeholder="What is this about?"
-            className="bg-[#022333]/50 border-2 text-white"
-          />
-        </div>
-
-        {/* Message Field */}
-        <div>
-          <label className="block text-sm text-gray-300 mb-1">
-            Message
-          </label>
-          <Textarea
-            value={formData.message}
-            onChange={(e) => handleInputChange('message', e.target.value)}
-            rows={4}
-            placeholder="Type your message here..."
-            className="bg-[#022333]/50 border-2 text-white resize-none"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <Button 
-          type="submit"
-          className="w-full bg-gradient-to-r from-[#0a91ab] to-[#ffc045] text-white py-4 font-mono uppercase tracking-wider"
-        >
-          Send Message
-        </Button>
-      </form>
-    </div>
-
-    {/* Corner Indicators */}
-    <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#0a91ab]" />
-    <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#ffc045]" />
-    <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#ffc045]" />
-    <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#0a91ab]" />
-  </div>
-
-{/* Social Links */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.6 }}
-  viewport={{ once: true }}
-  className="mt-4"
->
-  
-  <div className="flex justify-center gap-6">
-    {socialLinks.map((social, index) => (
-      <motion.a
-        key={index}
-        href={social.url}
-        className="group relative"
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      >
-        <div 
-          className="w-14 h-14 border-2 flex items-center justify-center relative overflow-hidden rounded-full"
-          style={{ borderColor: social.color + "60" }}
-        >
-          <social.icon 
-            className="h-6 w-6 z-10 relative group-hover:text-white transition-colors duration-300"
-            style={{ color: social.color }}
-          />
-          
-          {/* Glow Background */}
+          {/* Right Column - Contact Form */}
           <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-30 rounded-full transition-opacity duration-300"
-            style={{ backgroundColor: social.color }}
-          />
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
+                  <Send className="h-6 w-6 text-[#0a91ab]" />
+                  Contact Us
+                </h3>
 
-          {/* Glow Shadow */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300"
-            style={{ boxShadow: `0 0 20px ${social.color}80` }}
-          />
-        </div>
-        
-        {/* Floating Label */}
-        <motion.div
-          className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ color: social.color }}
-        >
-          {social.name}
-        </motion.div>
-      </motion.a>
-    ))}
-  </div>
-</motion.div>
+                <form className="space-y-3">
+                  {/* Name Field */}
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">
+                      Your Name
+                    </label>
+                    <Input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      placeholder="Enter your name"
+                      className="bg-[#022333]/50 border-2 text-white"
+                    />
+                  </div>
 
-</motion.div>
+                  {/* Email Field */}
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">
+                      Your Email
+                    </label>
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="Enter your email"
+                      className="bg-[#022333]/50 border-2 text-white"
+                    />
+                  </div>
+
+                  {/* Subject Field */}
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">
+                      Subject
+                    </label>
+                    <Input
+                      type="text"
+                      value={formData.subject}
+                      onChange={(e) => handleInputChange('subject', e.target.value)}
+                      placeholder="What is this about?"
+                      className="bg-[#022333]/50 border-2 text-white"
+                    />
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">
+                      Message
+                    </label>
+                    <Textarea
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      rows={4}
+                      placeholder="Type your message here..."
+                      className="bg-[#022333]/50 border-2 text-white resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-[#0a91ab] to-[#ffc045] text-white py-4 font-mono uppercase tracking-wider"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              </div>
+
+              {/* Corner Indicators */}
+              <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#0a91ab]" />
+              <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#ffc045]" />
+              <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#ffc045]" />
+              <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#0a91ab]" />
+            </div>
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="mt-4"
+            >
+
+              <div className="flex justify-center gap-6">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    className="group relative"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
+                    <div
+                      className="w-14 h-14 border-2 flex items-center justify-center relative overflow-hidden rounded-full"
+                      style={{ borderColor: social.color + "60" }}
+                    >
+                      <social.icon
+                        className="h-6 w-6 z-10 relative group-hover:text-white transition-colors duration-300"
+                        style={{ color: social.color }}
+                      />
+
+                      {/* Glow Background */}
+                      <motion.div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-30 rounded-full transition-opacity duration-300"
+                        style={{ backgroundColor: social.color }}
+                      />
+
+                      {/* Glow Shadow */}
+                      <motion.div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300"
+                        style={{ boxShadow: `0 0 20px ${social.color}80` }}
+                      />
+                    </div>
+
+                    {/* Floating Label */}
+                    <motion.div
+                      className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ color: social.color }}
+                    >
+                      {social.name}
+                    </motion.div>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+          </motion.div>
 
         </div>
       </div>
