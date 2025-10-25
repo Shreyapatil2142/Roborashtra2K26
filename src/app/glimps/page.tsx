@@ -31,8 +31,6 @@ export default function GlimpsPage() {
   return (
     <section className="min-h-screen w-screen h-screen lg:h-screen relative overflow-x-hidden overflow-y-auto lg:overflow-y-hidden">
 
-      <Frame />
-      
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -218,28 +216,6 @@ export default function GlimpsPage() {
             ))}
           </motion.div>
 
-
-          {/* Floating Data Points */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-[#0a91ab] opacity-60"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.6, 1, 0.6],
-                scale: [1, 1.5, 1]
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-              }}
-            />
-          ))}
         </div>
       </div>
     </section>

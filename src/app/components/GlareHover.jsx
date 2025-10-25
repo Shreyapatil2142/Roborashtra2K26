@@ -1,22 +1,22 @@
-import './GlareHover.css';
+import "./GlareHover.css";
 
 const GlareHover = ({
-  width = '146px',
-  height = '',
-  background = '#000',
-  borderRadius = '23px',
-  borderColor = '#02CCFF',
+  width = "146px",
+  height = "",
+  background = "rgba(0, 0, 0, 0.6)",
+  borderRadius = "13px",
+  borderColor = "#02CCFF",
   children,
-  glareColor = '#ffffff',
-  glareOpacity = 0.5,
+  glareColor = "#02CCFF",
+  glareOpacity = 0.6,
   glareAngle = -45,
-  glareSize = 250,
+  glareSize = 200,
   transitionDuration = 650,
   playOnce = false,
-  className = '',
-  style = {}
+  className = "",
+  style = {},
 }) => {
-  const hex = glareColor.replace('#', '');
+  const hex = glareColor.replace("#", "");
   let rgba = glareColor;
   if (/^[0-9A-Fa-f]{6}$/.test(hex)) {
     const r = parseInt(hex.slice(0, 2), 16);
@@ -31,20 +31,20 @@ const GlareHover = ({
   }
 
   const vars = {
-    '--gh-width': width,
-    '--gh-height': height,
-    '--gh-bg': background,
-    '--gh-br': borderRadius,
-    '--gh-angle': `${glareAngle}deg`,
-    '--gh-duration': `${transitionDuration}ms`,
-    '--gh-size': `${glareSize}%`,
-    '--gh-rgba': rgba,
-    '--gh-border': borderColor
+    "--gh-width": width,
+    "--gh-height": height,
+    "--gh-bg": background,
+    "--gh-br": borderRadius,
+    "--gh-angle": `${glareAngle}deg`,
+    "--gh-duration": `${transitionDuration}ms`,
+    "--gh-size": `${glareSize}%`,
+    "--gh-rgba": rgba,
+    "--gh-border": borderColor,
   };
 
   return (
     <div
-      className={`glare-hover ${playOnce ? 'glare-hover--play-once' : ''} ${className}`}
+      className={`glare-hover ${playOnce ? "glare-hover--play-once" : ""} ${className}`}
       style={{ ...vars, ...style }}
     >
       {children}

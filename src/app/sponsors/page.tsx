@@ -1,72 +1,72 @@
-"use client"
+"use client";
+import React from "react";
 import { motion } from "framer-motion";
 import { Building2, Star, Zap } from "lucide-react";
-import { sponsors, tierConfig, Sponsor, Tier, TierConfig } from "../constants/sponsers";
+import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
+
 import Frame from "../components/frame";
 import Navbar from "@/app/components/SidebarStrip";
 
-export default function Sponsors() {
- 
-interface SponsorCardProps {
-  sponsor: Sponsor;
-  config: TierConfig;
-}
+export type Tier = "title" | "platinum" | "gold" | "silver";
 
-const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
+export default function Sponsors() {
+  
+
+  interface SponsorCardProps {
+    sponsor: Sponsor;
+    config: TierConfig;
+  }
+
+  const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
     <motion.div
-      className={`${config.size} bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-transparent hover:border-[${config.color}]/60 relative group cursor-pointer overflow-hidden`}
+      className={`${config.size} bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 relative group cursor-pointer overflow-hidden`}
+      style={{ borderColor: "transparent" }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: Math.random() * 0.5 }}
       viewport={{ once: true }}
-      whileHover={{ 
-        scale: 1.05, 
-        rotateY: 5,
-        z: 50
-      }}
+      whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
     >
-      
-
       {/* Neon Frame Effect */}
       <motion.div
-        className={`absolute inset-0 border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+        className="absolute inset-0 border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ borderColor: config.color }}
-        animate={{ 
+        animate={{
           boxShadow: [
             `0 0 5px ${config.color}40`,
             `0 0 20px ${config.color}80`,
-            `0 0 5px ${config.color}40`
-          ]
+            `0 0 5px ${config.color}40`,
+          ],
         }}
         transition={{ duration: 2, repeat: Infinity }}
       />
 
       {/* Holographic Corners */}
-      <div className={`absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: config.color }} />
-      <div className={`absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: config.color }} />
-      <div className={`absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: config.color }} />
-      <div className={`absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: config.color }} />
+      {["top-2 left-2 border-t-2 border-l-2", "top-2 right-2 border-t-2 border-r-2", "bottom-2 left-2 border-b-2 border-l-2", "bottom-2 right-2 border-b-2 border-r-2"].map((cls, i) => (
+        <div
+          key={i}
+          className={`absolute ${cls} w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          style={{ borderColor: config.color }}
+        />
+      ))}
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center p-4">
         <div className="text-center">
-          <motion.div 
+          <motion.div
             className={`${config.textSize} font-bold font-mono mb-2 group-hover:scale-110 transition-transform duration-300`}
             style={{ color: config.color }}
-            animate={{ 
+            animate={{
               textShadow: [
                 `0 0 5px ${config.color}40`,
                 `0 0 15px ${config.color}80`,
-                `0 0 5px ${config.color}40`
-              ]
+                `0 0 5px ${config.color}40`,
+              ],
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
             {sponsor.logo}
           </motion.div>
-          <div className="text-xs text-gray-400 font-mono">
-            {sponsor.name}
-          </div>
+          <div className="text-xs text-gray-400 font-mono">{sponsor.name}</div>
         </div>
       </div>
 
@@ -78,37 +78,13 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
         transition={{ duration: 2, repeat: Infinity }}
       />
 
-      {/* Floating Particles */}
-      {Array.from({ length: 3 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full opacity-0 group-hover:opacity-60"
-          style={{ 
-            backgroundColor: config.color,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -10, 0],
-            opacity: [0, 0.6, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
     </motion.div>
   );
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
-     <Frame />
-     
-   
+    <section className="py-24 px-6 relative overflow-auto flex-1 h-screen flex flex-col items-center justify-start">
+      <div className="max-w-7xl w-full mx-auto relative z-10">
 
-      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -132,15 +108,15 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
               transition={{ duration: 1, delay: 0.5 }}
             />
           </div>
-          
+
           <h2 className="text-5xl md:text-6xl font-bold mb-6 font-mono">
             <span className="text-white">POWER_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               SPONSORS
             </span>
           </h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl text-gray-300 max-w-3xl mx-auto"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -149,100 +125,43 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
           </motion.p>
         </motion.div>
 
-        {/* Title Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <Star className="h-6 w-6 text-[#ffc045]" />
-            <h3 className="text-2xl font-bold text-[#ffc045] font-mono">
-              {tierConfig.title.label}
-            </h3>
-            <Star className="h-6 w-6 text-[#ffc045]" />
-          </div>
-          <div className="flex justify-center gap-8 flex-wrap">
-            {sponsors.title.map((sponsor) => (
-              <SponsorCard 
-                key={sponsor.id} 
-                sponsor={sponsor} 
-                config={tierConfig.title}
-              />
-            ))}
-          </div>
-        </motion.div>
+        {/* Sponsor Tiers */}
+        {[
+          { tier: "title", icon: Star, config: tierConfig.title },
+          { tier: "platinum", icon: Zap, config: tierConfig.platinum },
+          { tier: "gold", icon: null, config: tierConfig.gold },
+          { tier: "silver", icon: null, config: tierConfig.silver },
+        ].map(({ tier, icon, config }, idx) => (
+          <motion.div
+            key={tier}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 * (idx + 1) }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            {icon && (
+              <div className="flex items-center justify-center gap-4 mb-8">
+                {React.createElement(icon, { className: `h-6 w-6 text-[#ffc045]` })}
+                <h3 className={`text-2xl font-bold ${tier === "title" ? "text-[#ffc045]" : "text-gray-300"} font-mono`}>
+                  {config.label}
+                </h3>
+                {React.createElement(icon, { className: `h-6 w-6 text-[#ffc045]` })}
+              </div>
+            )}
+            {!icon && (
+              <h3 className={`text-lg font-bold font-mono text-center mb-8 ${tier === "gold" ? "text-[#0a91ab]" : "text-[#065471]"}`}>
+                {config.label}
+              </h3>
+            )}
 
-        {/* Platinum Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <Zap className="h-5 w-5 text-gray-300" />
-            <h3 className="text-xl font-bold text-gray-300 font-mono">
-              {tierConfig.platinum.label}
-            </h3>
-            <Zap className="h-5 w-5 text-gray-300" />
-          </div>
-          <div className="flex justify-center gap-6 flex-wrap">
-            {sponsors.platinum.map((sponsor) => (
-              <SponsorCard 
-                key={sponsor.id} 
-                sponsor={sponsor} 
-                config={tierConfig.platinum}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Gold Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-lg font-bold text-[#0a91ab] font-mono text-center mb-8">
-            {tierConfig.gold.label}
-          </h3>
-          <div className="flex justify-center gap-4 flex-wrap">
-            {sponsors.gold.map((sponsor) => (
-              <SponsorCard 
-                key={sponsor.id} 
-                sponsor={sponsor} 
-                config={tierConfig.gold}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Silver Sponsors */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-lg font-bold text-[#065471] font-mono text-center mb-8">
-            {tierConfig.silver.label}
-          </h3>
-          <div className="flex justify-center gap-3 flex-wrap">
-            {sponsors.silver.map((sponsor) => (
-              <SponsorCard 
-                key={sponsor.id} 
-                sponsor={sponsor} 
-                config={tierConfig.silver}
-              />
-            ))}
-          </div>
-        </motion.div>
+            <div className={`flex justify-center gap-${tier === "silver" ? 3 : tier === "gold" ? 4 : 6} flex-wrap`}>
+              {sponsors[tier as Tier].map((sponsor: Sponsor) => (
+                <SponsorCard key={sponsor.id} sponsor={sponsor} config={config} />
+              ))}
+            </div>
+          </motion.div>
+        ))}
 
         {/* Call to Action */}
         <motion.div
@@ -253,9 +172,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
           className="text-center mt-16"
         >
           <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4 font-mono">
-              JOIN OUR MISSION
-            </h3>
+            <h3 className="text-2xl font-bold text-white mb-4 font-mono">JOIN OUR MISSION</h3>
             <p className="text-gray-300 mb-6">
               Partner with us to shape the future of robotics and AI innovation
             </p>
@@ -269,28 +186,6 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, config }) => (
           </div>
         </motion.div>
       </div>
-
-      {/* Floating Circuit Elements */}
-      {Array.from({ length: 15 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-[#0a91ab] opacity-30"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.3, 0.8, 0.3],
-            scale: [1, 1.5, 1]
-          }}
-          transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Infinity,
-            delay: Math.random() * 4,
-          }}
-        />
-      ))}
     </section>
   );
 }

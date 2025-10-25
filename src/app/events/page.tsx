@@ -13,9 +13,6 @@ export default function EventsPage() {
   return (
     <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* Background Effects */}
-
-      <Frame />
-      
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div

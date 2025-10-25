@@ -3,42 +3,63 @@
   height: var(--gh-height);
   background: var(--gh-bg);
   border-radius: var(--gh-br);
-  border: 1px solid var(--gh-border);
+  border: 2px solid var(--gh-border);
   overflow: hidden;
   position: relative;
   display: grid;
   place-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 10px rgba(2, 204, 255, 0.2);
 }
 
-.glare-hover::before {
-  content: '';
+.glare-hover::before,
+.glare-hover::after {
+  content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+/* Glare shimmer */
+.glare-hover::before {
   background: linear-gradient(
     var(--gh-angle),
-    hsla(0, 0%, 0%, 0) 60%,
-    var(--gh-rgba) 70%,
-    hsla(0, 0%, 0%, 0),
-    hsla(0, 0%, 0%, 0) 100%
+    transparent 60%,
+    var(--gh-rgba) 75%,
+    transparent 90%
   );
-  transition: var(--gh-duration) ease;
-  background-size:
-    var(--gh-size) var(--gh-size),
-    100% 100%;
+  transition: background-position var(--gh-duration) ease;
+  background-size: var(--gh-size) var(--gh-size);
   background-repeat: no-repeat;
-  background-position:
-    -100% -100%,
-    0 0;
+  background-position: -150% -150%;
+}
+
+/* Animated gradient overlay */
+.glare-hover::after {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(2, 204, 255, 0.15),
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .glare-hover:hover {
   cursor: pointer;
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(2, 204, 255, 0.5);
 }
 
 .glare-hover:hover::before {
-  background-position:
-    100% 100%,
-    0 0;
+  background-position: 150% 150%;
+}
+
+.glare-hover:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .glare-hover--play-once::before {
@@ -46,8 +67,6 @@
 }
 
 .glare-hover--play-once:hover::before {
-  transition: var(--gh-duration) ease;
-  background-position:
-    100% 100%,
-    0 0;
+  transition: background-position var(--gh-duration) ease;
+  background-position: 150% 150%;
 }

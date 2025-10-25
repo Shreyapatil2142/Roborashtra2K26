@@ -24,12 +24,9 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-
-
   return (
     <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
-      <Frame />
-      <div className="w-full h-full max-w-7xl mx-auto mb-20 relative z-10">
+      <div className="w-3/5 h-full max-w-7xl mx-auto mb-20 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -341,28 +338,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Floating Communication Signals */}
-      {Array.from({ length: 15 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-gradient-to-r from-[#0a91ab] to-[#ffc045] rounded-full opacity-30"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            x: [0, Math.random() * 40 - 20, 0],
-            opacity: [0.3, 0.8, 0.3],
-            scale: [1, 2, 1]
-          }}
-          transition={{
-            duration: 6 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 6,
-          }}
-        />
-      ))}
     </section>
   );
 }

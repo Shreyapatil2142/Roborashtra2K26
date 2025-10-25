@@ -15,9 +15,10 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden bg-background">
       {/* Background (Video / Particles) */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-5">
+        <Particle />
         {/* Optional video background */}
         {/* 
         <video
@@ -30,7 +31,6 @@ export default function HomePage() {
           <source src="/bg.mp4" type="video/mp4" />
         </video> 
         */}
-        <Particle />
       </div>
 
       {/* Frame Overlay (hidden on small screens) */}
@@ -39,38 +39,45 @@ export default function HomePage() {
         alt="Frame overlay"
         fill
         priority
-        className="pointer-events-none hidden md:block"
+        className="pointer-events-none z-0 hidden md:block"
+      />
+      <Image
+        src="/mbBG.jpg"
+        alt="Frame overlay"
+        fill
+        priority
+        className="pointer-events-none block md:hidden z-0 object-cover blur-xs"
       />
 
       {/* Top Logos */}
-      <div className="absolute top-10 left-80 flex gap-4">
-        <Image
-          src="/PCCOER.png"
-          alt="PCCOER logo"
-          width={80}
-          height={80}
-          className="w-16 sm:w-20 md:w-24 h-auto"
-          priority
-        />
+      <div className="absolute top-4 md:top-10 justify-between w-full md:w-fit px-10 md:px-0 md:left-80 flex md:gap-4">
         <Image
           src="/roborashtra.png"
           alt="Roborastra logo"
           width={80}
           height={80}
-          className="w-16 sm:w-20 md:w-24 h-auto"
+          className="w-14 sm:w-14 md:w-24 h-auto"
+          priority
+        />
+        <Image
+          src="/PCCOER.png"
+          alt="PCCOER logo"
+          width={80}
+          height={80}
+          className="w-14 sm:w-14 md:w-24 h-auto"
           priority
         />
       </div>
 
       {/* Main Title */}
-      <div className="absolute top-15 left-1/2 -translate-x-1/2 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-mokoto bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent tracking-widest">
+      <div className="absolute top-20 md:top-24 left-1/2 -translate-x-1/2 text-center px-4 sm:px-0">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-mokoto bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent tracking-widest text-nowrap">
           Roborastra 2k26
         </h1>
 
-        <p className="mt-3 text-base sm:text-lg md:text-xl text-[#02ccffc2] font-mortend tracking-widest">
+        <p className="mt-2 sm:mt-3 text-sm sm:text-sm md:text-xl text-[#02ccffc2] absolute left-1/2 flex gap-2 font-mortend tracking-widest">
           by{" "}
-          <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">
+          <span className="text-white font-bold text-sm sm:text-xl md:text-2xl">
             RoboHawk
           </span>
         </p>
@@ -80,7 +87,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* Social Media Buttons */}
-      <div className="absolute bottom-20 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-4 sm:gap-6 text-lg sm:text-2xl text-yellow-400">
+      <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-10 md:text-2xl text-yellow-400">
         <SocialMediaButton>
           <FaFacebook />
         </SocialMediaButton>

@@ -9,7 +9,7 @@ export default function ParticleLogo() {
   useEffect(() => {
     const mount = mountRef.current;
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#0f172a");
+    scene.background = null;
 
     // Initial camera setup (default for large screens)
     const camera = new THREE.PerspectiveCamera(
@@ -20,7 +20,8 @@ export default function ParticleLogo() {
     );
     camera.position.z = 300;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0); // make background fully transparent
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     mount.appendChild(renderer.domElement);
 
@@ -51,12 +52,21 @@ export default function ParticleLogo() {
               imgData.data[index + 2] / 255
             );
 
+            // Calculate brightness from RGB (0 = dark, 1 = bright)
+            const r = imgData.data[index] / 255;
+            const g = imgData.data[index + 1] / 255;
+            const b = imgData.data[index + 2] / 255;
+            const brightness = (r + g + b) / 3;
+
+            // Map brightness to Z-depth
+            const zDepth = (brightness - 0.5) * 100; // tweak 100 for stronger depth
+
             logoColors.push(color.r, color.g, color.b);
 
             logoPositions.push(
               (x - img.width / 2) * 1.5,
               (-y + img.height / 2) * 1.5,
-              0
+              zDepth
             );
           }
         }
@@ -86,34 +96,45 @@ export default function ParticleLogo() {
       const bgGeometry = new THREE.BufferGeometry();
       const bgPositions = [];
       const bgColors = [];
-    let bgParticleCount = 10000;
-      if (window.innerWidth < 640) {
-          // 📱 Small screens
-          bgParticleCount = 2000;
-        } else if (window.innerWidth >= 640 && window.innerWidth < 1280) {
-          // 💻 Medium screens
-          bgParticleCount = 8000;
-        } else if (window.innerWidth >= 2000) {
-          // 🖥️ Ultra-wide monitors
-          bgParticleCount = 9000;
-        } else {
-          // 🧭 Default for large displays
-          bgParticleCount = 10000;
-        }
 
+      // Dynamic count based on screen size (increased overall)
+      let bgParticleCount = 25000; // default
+
+      if (window.innerWidth < 640) {
+        // 📱 Small screens
+        bgParticleCount = 5000;
+      } else if (window.innerWidth >= 640 && window.innerWidth < 1280) {
+        // 💻 Medium screens
+        bgParticleCount = 15000;
+      } else if (window.innerWidth >= 2000) {
+        // 🖥️ Ultra-wide monitors
+        bgParticleCount = 30000;
+      }
+
+      // Compute bounding box for logo to keep particles outside of it
       const logoBoundingBox = new THREE.Box3().setFromObject(logoPoints);
       const logoRadius = logoBoundingBox.getSize(new THREE.Vector3()).length() / 2;
-      const minRadius = logoRadius + 20;
-      const maxRadius = minRadius + 200;
 
+      // Inner radius to protect logo area
+      const minRadius = logoRadius * 0.5; // slightly larger than logo
+      const maxRadius = minRadius + 140;  // extend farther into the background
+
+      // Distribute particles roughly uniformly on a sphere shell
       for (let i = 0; i < bgParticleCount; i++) {
-        const radius = 20 + Math.random() * (maxRadius - minRadius);
-        const angle = Math.random() * Math.PI * 2;
-        const height = (Math.random() - 0.5) * 200;
+        // Random direction (uniform sphere sampling)
+        const theta = Math.acos(2 * Math.random() - 1); // polar angle
+        const phi = Math.random() * Math.PI * 2;        // azimuthal angle
+        const radius = minRadius + Math.random() * (maxRadius - minRadius);
 
-        bgPositions.push(radius * Math.cos(angle), height, radius * Math.sin(angle));
+        const x = radius * Math.sin(theta) * Math.cos(phi);
+        const y = radius * Math.sin(theta) * Math.sin(phi);
+        const z = radius * Math.cos(theta);
 
-        const color = new THREE.Color(0xffc045);
+        bgPositions.push(x, y, z);
+
+        // Warm gradient color variation (gold/orange mix)
+        const color = new THREE.Color();
+        color.setHSL(0.1 + Math.random() * 0.1, 1, 0.55 + Math.random() * 0.1);
         bgColors.push(color.r, color.g, color.b);
       }
 
@@ -127,14 +148,17 @@ export default function ParticleLogo() {
       );
 
       const bgMaterial = new THREE.PointsMaterial({
-        size: 0.4,
-        opacity: 0.7,
+        size: 0.45,
+        opacity: 0.65,
         transparent: true,
         vertexColors: true,
+        depthWrite: false, // prevents particles from hiding logo
       });
 
       const bgPoints = new THREE.Points(bgGeometry, bgMaterial);
+      scene.fog = new THREE.FogExp2(0x000000, 0.001);
       scene.add(bgPoints);
+
 
       // -------------------------------
       // Responsive scaling logic
@@ -240,19 +264,13 @@ export default function ParticleLogo() {
 
     return () => {
       mount.innerHTML = "";
-      window.removeEventListener("resize", () => {});
+      window.removeEventListener("resize", () => { });
     };
   }, []);
 
   return (
-    <div
+    <div className="w-full h-screen overflow-hidden z-5"
       ref={mountRef}
-      style={{
-        width: "100%",
-        height: "100vh",
-        overflow: "hidden",
-        background: "radial-gradient(circle at center, #0f172a 60%, #000 100%)",
-      }}
     />
   );
 }

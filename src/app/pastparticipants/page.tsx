@@ -165,8 +165,6 @@ export default function ParticipantsSection() {
 
   return (
     <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
-     <Frame />
-     
   
       <div className="max-w-6xl relative z-10">
         {/* Header */}
