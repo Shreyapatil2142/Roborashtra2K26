@@ -33,24 +33,8 @@ export default function HomePage() {
         */}
       </div>
 
-      {/* Frame Overlay (hidden on small screens) */}
-      <Image
-        src="/frame4.png"
-        alt="Frame overlay"
-        fill
-        priority
-        className="pointer-events-none z-0 hidden md:block"
-      />
-      <Image
-        src="/mbBG.jpg"
-        alt="Frame overlay"
-        fill
-        priority
-        className="pointer-events-none block md:hidden z-0 object-cover blur-xs"
-      />
-
       {/* Top Logos */}
-      <div className="absolute top-4 md:top-10 justify-between w-full md:w-fit px-10 md:px-0 md:left-80 flex md:gap-4">
+      <div className="absolute top-4 md:top-10 justify-between w-full z-10 md:w-fit px-10 md:px-0 md:left-60 lg:left-80 flex md:gap-4">
         <Image
           src="/roborashtra.png"
           alt="Roborastra logo"
@@ -70,8 +54,8 @@ export default function HomePage() {
       </div>
 
       {/* Main Title */}
-      <div className="absolute top-20 md:top-24 left-1/2 -translate-x-1/2 text-center px-4 sm:px-0">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-mokoto bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent tracking-widest text-nowrap">
+      <div className="absolute top-20 md:top-20 lg:top-20 left-1/2 -translate-x-1/2 text-center px-4 sm:px-0 z-10">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-mokoto bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent tracking-widest text-nowrap">
           Roborastra 2k26
         </h1>
 
@@ -82,9 +66,6 @@ export default function HomePage() {
           </span>
         </p>
       </div>
-
-      {/* Navbar (sidebars) */}
-      <Navbar />
 
       {/* Social Media Buttons */}
       <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-10 md:text-2xl text-yellow-400">
