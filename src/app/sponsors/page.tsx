@@ -5,7 +5,7 @@ import { Building2, Star, Zap } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
 
 import Frame from "../components/frame";
-import Navbar from "@/app/components/SidebarStrip";
+import SidebarStrip from "@/app/components/SidebarStrip";
 
 export type Tier = "title" | "platinum" | "gold" | "silver";
 
@@ -51,6 +51,7 @@ export default function Sponsors() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center p-4">
+    <SidebarStrip />
         <div className="text-center">
           <motion.div
             className={`${config.textSize} font-bold font-mono mb-2 group-hover:scale-110 transition-transform duration-300`}

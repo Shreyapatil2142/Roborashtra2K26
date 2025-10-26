@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from 'next/font/local'
 import Frame from "./components/frame";
-import Navbar from "./components/navbar";
 import PageReloader from "./components/PageReloader";
 import FloatingParticles from "./components/FloatingParticles";
 
@@ -52,7 +51,7 @@ export default function RootLayout({
 
       {/* Floating Circuit Elements */}
       <FloatingParticles count={20} color="#0a91ab" size={7} className="opacity-30" />
-        <Navbar />
+    
         <main className="relative overflow-hidden">
           <PageReloader>{children}</PageReloader>
         </main>

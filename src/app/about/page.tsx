@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { robots, achievements } from "../constants/about";
+import SidebarStrip from "../components/SidebarStrip";
 
 export default function ClanSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,6 +21,7 @@ export default function ClanSection() {
 
   return (
     <section className="h-screen w-full md:flex md:flex-col md:items-center md:justify-center relative bg-transparent overflow-y-auto lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
+      <SidebarStrip />
       <div className="lg:max-w-3/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
         
         {/* LEFT COLUMN — TEXT SECTION */}

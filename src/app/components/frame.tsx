@@ -6,15 +6,16 @@ export default function Frame() {
   return (
     <>
       {/* Desktop / Tablet Frame Overlay (hidden on small screens) */}
-      <div className="absolute inset-0 pointer-events-none z-10 hidden lg:block">
-        <Image
-          src="/frame4.png"
-          alt="Frame overlay"
-          fill
-          priority
-          className="w-full h-full"
-        />
-      </div>
+  <div className="absolute w-full h-[700px] overflow-hidden inset-0 pointer-events-none z-10 hidden lg:block">
+    <Image
+      src="/bg.svg"
+      alt="Frame overlay"
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
+
 
       {/* Mobile Background / Frame (visible on small screens) */}
       <div className="absolute inset-0 pointer-events-none z-5 block lg:hidden">

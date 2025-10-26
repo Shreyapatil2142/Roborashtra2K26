@@ -1,9 +1,9 @@
 "use client";
-
 import Navbar from "@/app/components/navbar";
 import { SocialMediaButton } from "@/app/components/social";
 import Image from "next/image";
 import Particle from "@/app/components/ParticleLogo";
+import Frame from "@/app/components/frame";
 
 import {
   FaFacebook,
@@ -32,40 +32,22 @@ export default function HomePage() {
         </video> 
         */}
       </div>
-
-      {/* Top Logos */}
-      <div className="absolute top-4 md:top-10 justify-between w-full z-10 md:w-fit px-10 md:px-0 md:left-60 lg:left-80 flex md:gap-4">
-        <Image
-          src="/roborashtra.png"
-          alt="Roborastra logo"
-          width={80}
-          height={80}
-          className="w-14 sm:w-14 md:w-24 h-auto"
-          priority
-        />
-        <Image
-          src="/PCCOER.png"
-          alt="PCCOER logo"
-          width={80}
-          height={80}
-          className="w-14 sm:w-14 md:w-24 h-auto"
-          priority
-        />
-      </div>
+  <Navbar />
 
       {/* Main Title */}
-      <div className="absolute top-20 md:top-20 lg:top-20 left-1/2 -translate-x-1/2 text-center px-4 sm:px-0 z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-mokoto bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent tracking-widest text-nowrap">
-          Roborastra 2k26
-        </h1>
+     <div className="absolute top-10 left-1/2 -translate-x-1/2 text-center px-4 z-10 w-full flex justify-center">
+  <div className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]">
+    <Image
+      src="/Frame2.svg"
+      alt="PCCOER logo"
+      width={2500}
+      height={500}
+      className="w-full h-auto"
+      priority
+    />
+  </div>
+</div>
 
-        <p className="mt-2 sm:mt-3 text-sm sm:text-sm md:text-xl text-[#02ccffc2] absolute left-1/2 flex gap-2 font-mortend tracking-widest">
-          by{" "}
-          <span className="text-white font-bold text-sm sm:text-xl md:text-2xl">
-            RoboHawk
-          </span>
-        </p>
-      </div>
 
       {/* Social Media Buttons */}
       <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-10 md:text-2xl text-yellow-400">

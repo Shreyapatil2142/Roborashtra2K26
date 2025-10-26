@@ -80,11 +80,11 @@ export default function Navbar() {
     <>
       {/* ===== DESKTOP NAVBAR ===== */}
       <div className="hidden lg:flex">
-        <div className="absolute top-1/2 -translate-y-1/2 left-6 xl:left-20 flex flex-col gap-4 z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 left-15 xl:left-20 flex flex-col gap-4 z-10">
           {leftButtons.map((btn, i) => renderButton(btn, i))}
         </div>
 
-        <div className="absolute top-1/2 -translate-y-1/2 right-6 xl:right-20 flex flex-col gap-4 z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 right-15 xl:right-20 flex flex-col gap-4 z-10">
           {rightButtons.map((btn, i) => renderButton(btn, i))}
         </div>
       </div>

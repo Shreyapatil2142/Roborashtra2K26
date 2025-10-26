@@ -4,7 +4,7 @@ import { useState } from "react";
 import { events } from "../constants/event";
 import Frame from "../components/frame";
 import Image from "next/image";
-import Navbar from "@/app/components/SidebarStrip";
+import SidebarStrip from "@/app/components/SidebarStrip";
 export default function EventsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
@@ -12,6 +12,7 @@ export default function EventsPage() {
 
   return (
     <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
+    <SidebarStrip />
       {/* Background Effects */}
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}

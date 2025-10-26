@@ -7,7 +7,7 @@ import { Textarea } from "../ui/textarea";
 import { useState } from "react";
 import { contactInfo, socialLinks } from "../constants/contact";
 import Frame from "../components/frame";
-import Navbar from "@/app/components/SidebarStrip";
+import SidebarStrip from "@/app/components/SidebarStrip";
 
 
 export default function ContactPage() {
@@ -26,6 +26,7 @@ export default function ContactPage() {
 
   return (
     <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
+      <SidebarStrip />
       <div className="w-3/5 h-full max-w-7xl mx-auto mb-20 relative z-10">
         {/* Section Header */}
         <motion.div
