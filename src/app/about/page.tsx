@@ -29,10 +29,10 @@ export default function ClanSection() {
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + robots.length) % robots.length);
 
   return (
-    <section className="h-screen w-full md:flex md:flex-col md:items-center md:justify-center relative bg-transparent overflow-y-auto lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center relative bg-transparent overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
       <SidebarStrip />
-      <div className="lg:max-w-3/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
-        
+      <div className="lg:max-w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+
         {/* LEFT COLUMN — TEXT SECTION */}
         <div
           data-aos="fade-right"
@@ -166,11 +166,10 @@ export default function ClanSection() {
               <button
                 key={robot.id}
                 onClick={() => setActiveIndex(index)}
-                className={`relative h-16 sm:h-20 overflow-hidden border-2 rounded-md transition-all duration-300 ${
-                  index === activeIndex
+                className={`relative h-16 sm:h-20 overflow-hidden border-2 rounded-md transition-all duration-300 ${index === activeIndex
                     ? "border-[#ffc045] scale-105"
                     : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
-                }`}
+                  }`}
               >
                 <Image
                   src={robot.image}

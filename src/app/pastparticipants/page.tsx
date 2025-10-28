@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 import Image from "next/image";
-import Frame from "../components/frame";
 import SidebarStrip from "@/app/components/SidebarStrip";
 interface Participant {
   id: number;
@@ -164,9 +163,9 @@ export default function ParticipantsSection() {
   );
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
+    <section className="py-15 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
   <SidebarStrip />
-      <div className="max-w-6xl relative z-10">
+      <div className="max-w-4xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-5xl font-mokoto tracking-widest font-bold mb-4">
@@ -176,7 +175,7 @@ export default function ParticipantsSection() {
             </span>
           </h2>
           <p className="text-gray-300 text-lg">
-            &gt; Meet the winning teams and finalists of past editions
+           Meet the winning teams and finalists of past editions
           </p>
         </div>
 

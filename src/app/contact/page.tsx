@@ -1,90 +1,78 @@
-"use client"
-import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, MessageSquare, Send, Github, Twitter, Linkedin, Instagram } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {
+  MapPin,
+  Send,
+} from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { useState } from "react";
 import { contactInfo, socialLinks } from "../constants/contact";
-import Frame from "../components/frame";
 import SidebarStrip from "@/app/components/SidebarStrip";
-
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
-  const [focusedField, setFocusedField] = useState('');
-
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
+
+  // ✅ Initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
     <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
       <SidebarStrip />
+
       <div className="w-3/5 h-full max-w-7xl mx-auto mb-20 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <div
+          data-aos="fade-up"
           className="text-center mb-10"
         >
-
-
-          <h2 className="text-5xl md:text-6xl mt-12 font-bold mb-6 font-mokoto tracking-widest">
+          <h2 className="text-5xl md:text-6xl mt-15 font-bold mb-6 font-mokoto tracking-widest">
             <span className="text-white">ESTABLISH_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               CONTACT
             </span>
           </h2>
 
-          <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 3, repeat: Infinity }}
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-2xl text-gray-300 max-w-3xl mx-auto"
           >
-            &gt; Initialize communication protocols with mission control...
-          </motion.p>
-        </motion.div>
+            Initialize communication protocols with mission control
+          </p>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Info & Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {/* Contact Cards */}
+          <div data-aos="fade-right">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
               {contactInfo.map((contact, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100}
                   className="group"
                 >
-                  <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/30 p-6 relative overflow-hidden hover:border-[color]/60 transition-colors duration-300 h-full" style={{ 'color': contact.color }}>
-                    {/* Holographic Corners */}
-                    <div className={`absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: contact.color }} />
-                    <div className={`absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: contact.color }} />
-                    <div className={`absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: contact.color }} />
-                    <div className={`absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} style={{ borderColor: contact.color }} />
-
+                  <div
+                    className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/30 p-6 relative overflow-hidden transition-colors duration-300 h-full"
+                    style={{ color: contact.color }}
+                  >
                     <div className="relative z-10">
-                      <motion.div
-                        className="flex items-center gap-4 mb-4"
-                        whileHover={{ scale: 1.05 }}
-                      >
+                      <div className="flex items-center gap-4 mb-4">
                         <div
                           className="p-3 rounded-full border-2"
                           style={{ borderColor: contact.color + "60" }}
@@ -99,227 +87,133 @@ export default function ContactPage() {
                             {contact.title}
                           </h3>
                         </div>
-                      </motion.div>
+                      </div>
 
-                      <motion.div
+                      <div
                         className="text-sm font-mono mb-1"
                         style={{ color: contact.color }}
-                        animate={{ opacity: [0.8, 1, 0.8] }}
-                        transition={{ duration: 3, repeat: Infinity }}
                       >
                         {contact.info}
-                      </motion.div>
-
+                      </div>
                       <div className="text-xs text-gray-400">
                         {contact.subInfo}
                       </div>
                     </div>
-
-                    {/* Glow Effect */}
-                    <motion.div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
-                      style={{
-                        background: `radial-gradient(circle, ${contact.color} 0%, transparent 70%)`
-                      }}
-                    />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            {/* Futuristic Map */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+            {/* Map Section */}
+            <div
+              data-aos="fade-up"
               className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 relative overflow-hidden"
             >
               <h3 className="text-xl font-bold text-white mb-4 font-mono flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-[#0a91ab]" />
                 LOCATION MATRIX
               </h3>
-
-              {/* Holographic Map Display */}
               <div className="relative h-64 bg-[#022333]/50 border border-[#0a91ab]/30 overflow-hidden">
-                {/* Grid Lines */}
-                <motion.div
-                  className="absolute inset-0 opacity-30"
-                  animate={{
-                    backgroundPosition: ["0px 0px", "20px 20px"],
-                  }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(90deg, #0a91ab 1px, transparent 1px),
-                      linear-gradient(0deg, #0a91ab 1px, transparent 1px)
-                    `,
-                    backgroundSize: '20px 20px'
-                  }}
-                />
-
-                {/* Location Marker */}
-                <motion.div
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#0a91ab_1px,transparent_1px),linear-gradient(0deg,#0a91ab_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <div className="w-8 h-8 bg-[#ffc045] rounded-full flex items-center justify-center">
                     <MapPin className="h-4 w-4 text-[#022333]" />
                   </div>
-                  <motion.div
-                    className="absolute inset-0 border-2 border-[#ffc045] rounded-full"
-                    animate={{ scale: [1, 2, 1], opacity: [1, 0, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                </motion.div>
-
-                {/* Scanning Lines */}
-                <motion.div
-                  className="absolute inset-0"
-                  animate={{
-                    background: [
-                      "linear-gradient(90deg, transparent 0%, #0a91ab20 50%, transparent 100%)",
-                      "linear-gradient(0deg, transparent 0%, #0a91ab20 50%, transparent 100%)"
-                    ]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+
           {/* Right Column - Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div data-aos="fade-left">
             <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
-                  <Send className="h-6 w-6 text-[#0a91ab]" />
-                  Contact Us
-                </h3>
+              <h3 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
+                <Send className="h-6 w-6 text-[#0a91ab]" />
+                Contact Us
+              </h3>
 
-                <form className="space-y-3">
-                  {/* Name Field */}
-                  <div>
-                    <label className="block text-sm text-white mb-1">
-                      Your Name
-                    </label>
-                    <Input
-                      type="text" 
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      className="border-2 m-2"
-                    />
-                  </div>
+              <form className="space-y-4">
+                <div>
+                  <label className="block text-lg text-white mb-2 font-medium">
+                    Your Name
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    className="border-2 border-white/40 rounded-lg w-full py-5 px-4 text-base text-white bg-transparent focus:border-[#0a91ab] focus:ring-0"
+                  />
+                </div>
 
-                  {/* Email Field */}
-                  <div>
-                    <label className="block text-sm text-gray-300 mb-1">
-                      Your Email
-                    </label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="Enter your email"
-                      className="bg-[#022333]/50 border-2 text-white"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-lg text-white mb-2 font-medium">
+                    Your Email
+                  </label>
+                  <Input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="border-2 border-white/40 rounded-lg w-full py-5 px-4 text-base text-white bg-transparent focus:border-[#0a91ab] focus:ring-0"
+                  />
+                </div>
 
-                  {/* Message Field */}
-                  <div>
-                    <label className="block text-sm text-gray-300 mb-1">
-                      Message
-                    </label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      rows={4}
-                      placeholder="Type your message here..."
-                      className="bg-[#022333]/50 border-2 text-white resize-none"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-lg text-white mb-2 font-medium">
+                    Message
+                  </label>
+                  <Textarea
+                    value={formData.message}
+                    onChange={(e) => handleInputChange("message", e.target.value)}
+                    rows={5}
+                    className="border-2 border-white/40 rounded-lg w-full py-10 px-4 text-base text-white bg-transparent resize-none focus:border-[#0a91ab] focus:ring-0"
+                  />
+                </div>
 
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-[#0a91ab] to-[#ffc045] text-white py-4 font-mono uppercase tracking-wider"
-                  >
-                    Send Message
-                  </Button>
-                </form>
-              </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#0a91ab] to-[#ffc045] text-white py-6 text-lg font-mono uppercase tracking-wider rounded-lg"
+                >
+                  Send Message
+                </Button>
+              </form>
 
-              {/* Corner Indicators */}
-              <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#0a91ab]" />
-              <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#ffc045]" />
-              <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#ffc045]" />
-              <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#0a91ab]" />
             </div>
 
             {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="mt-4"
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="mt-6 flex justify-center gap-6"
             >
-
-              <div className="flex justify-center gap-6">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    className="group relative"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  className="group relative"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100}
+                >
+                  <div
+                    className="w-14 h-14 border-2 flex items-center justify-center rounded-full"
+                    style={{ borderColor: social.color + "60" }}
                   >
-                    <div
-                      className="w-14 h-14 border-2 flex items-center justify-center relative overflow-hidden rounded-full"
-                      style={{ borderColor: social.color + "60" }}
-                    >
-                      <social.icon
-                        className="h-6 w-6 z-10 relative group-hover:text-white transition-colors duration-300"
-                        style={{ color: social.color }}
-                      />
-
-                      {/* Glow Background */}
-                      <motion.div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-30 rounded-full transition-opacity duration-300"
-                        style={{ backgroundColor: social.color }}
-                      />
-
-                      {/* Glow Shadow */}
-                      <motion.div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300"
-                        style={{ boxShadow: `0 0 20px ${social.color}80` }}
-                      />
-                    </div>
-
-                    {/* Floating Label */}
-                    <motion.div
-                      className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    <social.icon
+                      className="h-6 w-6 transition-colors duration-300"
                       style={{ color: social.color }}
-                    >
-                      {social.name}
-                    </motion.div>
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-
-          </motion.div>
-
+                    />
+                  </div>
+                  <div
+                    className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ color: social.color }}
+                  >
+                    {social.name}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
     </section>
   );
 }

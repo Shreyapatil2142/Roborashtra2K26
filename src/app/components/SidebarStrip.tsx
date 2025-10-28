@@ -7,7 +7,7 @@ import {
   Home,
   Info,
   Calendar,
-  Image,
+  FileImage,
   Phone,
   UserPlus,
   HeartHandshake,
@@ -16,14 +16,13 @@ import {
   Radio,
   Menu,
   X,
-  ChevronLeft,
 } from "lucide-react";
 
 const menuItems = [
   { label: "Home", icon: <Home size={18} />, href: "/" },
   { label: "About", icon: <Info size={18} />, href: "/about" },
   { label: "Events", icon: <Calendar size={18} />, href: "/events" },
-  { label: "Gallery", icon: <Image size={18} />, href: "/glimps" },
+  { label: "Gallery", icon: <FileImage  size={18} />, href: "/glimps" },
   { label: "Contact", icon: <Phone size={18} />, href: "/contact" },
   { label: "Register", icon: <UserPlus size={18} />, href: "/pastparticipants" },
   { label: "Sponsors", icon: <HeartHandshake size={18} />, href: "/sponsors" },

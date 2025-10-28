@@ -1,49 +1,55 @@
-"use client"
-import { motion } from "framer-motion";
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { events } from "../constants/event";
-import Frame from "../components/frame";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";
+
 export default function EventsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,  // animation duration
+      once: true,     // animate only once
+      easing: "ease-in-out"
+    });
+  }, []);
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
-    <SidebarStrip />
-      {/* Background Effects */}
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 relative overflow-hidden min-h-screen flex items-center justify-center">
+
+      <SidebarStrip />
+
+      {/* Main Container */}
       <div className="max-w-7xl mx-auto relative z-10">
+
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-mokoto tracking-widest font-bold mb-6">
+        <div data-aos="fade-up" className="text-center mb-16">
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
             <span className="text-white">Championship_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               Events
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Four legendary competitions. One ultimate champion.
-            Experience the future of robotics across multiple domains.
+
+          <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Three legendary competitions. One ultimate champion. Experience the
+            future of robotics across multiple domains.
           </p>
-        </motion.div>
+
+        </div>
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <motion.div
+          {events.map((event) => (
+            <div
               key={event.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
+              data-aos="fade-up"
+              data-aos-delay={event.id * 100}
               className="perspective-1000 h-[380px]"
               onMouseEnter={() => setHoveredCard(event.id)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -74,8 +80,9 @@ export default function EventsPage() {
                   )}
                 </div>
 
+                {/* Title */}
                 <div className="title w-full transition-transform duration-500 text-center mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:translate-y-[-20px] hover:opacity-0 transition-transform duration-500 ">
+                  <h3 className="text-xl font-bold text-white transition-transform duration-500">
                     {event.title}
                   </h3>
                   <span className={`mt-2 inline-block px-3 py-1 rounded-full border text-xs font-semibold border-[${event.glowColor}] text-[${event.glowColor}]`}>
@@ -83,12 +90,7 @@ export default function EventsPage() {
                   </span>
                 </div>
 
-                <div className="character absolute w-full opacity-0 transition-all duration-500 z-[-1] group-hover:opacity-100 group-hover:translate-y-[-30%] flex justify-center">
-                  <div className={`p-3 rounded-full bg-gradient-to-br ${event.gradient}`}>
-                    <span className="text-2xl text-white">{event.icon}</span>
-                  </div>
-                </div>
-
+                {/* Details */}
                 <div className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'} rounded-b-xl`}>
                   <p className="text-xl mb-2">{event.description}</p>
                   <div className="flex justify-between items-center">
@@ -103,11 +105,12 @@ export default function EventsPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
 
+      {/* CSS */}
       <style jsx>{`
         .card {
           width: 100%;
@@ -119,7 +122,6 @@ export default function EventsPage() {
           padding: 0 20px;
           perspective: 2500px;
         }
-        
         .wrapper {
           transition: all 0.5s;
           position: absolute;
@@ -128,12 +130,10 @@ export default function EventsPage() {
           border-radius: 0.75rem;
           overflow: hidden;
         }
-        
         .card:hover .wrapper {
-          transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+          transform: perspective(900px) translateY(-5%) rotateX(25deg);
           box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
         }
-        
         .wrapper::before,
         .wrapper::after {
           content: "";
@@ -145,73 +145,53 @@ export default function EventsPage() {
           left: 0;
           border-radius: 16px;
         }
-        
         .wrapper::before {
           top: 0;
           height: 100%;
-          background-image: linear-gradient(
-            to top,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
+          background-image: linear-gradient(to top, transparent 46%, rgba(12,13,19,0.5) 68%, rgba(12,13,19) 97%);
         }
-        
         .wrapper::after {
           bottom: 0;
           opacity: 0;
-          background-image: linear-gradient(
-            to bottom,
-            transparent 46%,
-            rgba(12, 13, 19, 0.5) 68%,
-            rgba(12, 13, 19) 97%
-          );
+          background-image: linear-gradient(to bottom, transparent 46%, rgba(12,13,19,0.5) 68%, rgba(12,13,19) 97%);
         }
-        
         .card:hover .wrapper::before,
         .card:hover .wrapper::after {
           opacity: 1;
         }
-        
         .card:hover .wrapper::after {
           height: 120px;
         }
-        
         .holographic-corner {
           position: absolute;
           width: 20px;
           height: 20px;
           transition: opacity 0.5s;
         }
-        
         .corner-tl {
           top: 10px;
           left: 10px;
           border-top: 2px solid;
           border-left: 2px solid;
         }
-        
         .corner-tr {
           top: 10px;
           right: 10px;
           border-top: 2px solid;
           border-right: 2px solid;
         }
-        
         .corner-bl {
           bottom: 10px;
           left: 10px;
           border-bottom: 2px solid;
           border-left: 2px solid;
         }
-        
         .corner-br {
           bottom: 10px;
           right: 10px;
           border-bottom: 2px solid;
           border-right: 2px solid;
         }
-        
         .particle {
           position: absolute;
           width: 4px;
@@ -220,22 +200,11 @@ export default function EventsPage() {
           opacity: 0;
           animation: float 3s infinite;
         }
-        
         @keyframes float {
-          0% {
-            transform: translateY(0) translateX(0);
-            opacity: 0;
-          }
-          10% {
-            opacity: 0.7;
-          }
-          90% {
-            opacity: 0.2;
-          }
-          100% {
-            transform: translateY(-50px) translateX(20px);
-            opacity: 0;
-          }
+          0% { transform: translateY(0) translateX(0); opacity: 0; }
+          10% { opacity: 0.7; }
+          90% { opacity: 0.2; }
+          100% { transform: translateY(-50px) translateX(20px); opacity: 0; }
         }
       `}</style>
     </section>

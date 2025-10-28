@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
-import TeamCard from "./teamcards/page";
+import TeamCard from "@/app/components/TeamCards";
 import { teamData } from "../constants/TeamData";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Frame from "../components/frame";
-import Navbar from "@/app/components/SidebarStrip";
+import SidebarStrip from "@/app/components/SidebarStrip";
 
 export default function TeamPage() {
   const categories = Object.keys(teamData) as (keyof typeof teamData)[];
@@ -38,6 +37,7 @@ export default function TeamPage() {
 
       {/* Hero Heading Section */}
       <div className="flex flex-col items-center z-20 mt-6 md:mt-8 text-center px-4">
+         <SidebarStrip />
         <div className="flex items-center gap-2 sm:gap-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
