@@ -51,7 +51,7 @@ export default function Sponsors() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center p-4">
-    <SidebarStrip />
+   
         <div className="text-center">
           <motion.div
             className={`${config.textSize} font-bold font-mono mb-2 group-hover:scale-110 transition-transform duration-300`}
@@ -83,8 +83,9 @@ export default function Sponsors() {
   );
 
   return (
-    <section className="py-24 px-6 relative overflow-auto flex-1 h-screen flex flex-col items-center justify-start">
-      <div className="max-w-7xl w-full mx-auto relative z-10">
+    <section className="py-15 px-6 relative overflow-auto flex-1 h-screen flex flex-col justify-start">
+      <SidebarStrip />
+       <div className="max-w-7xl w-full mx-auto relative z-10">
 
         {/* Section Header */}
         <motion.div
@@ -110,7 +111,7 @@ export default function Sponsors() {
             />
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-mono">
+           <h2 className="text-5xl md:text-6xl mt-12 font-bold mb-6 font-mokoto tracking-widest">
             <span className="text-white">POWER_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               SPONSORS

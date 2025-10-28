@@ -79,8 +79,8 @@ export default function Navbar() {
   return (
     <>
       {/* ===== DESKTOP NAVBAR ===== */}
-      <div className="hidden lg:flex">
-        <div className="absolute top-1/2 -translate-y-1/2 left-15 xl:left-20 flex flex-col gap-4 z-10">
+      <div className="hidden lg:flex z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 left-15 xl:left-20 flex flex-col gap-4 z-20">
           {leftButtons.map((btn, i) => renderButton(btn, i))}
         </div>
 

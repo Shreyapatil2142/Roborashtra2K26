@@ -5,14 +5,15 @@ import Image from "next/image";
 export default function Frame() {
   return (
     <>
-      {/* Desktop / Tablet Frame Overlay (hidden on small screens) */}
-  <div className="absolute w-full h-[700px] overflow-hidden inset-0 pointer-events-none z-10 hidden lg:block">
+  
+  {/* Desktop / Tablet Frame Overlay (hidden on small screens) */}
+  <div className="absolute w-full min-h-screen overflow-hidden inset-0 pointer-events-none z-10 hidden lg:block">
     <Image
       src="/bg.svg"
       alt="Frame overlay"
       fill
       priority
-      className="object-cover"
+      className="object-cover pointer-events-none select-none object-center fixed object-contain"
     />
   </div>
 

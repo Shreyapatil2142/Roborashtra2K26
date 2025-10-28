@@ -22,7 +22,7 @@ export default function ClanSection() {
   return (
     <section className="h-screen w-full md:flex md:flex-col md:items-center md:justify-center relative bg-transparent overflow-y-auto lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
       <SidebarStrip />
-      <div className="lg:max-w-3/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+      <div className="lg:max-w-3/4 x-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
         
         {/* LEFT COLUMN — TEXT SECTION */}
         <motion.div
@@ -64,7 +64,7 @@ export default function ClanSection() {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text tracking-widest text-transparent">
                   ROBOHAWK
                 </span>
               </motion.div>

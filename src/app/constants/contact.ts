@@ -4,15 +4,15 @@ export const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    info: "info@roborashtra2k25.com",
-    subInfo: "support@roborashtra2k25.com",
+    info: "roborashtra.com",
+    subInfo: "robohawk@pccoer.in",
     color: "#ffc045",
   },
   {
     icon: Phone,
     title: "Phone",
-    info: "+91 98765 43210",
-    subInfo: "+91 87654 32109",
+    info: "+91 80876 66355",
+    subInfo: "+91 80876 66355",
     color: "#0a91ab",
   },
 ];

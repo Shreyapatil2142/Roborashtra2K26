@@ -58,13 +58,13 @@ export default function SidebarStrip() {
         transition={{ duration: 0.4, ease: "easeInOut" }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="hidden md:flex fixed left-6 top-1/2 -translate-y-1/2 z-50
+        className="hidden md:flex fixed left-15 top-1/2 -translate-y-1/2 z-10
                    bg-gradient-to-br from-[#0a91ab]/70 via-[#0a91ab]/40 to-[#0a91ab]/50
                    backdrop-blur-2xl border border-white/10 
                    shadow-[0_0_25px_rgba(0,140,255,0.2)]
                    rounded-3xl text-white flex-col justify-between overflow-hidden group"
       >
-        <div className="flex flex-col gap-3 p-4 my-12">
+        <div className="flex flex-col gap-3 p-4 my-10">
           <motion.span
             initial={{ opacity: 1 }}
             animate={{ opacity: isExpanded ? 1 : 0 }}

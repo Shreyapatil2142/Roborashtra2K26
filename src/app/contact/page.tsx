@@ -34,7 +34,7 @@ export default function ContactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
 
 
@@ -188,10 +188,6 @@ export default function ContactPage() {
                   transition={{ duration: 4, repeat: Infinity }}
                 />
               </div>
-
-              <div className="mt-4 text-sm text-gray-400 font-mono">
-                &gt; GPS Coordinates: 28.7041° N, 77.1025° E
-              </div>
             </motion.div>
           </motion.div>
           {/* Right Column - Contact Form */}
@@ -211,15 +207,14 @@ export default function ContactPage() {
                 <form className="space-y-3">
                   {/* Name Field */}
                   <div>
-                    <label className="block text-sm text-gray-300 mb-1">
+                    <label className="block text-sm text-white mb-1">
                       Your Name
                     </label>
                     <Input
-                      type="text"
+                      type="text" 
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
-                      placeholder="Enter your name"
-                      className="bg-[#022333]/50 border-2 text-white"
+                      className="border-2 m-2"
                     />
                   </div>
 
@@ -233,20 +228,6 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="Enter your email"
-                      className="bg-[#022333]/50 border-2 text-white"
-                    />
-                  </div>
-
-                  {/* Subject Field */}
-                  <div>
-                    <label className="block text-sm text-gray-300 mb-1">
-                      Subject
-                    </label>
-                    <Input
-                      type="text"
-                      value={formData.subject}
-                      onChange={(e) => handleInputChange('subject', e.target.value)}
-                      placeholder="What is this about?"
                       className="bg-[#022333]/50 border-2 text-white"
                     />
                   </div>

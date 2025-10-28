@@ -38,7 +38,7 @@ export default function HomePage() {
      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-center px-4 z-10 w-full flex justify-center">
   <div className="relative w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%]">
     <Image
-      src="/Frame2.svg"
+      src="/name.svg"
       alt="PCCOER logo"
       width={2500}
       height={500}
