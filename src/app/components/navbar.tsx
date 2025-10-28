@@ -84,7 +84,7 @@ export default function Navbar() {
           {leftButtons.map((btn, i) => renderButton(btn, i))}
         </div>
 
-        <div className="absolute top-1/2 -translate-y-1/2 right-15 xl:right-20 flex flex-col gap-4 z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 right-15 xl:right-20 flex flex-col gap-4 z-20">
           {rightButtons.map((btn, i) => renderButton(btn, i))}
         </div>
       </div>
