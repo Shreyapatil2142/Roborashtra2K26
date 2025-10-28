@@ -8,8 +8,8 @@
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  
-  scrollbar-width: none;     
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 
@@ -98,6 +98,7 @@
   0% {
     box-shadow: 0 0 8px #ffc045, 0 0 16px #0a91ab, 0 0 30px #ffc045;
   }
+
   100% {
     box-shadow: 0 0 20px #ffc045, 0 0 40px #0a91ab, 0 0 60px #ffc045;
   }
@@ -107,10 +108,58 @@
   0% {
     box-shadow: 0 0 15px #0a91ab, 0 0 30px #ffc045, 0 0 50px #0a91ab;
   }
+
   100% {
     box-shadow: 0 0 25px #ffc045, 0 0 50px #0a91ab, 0 0 80px #ffc045;
   }
 }
+
+@keyframes glow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px #0a91ab40;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #0a91ab80;
+  }
+}
+
+@keyframes glow-delayed {
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px #0a91ab40;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #0a91ab80;
+  }
+}
+
+.animate-glow {
+  animation: glow 3s infinite;
+}
+
+.animate-glow-delayed {
+  animation: glow-delayed 3s infinite;
+}
+
+@keyframes scaleLine {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-scale-line {
+  animation: scaleLine 1s forwards;
+}
+
 
 :root {
   --radius: 0.625rem;
@@ -185,15 +234,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @keyframes bounce-slow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
@@ -208,10 +261,12 @@
     transform: translateY(0) scale(1);
     opacity: 0.3;
   }
+
   50% {
     transform: translateY(-20px) scale(1.2);
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(0) scale(1);
     opacity: 0.3;

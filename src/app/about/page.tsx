@@ -1,13 +1,22 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { robots, achievements } from "../constants/about";
 import SidebarStrip from "../components/SidebarStrip";
 
 export default function ClanSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,63 +31,47 @@ export default function ClanSection() {
   return (
     <section className="h-screen w-full md:flex md:flex-col md:items-center md:justify-center relative bg-transparent overflow-y-auto lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
       <SidebarStrip />
-      <div className="lg:max-w-3/4 x-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+      <div className="lg:max-w-3/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
         
         {/* LEFT COLUMN — TEXT SECTION */}
-        <motion.div
+        <div
+          data-aos="fade-right"
           className="flex flex-col justify-center space-y-6 text-center lg:text-left"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
           {/* Heading */}
-          <motion.h2
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="200"
             className="text-4xl sm:text-5xl md:text-6xl font-bold font-mokoto tracking-widest"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="text-white">OUR_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               CLAN
             </span>
-          </motion.h2>
+          </h2>
 
           {/* Logo Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
             className="mx-auto lg:mx-0 w-full max-w-md bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 md:p-8 relative"
           >
             <div className="relative text-center">
-              <motion.div
-                className="text-4xl sm:text-5xl md:text-6xl font-bold font-mokoto mb-2"
-                animate={{
-                  textShadow: [
-                    "0 0 10px #0a91ab40",
-                    "0 0 20px #0a91ab80",
-                    "0 0 10px #0a91ab40",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold font-mokoto mb-2 animate-glow">
                 <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text tracking-widest text-transparent">
                   ROBOHAWK
                 </span>
-              </motion.div>
+              </div>
               <p className="text-sm sm:text-base text-gray-400 font-mono">
                 &gt; Student-driven Robotics Club at PCCOE&R _
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="600"
             className="space-y-4"
           >
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
@@ -92,74 +85,56 @@ export default function ClanSection() {
               robotics. It offers hands-on learning, collaboration, and
               innovation opportunities.
             </p>
-            <motion.div
-              className="w-24 h-0.5 bg-gradient-to-r from-[#0a91ab] to-[#ffc045]"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="800"
+              className="w-24 h-0.5 bg-gradient-to-r from-[#0a91ab] to-[#ffc045] transform scale-x-0 animate-scale-line"
             />
             <p className="text-gray-500 text-sm sm:text-base font-mono">
               &gt; Established 2020 | Global Network | Innovation Hub
             </p>
-          </motion.div>
+          </div>
 
           {/* Achievements */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="800"
             className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"
           >
             {achievements.map((achievement, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-gradient-to-br from-[#065471]/20 to-[#022333]/40 backdrop-blur-sm border border-[#0a91ab]/30 p-3 sm:p-4 rounded-md hover:border-[#0a91ab]/60 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -3 }}
+                className="bg-gradient-to-br from-[#065471]/20 to-[#022333]/40 backdrop-blur-sm border border-[#0a91ab]/30 p-3 sm:p-4 rounded-md hover:border-[#0a91ab]/60 transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-center sm:justify-start gap-1 sm:gap-2">
                   <achievement.icon className="h-5 w-5 text-[#0a91ab]" />
-                  <motion.span
-                    className="text-xl sm:text-2xl font-bold text-white"
-                    animate={{
-                      textShadow: [
-                        "0 0 5px #0a91ab40",
-                        "0 0 15px #0a91ab80",
-                        "0 0 5px #0a91ab40",
-                      ],
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                  >
+                  <span className="text-xl sm:text-2xl font-bold text-white animate-glow-delayed">
                     {achievement.value}
-                  </motion.span>
+                  </span>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-400 font-mono">
                   {achievement.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* RIGHT COLUMN — ROBOT SLIDER */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+        <div
+          data-aos="fade-left"
           className="flex flex-col items-center justify-center space-y-4 w-full"
         >
           {/* Main Robot Image */}
-          <motion.div
+          <div
             key={activeIndex}
-            className="relative w-full h-72 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden border-2 border-[#0a91ab]/40 shadow-lg"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            className="relative w-full h-72 sm:h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden border-2 border-[#0a91ab]/40 shadow-lg transition-all duration-700 ease-in-out opacity-100 scale-100"
           >
             <Image
               src={robots[activeIndex].image}
               alt={robots[activeIndex].title}
               fill
-              className="object-cover"
+              className="object-cover transition-all duration-700 ease-in-out"
               priority
             />
             <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#022333]/90 to-transparent p-3 sm:p-4 text-center">
@@ -167,7 +142,7 @@ export default function ClanSection() {
                 {robots[activeIndex].title}
               </h3>
             </div>
-          </motion.div>
+          </div>
 
           {/* Navigation Arrows */}
           <div className="flex justify-center gap-4">
@@ -209,7 +184,7 @@ export default function ClanSection() {
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
