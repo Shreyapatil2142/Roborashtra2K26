@@ -24,10 +24,10 @@ export default function EventsPage() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-mokoto tracking-widest font-bold mb-6">
+            <span className="text-white">Championship_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
-              Championship
-            </span>{" "}
-            <span className="text-white">Events</span>
+              Events
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Four legendary competitions. One ultimate champion.

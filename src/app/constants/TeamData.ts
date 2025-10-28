@@ -1,4 +1,13 @@
-export const teamData: Record<string, any[]> = {
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  linkedin: string;
+  contact: string;
+  mail: string;
+}
+
+export const teamData: Record<string, TeamMember[]> = {
   EventCoordinators: [
     {
       name: "Dr. Mahendra Salunke",

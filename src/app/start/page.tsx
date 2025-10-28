@@ -20,7 +20,7 @@ export default function HomePage() {
       <div className="absolute inset-0 z-5">
         <Particle />
         {/* Optional video background */}
-        {/* 
+        
         <video
           autoPlay
           loop
@@ -29,8 +29,9 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/bg.mp4" type="video/mp4" />
-        </video> 
-        */}
+        </video>
+        <div className="absolute inset-0 w-full h-full z-50 bg-black opacity-60 flex"></div>
+
       </div>
   <Navbar />
 
