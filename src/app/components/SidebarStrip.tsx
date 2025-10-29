@@ -16,6 +16,7 @@ import {
   Radio,
   Menu,
   X,
+  Trophy,
 } from "lucide-react";
 
 const menuItems = [
@@ -24,7 +25,7 @@ const menuItems = [
   { label: "Events", icon: <Calendar size={18} />, href: "/events" },
   { label: "Gallery", icon: <FileImage  size={18} />, href: "/glimps" },
   { label: "Contact", icon: <Phone size={18} />, href: "/contact" },
-  { label: "Register", icon: <UserPlus size={18} />, href: "/pastparticipants" },
+  { label: "Winners", icon: <Trophy size={18} />, href: "/pastparticipants" },
   { label: "Sponsors", icon: <HeartHandshake size={18} />, href: "/sponsors" },
   { label: "Team", icon: <Users size={18} />, href: "/team" },
   { label: "FAQ", icon: <HelpCircle size={18} />, href: "/faq" },

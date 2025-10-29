@@ -269,7 +269,7 @@ export default function ParticleLogo() {
   }, []);
 
   return (
-    <div className="w-full h-screen overflow-hidden z-5"
+    <div className="w-full h-screen overflow-hidden z-15 absolute top-0 left-0 lg:hidden block"
       ref={mountRef}
     />
   );

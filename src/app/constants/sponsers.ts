@@ -18,8 +18,7 @@ export interface TierConfig {
 
 export const sponsors: Record<Tier, Sponsor[]> = {
   title: [
-    { id: 1, name: "TechCorp", logo: "TC", tier: "title" },
-    { id: 2, name: "RoboTech Industries", logo: "RTI", tier: "title" },
+    { id: 1, name: "Unstop", logo: "unstop.svg", tier: "title" },
   ],
   platinum: [
     { id: 3, name: "CyberSystems", logo: "CS", tier: "platinum" },

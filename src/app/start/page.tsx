@@ -2,7 +2,7 @@
 import Navbar from "@/app/components/navbar";
 import { SocialMediaButton } from "@/app/components/social";
 import Image from "next/image";
-// import Particle from "@/app/components/ParticleLogo";
+import Particle from "@/app/components/ParticleLogo";
 import {
   FaFacebook,
   FaTwitter,
@@ -15,8 +15,8 @@ export default function HomePage() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
       {/* Background (Video / Particles) */}
-      <div className="absolute inset-0 z-5">
-        {/* <Particle /> */}
+        <Particle />
+      <div className="absolute inset-0 z-5 hidden lg:block">
         {/* Optional video background */}
 
         <video
