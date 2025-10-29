@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { Star, Zap } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
 import SidebarStrip from "@/app/components/SidebarStrip";
-
+import Image from "next/image";
 export type Tier = "title" | "platinum" | "gold" | "silver";
 
 export default function Sponsors() {
@@ -47,14 +47,18 @@ export default function Sponsors() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center p-4">
-        <div className="text-center">
-          <div
-            className={`${config.textSize} font-bold font-mono mb-2 group-hover:scale-110 transition-transform duration-300`}
-            style={{ color: config.color }}
-          >
-            {sponsor.logo}
+        <div className="text-center flex flex-col gap-2 items-center justify-center">
+          <div>
+            {/* {sponsor.logo} */}
+            <Image
+              src={`/${sponsor.logo}`}
+              alt={sponsor.name}
+              width={512}
+              height={512}
+              className="h-auto max-h-36 object-contain"
+            />
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-2 text-xs text-gray-400 font-mono">{sponsor.name}</div>
           </div>
-          <div className="text-xs text-gray-400 font-mono">{sponsor.name}</div>
         </div>
       </div>
 
@@ -69,7 +73,7 @@ export default function Sponsors() {
   );
 
   return (
-    <section className="py-15 px-6 relative overflow-auto flex-1 min-h-screen flex flex-col justify-start">
+    <section className="py-10 px-6 relative overflow-auto flex-1 max-h-screen flex flex-col justify-start">
       <SidebarStrip />
       <div className="max-w-7xl w-full mx-auto relative z-10">
         {/* Section Header */}
@@ -96,9 +100,9 @@ export default function Sponsors() {
         {/* Sponsor Tiers */}
         {[
           { tier: "title", icon: Star, config: tierConfig.title },
-          { tier: "platinum", icon: Zap, config: tierConfig.platinum },
-          { tier: "gold", icon: null, config: tierConfig.gold },
-          { tier: "silver", icon: null, config: tierConfig.silver },
+          // { tier: "platinum", icon: Zap, config: tierConfig.platinum },
+          // { tier: "gold", icon: null, config: tierConfig.gold },
+          // { tier: "silver", icon: null, config: tierConfig.silver },
         ].map(({ tier, icon, config }, idx) => (
           <div
             key={tier}

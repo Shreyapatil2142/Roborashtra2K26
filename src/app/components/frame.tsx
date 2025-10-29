@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ParticleLogo from "./ParticleLogo";
 
 export default function Frame() {
   return (
@@ -16,17 +17,16 @@ export default function Frame() {
         />
       </div>
 
-
-          {/* Mobile Background / Frame (visible on small screens) */}
-          <div className="absolute inset-0 pointer-events-none z-0 block lg:hidden">
-            <Image
-              src="/mbBG.jpg"
-              alt="Mobile background"
-              fill
-              priority
-              className="object-cover w-full h-full blur-sm"
-            />
-          </div>
+      {/* Mobile Background / Frame (visible on small screens) */}
+      <div className="absolute inset-0 pointer-events-none z-10 block lg:hidden">
+        <Image
+          src="/mbBG.jpg"
+          alt="Mobile background"
+          fill
+          priority
+          className="object-cover w-full h-full blur-sm"
+        />
+      </div>
     </>
   );
 }

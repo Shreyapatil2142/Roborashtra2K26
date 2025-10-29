@@ -16,7 +16,7 @@ const leftButtons = [
 ];
 
 const rightButtons = [
-  { label: "Participants", href: "/pastparticipants" },
+  { label: "Winners", href: "/pastparticipants" },
   { label: "Sponsors", href: "/sponsors" },
   { label: "Team", href: "/team" },
   { label: "FAQ", href: "/faq" },
