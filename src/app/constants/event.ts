@@ -3,7 +3,7 @@ export const events = [
     id: 1,
     title: "Yantrautsav",
     category: "Combat",
-    description: "Ultimate robot combat arena where steel meets strategy",
+    description: "An innovation where creators and robotics bring bold ideas to life",
     date: "March 15, 2025",
     time: "10:00 AM - 6:00 PM",
     location: "Arena Alpha",
@@ -12,15 +12,15 @@ export const events = [
     icon: "⚡",
     gradient: "from-[#0a91ab] to-[#065471]",
     glowColor: "#0a91ab",
-    coverImage:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    coverImage: "/events/res2.svg",
+    hoverImage: "/events/res1.svg",
   },
   {
     id: 2,
     title: "Resqlympics",
     category: "Speed",
     description:
-      "High-speed autonomous navigation through challenging circuits",
+      "A rescue robotics challenge where strategy decide victory",
     date: "March 16, 2025",
     time: "9:00 AM - 5:00 PM",
     location: "Speed Track Beta",
@@ -30,13 +30,14 @@ export const events = [
     gradient: "from-[#ffc045] to-[#ff8c00]",
     glowColor: "#ffc045",
     coverImage:
-      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
+      "/events/res2.svg",
+  hoverImage: "/events/res1.svg",
+    },
   {
     id: 3,
     title: "Chakravyuh",
     category: "Intelligence",
-    description: "Showcase cutting-edge AI algorithms and machine learning",
+    description: "An robotics duel where speed conquer the line and maze",
     date: "March 17, 2025",
     time: "11:00 AM - 7:00 PM",
     location: "Tech Hub Gamma",
@@ -46,6 +47,7 @@ export const events = [
     gradient: "from-[#9333ea] to-[#7c3aed]",
     glowColor: "#0a91ab",
     coverImage:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  },
+      "/events/res2.svg",
+ hoverImage: "/events/res1.svg",
+    },
 ];

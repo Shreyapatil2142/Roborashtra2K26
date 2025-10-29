@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^7.0.1",
     "@radix-ui/react-slot": "^1.2.3",
     "aos": "^2.3.4",

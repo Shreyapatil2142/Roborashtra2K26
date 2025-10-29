@@ -61,19 +61,19 @@ export default function HomePage() {
           </SocialMediaButton>
         </a>
 
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/roborashtra.pccoer" target="_blank" rel="noopener noreferrer">
           <SocialMediaButton>
             <FaInstagram />
           </SocialMediaButton>
         </a>
 
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/robo-hawk-510206293" target="_blank" rel="noopener noreferrer">
           <SocialMediaButton>
             <FaLinkedin />
           </SocialMediaButton>
         </a>
 
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.youtube.com/@RobohawkPCCOER" target="_blank" rel="noopener noreferrer">
           <SocialMediaButton>
             <FaYoutube />
           </SocialMediaButton>

@@ -43,56 +43,60 @@ export default function EventsPage() {
 
         </div>
 
-        {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event) => (
             <div
               key={event.id}
               data-aos="fade-up"
               data-aos-delay={event.id * 100}
-              className="perspective-1000 h-[380px]"
+              className="h-[380px]"
               onMouseEnter={() => setHoveredCard(event.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="card relative w-full h-full flex justify-center items-end p-[0_20px] perspective-2500">
-                <div className="wrapper absolute w-full h-full z-[-1] transition-all duration-500 overflow-hidden rounded-xl">
+              <div className="card relative w-full h-full flex justify-center items-end p-[0_20px]">
+                {/* Image */}
+                <div className="wrapper absolute w-full h-full z-[-1] overflow-hidden rounded-xl">
+                  {/* Fixed cover image (base layer, always visible) */}
                   <Image
                     src={event.coverImage}
                     alt={event.title}
                     fill
-                    className="cover-image object-cover rounded-xl"
+                    className="object-cover rounded-xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
 
-                  {/* Holographic Corners */}
-                  <div className={`holographic-corner corner-tl border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
-                  <div className={`holographic-corner corner-tr border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
-                  <div className={`holographic-corner corner-bl border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
-                  <div className={`holographic-corner corner-br border-[${event.glowColor}] ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'}`}></div>
-
-                  {/* Particles */}
-                  {hoveredCard === event.id && (
-                    <>
-                      <div className="particle" style={{ top: '30%', left: '20%', background: event.glowColor, animationDelay: '0s' }}></div>
-                      <div className="particle" style={{ top: '60%', left: '80%', background: event.glowColor, animationDelay: '0.5s' }}></div>
-                      <div className="particle" style={{ top: '70%', left: '40%', background: event.glowColor, animationDelay: '1s' }}></div>
-                    </>
-                  )}
+                  {/* Hover image (moves and fades in on hover) */}
+                  <Image
+                    src={event.hoverImage}
+                    alt={`${event.title} hover`}
+                    fill
+                    className={`absolute inset-0 object-cover rounded-xl transition-all duration-500 ${hoveredCard === event.id
+                        ? "opacity-100 translate-y-[-40px] scale-105"
+                        : "opacity-0 translate-y-0 scale-100"
+                      }`}
+                  />
                 </div>
+
+
+
 
                 {/* Title */}
                 <div className="title w-full transition-transform duration-500 text-center mb-4">
-                  <h3 className="text-xl font-bold text-white transition-transform duration-500 uppercase">
+                  <h3 className="text-xl font-bold text-white uppercase">
                     {event.title}
                   </h3>
-                  <span className={`mt-2 inline-block px-3 py-1 rounded-full border text-xs font-semibold border-[${event.glowColor}] text-[${event.glowColor}]`}>
+                  <span
+                    className={`mt-2 inline-block px-3 py-1 rounded-full border text-xs font-semibold border-[${event.glowColor}] text-[${event.glowColor}]`}
+                  >
                     {event.category}
                   </span>
                 </div>
 
                 {/* Details */}
-                <div className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? 'opacity-100' : 'opacity-0'} rounded-b-xl`}>
-                  <p className="text-xl mb-2">{event.description}</p>
+                <div
+                  className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? "opacity-100" : "opacity-0"
+                    } rounded-b-xl`}
+                >
+                  <p className="text-xl mb-12">{event.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs flex items-center">
                       <span className="mr-1">🏆</span>
@@ -112,101 +116,69 @@ export default function EventsPage() {
 
       {/* CSS */}
       <style jsx>{`
-        .card {
-          width: 100%;
-          height: 380px;
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding: 0 20px;
-          perspective: 2500px;
-        }
-        .wrapper {
-          transition: all 0.5s;
-          position: absolute;
-          width: 100%;
-          z-index: -1;
-          border-radius: 0.75rem;
-          overflow: hidden;
-        }
-        .card:hover .wrapper {
-          transform: perspective(900px) translateY(-5%) rotateX(25deg);
-          box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-        }
-        .wrapper::before,
-        .wrapper::after {
-          content: "";
-          opacity: 0;
-          width: 100%;
-          height: 80px;
-          transition: all 0.5s;
-          position: absolute;
-          left: 0;
-          border-radius: 16px;
-        }
-        .wrapper::before {
-          top: 0;
-          height: 100%;
-          background-image: linear-gradient(to top, transparent 46%, rgba(12,13,19,0.5) 68%, rgba(12,13,19) 97%);
-        }
-        .wrapper::after {
-          bottom: 0;
-          opacity: 0;
-          background-image: linear-gradient(to bottom, transparent 46%, rgba(12,13,19,0.5) 68%, rgba(12,13,19) 97%);
-        }
-        .card:hover .wrapper::before,
-        .card:hover .wrapper::after {
-          opacity: 1;
-        }
-        .card:hover .wrapper::after {
-          height: 120px;
-        }
-        .holographic-corner {
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          transition: opacity 0.5s;
-        }
-        .corner-tl {
-          top: 10px;
-          left: 10px;
-          border-top: 2px solid;
-          border-left: 2px solid;
-        }
-        .corner-tr {
-          top: 10px;
-          right: 10px;
-          border-top: 2px solid;
-          border-right: 2px solid;
-        }
-        .corner-bl {
-          bottom: 10px;
-          left: 10px;
-          border-bottom: 2px solid;
-          border-left: 2px solid;
-        }
-        .corner-br {
-          bottom: 10px;
-          right: 10px;
-          border-bottom: 2px solid;
-          border-right: 2px solid;
-        }
-        .particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          opacity: 0;
-          animation: float 3s infinite;
-        }
-        @keyframes float {
-          0% { transform: translateY(0) translateX(0); opacity: 0; }
-          10% { opacity: 0.7; }
-          90% { opacity: 0.2; }
-          100% { transform: translateY(-50px) translateX(20px); opacity: 0; }
-        }
-      `}</style>
+      .card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 380px;
+        padding: 0 20px;
+      }
+
+      .wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+
+      /* Smooth lift-up on hover */
+      .card:hover .wrapper {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+      }
+
+      /* Gradient fade at top and bottom */
+      .wrapper::before,
+      .wrapper::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        opacity: 0;
+        border-radius: 16px;
+        transition: opacity 0.5s;
+      }
+
+      .wrapper::before {
+        top: 0;
+        background-image: linear-gradient(
+          to top,
+          transparent 40%,
+          rgba(12, 13, 19, 0.5) 70%,
+          rgba(12, 13, 19) 100%
+        );
+      }
+
+      .wrapper::after {
+        bottom: 0;
+        background-image: linear-gradient(
+          to bottom,
+          transparent 40%,
+          rgba(12, 13, 19, 0.5) 70%,
+          rgba(12, 13, 19) 100%
+        );
+      }
+
+      .card:hover .wrapper::before,
+      .card:hover .wrapper::after {
+        opacity: 1;
+      }
+`}</style>
     </section>
   );
 }

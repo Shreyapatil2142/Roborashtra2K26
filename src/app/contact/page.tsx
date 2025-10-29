@@ -1,6 +1,6 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useEffect, useState, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -14,10 +14,11 @@ import { contactInfo, socialLinks } from "../constants/contact";
 import SidebarStrip from "@/app/components/SidebarStrip";
 
 export default function ContactPage() {
+  const form = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -25,7 +26,34 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  // ✅ Initialize AOS
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert("⚠️ Please fill in all fields before sending.");
+      return;
+    }
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "default_service", //  Your EmailJS Service ID
+        "template_imvs4aj", // Your Template ID
+        form.current,
+        "Dvl7IHf3g0huhr69E" // Your Public Key
+      )
+      .then(
+        () => {
+          alert("✅ Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (err) => {
+          alert("❌ Failed to send message: " + JSON.stringify(err));
+        }
+      );
+  };
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -95,7 +123,7 @@ export default function ContactPage() {
                       >
                         {contact.info}
                       </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-sm text-gray-200">
                         {contact.subInfo}
                       </div>
                     </div>
@@ -113,14 +141,15 @@ export default function ContactPage() {
                 <MapPin className="h-5 w-5 text-[#0a91ab]" />
                 LOCATION MATRIX
               </h3>
-              <div className="relative h-64 bg-[#022333]/50 border border-[#0a91ab]/30 overflow-hidden">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,#0a91ab_1px,transparent_1px),linear-gradient(0deg,#0a91ab_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-8 h-8 bg-[#ffc045] rounded-full flex items-center justify-center">
-                    <MapPin className="h-4 w-4 text-[#022333]" />
-                  </div>
-                </div>
-              </div>
+            <div className="relative w-full h-64 sm:h-80 md:h-[400px] bg-[#022333]/50 border border-[#0a91ab]/30 rounded-lg overflow-hidden">
+  <iframe
+    className="absolute inset-0 w-full h-full rounded-lg border-2 border-[#0a91ab]/40"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6357.674639144745!2d73.74122481005469!3d18.650710592595445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ba0251959e2d%3A0x4d7ea2cc35724480!2sPCCOE-Ravet%2C%20Pimpri%20Chinchwad%20College%20of%20Engineering%20and%20Research%2C%20Ravet%2C%20Pune!5e0!3m2!1sen!2sin!4v1723558759207!5m2!1sen!2sin"
+    loading="lazy"
+    allowFullScreen
+  ></iframe>
+</div>
+
             </div>
           </div>
 
@@ -132,13 +161,19 @@ export default function ContactPage() {
                 Contact Us
               </h3>
 
-              <form className="space-y-4">
+
+              <form
+                ref={form}
+                onSubmit={sendEmail}
+                className="space-y-4 w-full max-w-lg"
+              >
                 <div>
                   <label className="block text-lg text-white mb-2 font-medium">
                     Your Name
                   </label>
                   <Input
                     type="text"
+                    name="name"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     className="border-2 border-white/40 rounded-lg w-full py-5 px-4 text-base text-white bg-transparent focus:border-[#0a91ab] focus:ring-0"
@@ -151,6 +186,7 @@ export default function ContactPage() {
                   </label>
                   <Input
                     type="email"
+                    name="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     className="border-2 border-white/40 rounded-lg w-full py-5 px-4 text-base text-white bg-transparent focus:border-[#0a91ab] focus:ring-0"
@@ -162,6 +198,7 @@ export default function ContactPage() {
                     Message
                   </label>
                   <Textarea
+                    name="message"
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     rows={5}
@@ -176,41 +213,44 @@ export default function ContactPage() {
                   Send Message
                 </Button>
               </form>
-
             </div>
 
             {/* Social Links */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="400"
-              className="mt-6 flex justify-center gap-6"
-            >
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  className="group relative"
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 100}
-                >
-                  <div
-                    className="w-14 h-14 border-2 flex items-center justify-center rounded-full"
-                    style={{ borderColor: social.color + "60" }}
-                  >
-                    <social.icon
-                      className="h-6 w-6 transition-colors duration-300"
-                      style={{ color: social.color }}
-                    />
-                  </div>
-                  <div
-                    className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ color: social.color }}
-                  >
-                    {social.name}
-                  </div>
-                </a>
-              ))}
-            </div>
+      <div
+  data-aos="fade-up"
+  data-aos-duration="600"     
+  data-aos-easing="ease-out"
+  className="mt-6 flex justify-center gap-6"
+>
+  {socialLinks.map((social, index) => (
+    <a
+      key={index}
+      href={social.url}
+      className="group relative"
+      data-aos="zoom-in"
+      data-aos-duration="400"  
+      data-aos-delay={index * 50}
+    >
+      <div
+        className="w-14 h-14 border-2 flex items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+        style={{ borderColor: social.color + "60" }}
+      >
+        <social.icon
+          className="h-6 w-6 transition-colors duration-300"
+          style={{ color: social.color }}
+        />
+      </div>
+      <div
+        className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ color: social.color }}
+      >
+        {social.name}
+      </div>
+    </a>
+  ))}
+</div>
+
+
           </div>
         </div>
       </div>
