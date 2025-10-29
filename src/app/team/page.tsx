@@ -84,11 +84,11 @@ export default function TeamPage() {
       </div>
 
       {/* Navbar */}
-      <div className="relative flex items-center justify-center mt-8 bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg rounded-2xl px-10 py-3 md:w-4/6 sm:w-4/6 lg:w-4/6 md:mx-auto z-10 w-5/6 min-h-16">
+      <div className="relative flex items-center justify-center mt-8 bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg rounded-2xl px-10 py-3 md:w-4/6 sm:w-4/6 lg:w-4/6 md:mx-auto z-10 w-5/6 min-h-16 ">
         {/* Left Scroll Button */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90"
+          className="absolute left-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90 border-highlight border-1"
         >
           <MoveLeft size={20} />
         </button>
@@ -117,7 +117,7 @@ export default function TeamPage() {
         {/* Right Scroll Button */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90"
+          className="absolute right-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90 border-highlight border-1"
         >
           <MoveRight size={20} />
         </button>

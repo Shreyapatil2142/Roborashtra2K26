@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search, X } from "lucide-react";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";
+
 interface Participant {
   id: number;
   name: string;
@@ -46,38 +47,6 @@ const participants: Participant[] = [
     color: "#ff5733",
     category: "Junior",
     competition: "Yantrostav",
-  },
-
-  // Junior - Resqulympic
-  {
-    id: 4,
-    name: "Team Codemasters",
-    position: "1st Place",
-    college: "MIT Pune",
-    image: "/images/4.jpg",
-    color: "#0a91ab",
-    category: "Junior",
-    competition: "Resqulympic",
-  },
-  {
-    id: 5,
-    name: "Team Futurists",
-    position: "2nd Place",
-    college: "COEP Pune",
-    image: "/images/1.jpg",
-    color: "#ffc045",
-    category: "Junior",
-    competition: "Resqulympic",
-  },
-  {
-    id: 6,
-    name: "Team NextGen",
-    position: "3rd Place",
-    college: "VIT Pune",
-    image: "/images/2.jpg",
-    color: "#ff5733",
-    category: "Junior",
-    competition: "Resqulympic",
   },
 
   // Senior - Yantrostav
@@ -145,15 +114,27 @@ const participants: Participant[] = [
   },
 ];
 
-
 export default function ParticipantsSection() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
-  const [competition, setCompetition] = useState<
-    "Yantrostav" | "Resqulympic"
-  >("Yantrostav");
-
+  const [competition, setCompetition] = useState<"Yantrostav" | "Resqulympic">(
+    "Yantrostav"
+  );
   const [selected, setSelected] = useState<Participant | null>(null);
+
+  // ✅ Dynamically find available competitions for the selected category
+  const availableCompetitions = Array.from(
+    new Set(
+      participants
+        .filter((p) => p.category === category)
+        .map((p) => p.competition)
+    )
+  ) as ("Yantrostav" | "Resqulympic")[];
+
+  // ✅ If current competition not available, auto-switch to the first available one
+  if (!availableCompetitions.includes(competition)) {
+    setCompetition(availableCompetitions[0]);
+  }
 
   const filtered = participants.filter(
     (p) =>
@@ -163,8 +144,8 @@ export default function ParticipantsSection() {
   );
 
   return (
-    <section className="py-15 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
-  <SidebarStrip />
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+      <SidebarStrip />
       <div className="max-w-4xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -175,7 +156,7 @@ export default function ParticipantsSection() {
             </span>
           </h2>
           <p className="text-gray-300 text-lg">
-           Meet the winning teams and finalists of past editions
+            Meet the winning teams and finalists of past editions
           </p>
         </div>
 
@@ -196,12 +177,14 @@ export default function ParticipantsSection() {
           ))}
         </div>
 
-        {/* Sub-Category Toggles */}
+        {/* Competition Toggles (Dynamic) */}
         <div className="flex justify-center gap-6 mb-10">
-          {["Yantrostav", "Resqulympic"].map((comp) => (
+          {availableCompetitions.map((comp) => (
             <button
               key={comp}
-              onClick={() => setCompetition(comp as "Yantrostav" | "Resqulympic")}
+              onClick={() =>
+                setCompetition(comp as "Yantrostav" | "Resqulympic")
+              }
               className={`px-6 py-2 rounded-md font-mono font-bold ${
                 competition === comp
                   ? "bg-[#ffc045] text-black"
@@ -239,7 +222,7 @@ export default function ParticipantsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              onClick={() => setSelected(p)} // Open popup
+              onClick={() => setSelected(p)}
             >
               {/* Image */}
               <div

@@ -29,9 +29,9 @@ export default function ClanSection() {
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + robots.length) % robots.length);
 
   return (
-    <section className="max-h-screen w-full flex flex-col items-center justify-center relative bg-transparent overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden px-4 sm:px-6 md:px-8 py-10 md:py-16">
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
-      <div className="lg:max-w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+      <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
 
         {/* LEFT COLUMN — TEXT SECTION */}
         <div

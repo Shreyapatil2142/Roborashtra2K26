@@ -55,7 +55,7 @@ export default function Sponsors() {
               alt={sponsor.name}
               width={512}
               height={512}
-              className="h-auto max-h-36 object-contain"
+              className="h-auto max-h-36 object-contain hover:scale-115 transition-transform duration-500"
             />
           <div className="absolute left-1/2 -translate-x-1/2 bottom-2 text-xs text-gray-400 font-mono">{sponsor.name}</div>
           </div>
@@ -152,21 +152,16 @@ export default function Sponsors() {
         <div data-aos="fade-up" data-aos-delay="400" className="text-center mt-16">
           <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-8 max-w-2xl mx-auto">
             <h3
-              data-aos="fade-up"
-              data-aos-delay="100"
               className="text-2xl font-bold text-white mb-4 font-mono"
             >
               JOIN OUR MISSION
             </h3>
             <p
-              data-aos="fade-up"
-              data-aos-delay="200"
               className="text-gray-300 mb-6"
             >
               Partner with us to shape the future of robotics and AI innovation
             </p>
             <button
-              data-aos="zoom-in"
               className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] hover:from-[#0a91ab]/80 hover:to-[#ffc045]/80 text-white px-8 py-3 font-mono uppercase tracking-wider transition-all duration-300"
             >
               Become a Sponsor

@@ -4,15 +4,15 @@ import { useState, useRef, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ChevronLeft, ChevronRight, Award } from "lucide-react";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { glimpses } from "../constants/glimps";
 import SidebarStrip from "@/app/components/SidebarStrip";
+import Image from "next/image";
 
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // ✅ Initialize AOS once on mount
+  // ✅ Initialize AOS once
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -38,7 +38,7 @@ export default function GlimpsPage() {
   };
 
   return (
-    <section className="min-h-screen py-5 px-6 w-screen relative overflow-hidden lg:overflow-y-hidden">
+    <section className="min-h-screen px-6 w-screen relative overflow-hidden lg:overflow-y-hidden">
       <SidebarStrip />
 
       <div className="max-w-[80%] mx-auto relative z-10 flex flex-col min-h-screen">
@@ -70,11 +70,13 @@ export default function GlimpsPage() {
             <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-[#ffc045]" />
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-[#ffc045]" />
 
-            {/* Image */}
-            <ImageWithFallback
+            {/* Image (Replaced ImageWithFallback with <img>) */}
+            <Image
               src={glimpses[activeIndex].image}
               alt={glimpses[activeIndex].title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
 
             {/* Info Overlay */}
@@ -83,7 +85,6 @@ export default function GlimpsPage() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-
               <h3 className="text-4xl font-bold text-white mb-3 font-mono">
                 {glimpses[activeIndex].title}
               </h3>
@@ -130,28 +131,31 @@ export default function GlimpsPage() {
                 ref={(el) => {
                   thumbnailRefs.current[index] = el;
                 }}
-
                 onClick={() => setActiveIndex(index)}
                 aria-label={`View glimpse ${glimpse.title}`}
                 className={`relative shrink-0 
                   h-24 w-36 md:h-28 md:w-full 
                   border-2 transition-all duration-300 group rounded
-                  ${index === activeIndex
-                    ? "border-[#ffc045] scale-105"
-                    : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
+                  ${
+                    index === activeIndex
+                      ? "border-[#ffc045] scale-105"
+                      : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
                   }
                 `}
               >
-                <ImageWithFallback
+                <Image
                   src={glimpse.image}
                   alt={glimpse.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  priority
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${index === activeIndex
-                    ? "from-[#ffc045]/40 to-[#0a91ab]/40"
-                    : "from-[#0a91ab]/20 to-[#065471]/20 group-hover:from-[#0a91ab]/40 group-hover:to-[#065471]/40"
-                    }`}
+                  className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${
+                    index === activeIndex
+                      ? "from-[#ffc045]/40 to-[#0a91ab]/40"
+                      : "from-[#0a91ab]/20 to-[#065471]/20 group-hover:from-[#0a91ab]/40 group-hover:to-[#065471]/40"
+                  }`}
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-[#022333]/80 p-2">
                   <div className="text-xs md:text-sm text-white font-mono truncate">

@@ -49,9 +49,11 @@ export default function RootLayout({
       >
         <Frame />
 
-      {/* Floating Circuit Elements */}
-      <FloatingParticles count={20} color="#0a91ab" size={7} className="opacity-30" />
-    
+        {/* Floating Circuit Elements */}
+        <div className="absolute w-full h-screen overflow-hidden">
+          <FloatingParticles count={20} color="#0a91ab" size={7} className="opacity-30" />
+        </div>
+
         <main className="relative overflow-hidden">
           <PageReloader>{children}</PageReloader>
         </main>

@@ -58,8 +58,8 @@ export default function Navbar() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`relative w-28 sm:w-36 py-3 sm:py-4 border-2 sm:border-4 border-[#0a91ab] text-white 
-                     rounded-lg font-bold text-lg sm:text-xl overflow-hidden text-center
+          className={`relative w-28 sm:w-36 py-3 sm:py-4 border-2 sm:border-4 border-[#0a91ab] text-highlight 
+                     rounded-lg font-bold text-lg sm:text-xl overflow-hidden text-center uppercase
                      ${isMobile ? "bg-transparent border-none text-2xl sm:text-xl" : "bg-black/50"}`}
         >
           {!isMobile && (

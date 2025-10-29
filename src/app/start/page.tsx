@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
       {/* Background (Video / Particles) */}
-        <Particle />
+      <Particle />
       <div className="absolute inset-0 z-5 hidden lg:block">
         {/* Optional video background */}
 
@@ -48,24 +48,38 @@ export default function HomePage() {
       </div>
 
 
-      {/* Social Media Buttons */}
       <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-10 md:text-2xl text-yellow-400">
-        <SocialMediaButton>
-          <FaFacebook />
-        </SocialMediaButton>
-        <SocialMediaButton>
-          <FaTwitter />
-        </SocialMediaButton>
-        <SocialMediaButton>
-          <FaInstagram />
-        </SocialMediaButton>
-        <SocialMediaButton>
-          <FaLinkedin />
-        </SocialMediaButton>
-        <SocialMediaButton>
-          <FaYoutube />
-        </SocialMediaButton>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <SocialMediaButton>
+            <FaFacebook />
+          </SocialMediaButton>
+        </a>
+
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <SocialMediaButton>
+            <FaTwitter />
+          </SocialMediaButton>
+        </a>
+
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <SocialMediaButton>
+            <FaInstagram />
+          </SocialMediaButton>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <SocialMediaButton>
+            <FaLinkedin />
+          </SocialMediaButton>
+        </a>
+
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <SocialMediaButton>
+            <FaYoutube />
+          </SocialMediaButton>
+        </a>
       </div>
+
     </div>
   );
 }

@@ -19,17 +19,17 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-10 relative overflow-hidden min-h-screen flex items-center justify-center">
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
 
       <SidebarStrip />
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="md:max-w-7xl max-w-3/4 mx-auto relative z-10">
 
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16">
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
             <span className="text-white">Championship_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               Events
@@ -82,7 +82,7 @@ export default function EventsPage() {
 
                 {/* Title */}
                 <div className="title w-full transition-transform duration-500 text-center mb-4">
-                  <h3 className="text-xl font-bold text-white transition-transform duration-500">
+                  <h3 className="text-xl font-bold text-white transition-transform duration-500 uppercase">
                     {event.title}
                   </h3>
                   <span className={`mt-2 inline-block px-3 py-1 rounded-full border text-xs font-semibold border-[${event.glowColor}] text-[${event.glowColor}]`}>

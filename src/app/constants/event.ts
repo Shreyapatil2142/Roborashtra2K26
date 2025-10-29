@@ -1,7 +1,7 @@
 export const events = [
   {
     id: 1,
-    title: "Yantrostav",
+    title: "Yantrautsav",
     category: "Combat",
     description: "Ultimate robot combat arena where steel meets strategy",
     date: "March 15, 2025",
@@ -17,7 +17,7 @@ export const events = [
   },
   {
     id: 2,
-    title: "Resqolympic",
+    title: "Resqlympics",
     category: "Speed",
     description:
       "High-speed autonomous navigation through challenging circuits",
@@ -34,7 +34,7 @@ export const events = [
   },
   {
     id: 3,
-    title: "Chakravyuv",
+    title: "Chakravyuh",
     category: "Intelligence",
     description: "Showcase cutting-edge AI algorithms and machine learning",
     date: "March 17, 2025",

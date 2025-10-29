@@ -31,16 +31,16 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <section className="min-h-screen w-screen relative overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-y-hidden">
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
 
-      <div className="w-3/5 h-full max-w-7xl mx-auto mb-20 relative z-10">
+      <div className="w-3/4 h-full max-w-7xl mx-auto mb-20 relative z-10">
         {/* Section Header */}
         <div
           data-aos="fade-up"
           className="text-center mb-10"
         >
-          <h2 className="text-5xl md:text-6xl mt-15 font-bold mb-6 font-mokoto tracking-widest">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
             <span className="text-white">ESTABLISH_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               CONTACT
