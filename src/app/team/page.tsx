@@ -1,19 +1,34 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TeamCard from "@/app/components/TeamCards";
 import { teamData } from "../constants/TeamData";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SidebarStrip from "@/app/components/SidebarStrip";
+import { MoveRight, MoveLeft } from "lucide-react";
 
 export default function TeamPage() {
   const categories = Object.keys(teamData) as (keyof typeof teamData)[];
   const [activeCategory, setActiveCategory] = useState<keyof typeof teamData>(categories[0]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 200; // adjust for faster/slower scroll
+    const newScroll =
+      direction === "left"
+        ? scrollRef.current.scrollLeft - scrollAmount
+        : scrollRef.current.scrollLeft + scrollAmount;
+
+    scrollRef.current.scrollTo({
+      left: newScroll,
+      behavior: "smooth",
+    });
+  }; // ← this closing brace was missing
 
   return (
-    <>
+    <div className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       {/* Background Grid */}
-      {/* Top-left Background */}
       <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
         <Image
           src="/images/teamPageBG1.png"
@@ -24,7 +39,6 @@ export default function TeamPage() {
         />
       </div>
 
-      {/* Bottom-right Background */}
       <div className="absolute bottom-0 right-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
         <Image
           src="/images/teamPageBG2.png"
@@ -37,63 +51,84 @@ export default function TeamPage() {
 
       {/* Hero Heading Section */}
       <div className="flex flex-col items-center z-20 mt-6 md:mt-8 text-center px-4">
-         <SidebarStrip />
+        <SidebarStrip />
         <div className="flex items-center gap-2 sm:gap-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-6 h-full flex flex-col justify-center pr-2"
-        >
-          <h2 className="font-bold mb-4 mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-            <span className="text-white">OUR_</span>
-            <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
-              TEAM
-            </span>
-          </h2>
-
           <motion.div
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 3, repeat: Infinity }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-6 h-full flex flex-col justify-center pr-2"
           >
-            <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2 selection:bg-[#0a91ab] selection:text-yellow-300">
-          Meet our amazing <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
-          <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
-          <span className="text-yellow-300 font-semibold">co-leads!</span>
-        </p>
-          </motion.div>
-        </motion.div>
+            <h2 className="font-bold mb-4 mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <span className="text-white">OUR_</span>
+              <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
+                TEAM
+              </span>
+            </h2>
 
+            <motion.div
+              className="text-xl text-gray-300 max-w-3xl mx-auto"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <p className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl text-gray-200 px-2 selection:bg-[#0a91ab] selection:text-yellow-300">
+                Meet our amazing{" "}
+                <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
+                <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
+                <span className="text-yellow-300 font-semibold">co-leads!</span>
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] 
-  bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg
-  rounded-2xl px-4 py-3 mt-8 flex space-x-3 overflow-x-auto no-scrollbar 
-  text-xm font-semibold md:w-fit sm:w-fit md:mx-auto z-20 w-full">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300 
-        ${activeCategory === cat
-                ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
-                : "text-white hover:text-yellow-300 hover:bg-white/10"
-              }`}
-          >
-            {cat.replace(/([A-Z])/g, " $1").trim()}
-          </button>
-        ))}
-      </nav>
+      <div className="relative flex items-center justify-center mt-8 bg-gradient-to-r from-[#065471] via-[#097BA5] to-[#0BA0D7] bg-opacity-60 backdrop-blur-md backdrop-saturate-150 shadow-lg rounded-2xl px-10 py-3 md:w-4/6 sm:w-4/6 lg:w-4/6 md:mx-auto z-10 w-5/6 min-h-16">
+        {/* Left Scroll Button */}
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90"
+        >
+          <MoveLeft size={20} />
+        </button>
+
+        {/* Navbar */}
+        <nav
+          ref={scrollRef}
+          className="flex space-x-3 overflow-x-auto no-scrollbar text-sm font-semibold scroll-smooth px-4"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300 
+                ${
+                  activeCategory === cat
+                    ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
+                    : "text-white hover:text-yellow-300 hover:bg-white/10"
+                }`}
+            >
+              {cat.replace(/([A-Z])/g, " $1").trim()}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right Scroll Button */}
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90"
+        >
+          <MoveRight size={20} />
+        </button>
+      </div>
 
       {/* Heading */}
-      <h1 className="text-2xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text 
-      text-transparent sm:text-3xl md:text-4xl font-mortend mt-12 z-20
-       tracking-wide uppercase text-center px-2 mb-4">
-              
+      <h1
+        className="text-2xl bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text 
+        text-transparent sm:text-3xl md:text-4xl font-mortend mt-12 z-10
+        tracking-wide uppercase text-center px-2 mb-4"
+      >
         {activeCategory.replace(/([A-Z])/g, " $1").trim()} Team
       </h1>
 
@@ -103,6 +138,6 @@ export default function TeamPage() {
           <TeamCard key={index} {...member} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

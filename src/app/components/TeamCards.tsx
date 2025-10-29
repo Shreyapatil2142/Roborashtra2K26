@@ -22,9 +22,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
 }) => {
   return (
     <div
-      className="relative w-[85vw] max-w-[320px] sm:max-w-[340px] md:max-w-[360px] 
-                 lg:max-w-[380px] xl:max-w-[400px] h-[420px] sm:h-[440px] md:h-[460px] 
-                 flex flex-col items-center justify-center py-4 sm:py-6"
+      className="relative w-[85vw] max-w-[320px] sm:max-w-[340px] md:max-w-[360px] lg:max-w-[380px] xl:max-w-[400px] h-[360px] sm:h-[380px] md:h-[400px] lg:h-[460px] flex flex-col items-center justify-center py-4 sm:py-6"
     >
       {/* Background Card Shape */}
       <div className="absolute inset-0">
@@ -32,7 +30,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
           src="/images/teambg.png"
           alt="Card Background"
           fill
-          className="object-contain select-none pointer-events-none"
+          className="object-contain select-none pointer-events-none z-10 absolute"
           priority
         />
       </div>

@@ -93,9 +93,9 @@ export default function Navbar() {
       <div className="lg:hidden absolute top-6 right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white text-3xl focus:outline-none"
+          className="p-3 bg-[#0a91ab]/80 rounded-xl border border-white/10 text-white shadow-lg backdrop-blur-xl"
         >
-          {isOpen ? <FiX /> : <FiMenu />}
+          {isOpen ? <FiX size={24}/> : <FiMenu size={24}/>}
         </button>
       </div>
 
