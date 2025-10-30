@@ -76,21 +76,6 @@ export default function EventsPage() {
                   />
                 </div>
 
-
-
-
-                {/* Title */}
-                <div className="title w-full transition-transform duration-500 text-center mb-4">
-                  <h3 className="text-xl font-bold text-white uppercase">
-                    {event.title}
-                  </h3>
-                  <span
-                    className={`mt-2 inline-block px-3 py-1 rounded-full border text-xs font-semibold border-[${event.glowColor}] text-[${event.glowColor}]`}
-                  >
-                    {event.category}
-                  </span>
-                </div>
-
                 {/* Details */}
                 <div
                   className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? "opacity-100" : "opacity-0"
