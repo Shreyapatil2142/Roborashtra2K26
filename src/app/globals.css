@@ -278,3 +278,7 @@
 .animate-float {
   animation: float linear infinite;
 }
+
+*{
+  cursor:url("../../public/cursor-icon.png"),pointer;
+}

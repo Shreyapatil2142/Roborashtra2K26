@@ -32,7 +32,7 @@ const menuItemVariants: Variants = {
     transition: {
       delay: custom * 0.1,
       duration: 0.3,
-      ease: ["easeInOut"], // ✅ Correct TS type (array)
+      ease: ["easeInOut"],
     },
   }),
 };
