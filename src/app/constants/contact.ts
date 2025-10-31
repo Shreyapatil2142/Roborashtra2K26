@@ -17,6 +17,8 @@ export const contactInfo = [
   },
 ];
 
+
+
 export const socialLinks = [
   { icon: Facebook, name: "Facebook", url: "#", color: "#0a91ab" },
   { icon: Twitter, name: "Twitter", url: "#", color: "#ffc045" },

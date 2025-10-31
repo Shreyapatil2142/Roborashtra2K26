@@ -11,9 +11,9 @@ export default function FogCursor() {
         canvas.style.top = "0";
         canvas.style.left = "0";
         canvas.style.pointerEvents = "none";
-        canvas.style.zIndex = "2147483647"; // the max safe z-index
-        canvas.style.mixBlendMode = "screen"; // makes it glow naturally over dark backgrounds
-        canvas.style.filter = "blur(7px)"; // optional soft fog look
+        canvas.style.zIndex = "2147483647";
+        canvas.style.mixBlendMode = "screen"; 
+        canvas.style.filter = "blur(7px)"; 
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
