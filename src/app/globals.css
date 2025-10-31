@@ -300,6 +300,6 @@
   animation: float linear infinite;
 }
 
-/* *{
-  cursor:url("../../public/cursor-icon2.png") 20 10,pointer;
-} */
+*{
+  cursor:url("../../public/cursor-icon.png") 25 10,pointer;
+}

@@ -19,7 +19,8 @@ export default function HomePage() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
       {/* Background (Video / Particles) */}
-      {isMobile ? <Particle /> : <FogCursor />}
+      {/* {isMobile ? <Particle /> : <FogCursor />} */}
+      {isMobile ? <Particle />  :<></>}
       <div className="absolute inset-0 z-5 hidden lg:block">
         {/* Optional video background */}
 

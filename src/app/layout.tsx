@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import ClientLayout from "./client-layout";
 import FogCursor from "@/app/components/FogCursor";
+import { RoboticHandCursor } from "./components/RoboticHandCursor";
 
 
 const MokotoDemo = localFont({
@@ -33,7 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${MokotoDemo.variable} ${MortendBold.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="antialiased">
-        <FogCursor />
+        {/* <FogCursor /> */}
+        <RoboticHandCursor />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
