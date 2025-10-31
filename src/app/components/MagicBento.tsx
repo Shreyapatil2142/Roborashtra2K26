@@ -20,10 +20,10 @@ const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
 
 const imagePaths = [
+  "/glimps/robo1.JPG",
   "/images/img.jpg",
-  "/images/img.jpg",
-  "/images/img.jpg",
-  "/images/img.jpg",
+  "/glimps/robo1.JPG",
+  "/glimps/robo4.JPG",
   "/images/img.jpg",
   "/images/img.jpg",
 ];
