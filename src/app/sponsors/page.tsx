@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Star, Zap } from "lucide-react";
+import { Star } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";

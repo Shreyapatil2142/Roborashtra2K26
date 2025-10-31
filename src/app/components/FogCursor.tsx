@@ -18,8 +18,7 @@ export default function FogCursor() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const particles: any[] = [];
-        const particleCount = 40;
+        const particles: Particle[] = [];
 
         class Particle {
             x: number; y: number; alpha: number; size: number; speedX: number; speedY: number;

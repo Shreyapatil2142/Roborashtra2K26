@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import ParticleLogo from "./ParticleLogo";
 
 export default function Frame() {
   return (

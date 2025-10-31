@@ -8,7 +8,6 @@ import {
   Calendar,
   FileImage,
   Phone,
-  UserPlus,
   HeartHandshake,
   Users,
   HelpCircle,
@@ -32,11 +31,10 @@ const menuItems = [
 ];
 
 export default function SidebarStrip() {
-  const [expanded, setExpanded] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isExpanded = hovered || expanded;
+  const isExpanded = hovered || false;
 
   return (
     <>

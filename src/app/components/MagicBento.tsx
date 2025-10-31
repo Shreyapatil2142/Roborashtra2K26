@@ -13,20 +13,12 @@ export interface BentoProps {
   glowColor?: string;
   clickEffect?: boolean;
   enableMagnetism?: boolean;
+  images?: string[];
 }
 
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "132, 0, 255";
 const MOBILE_BREAKPOINT = 768;
-
-const imagePaths = [
-  "/glimps/robo1.JPG",
-  "/images/img.jpg",
-  "/glimps/robo1.JPG",
-  "/glimps/robo4.JPG",
-  "/images/img.jpg",
-  "/images/img.jpg",
-];
 
 const calculateSpotlightValues = (radius: number) => ({
   proximity: radius * 0.5,
@@ -62,9 +54,12 @@ const GlobalSpotlight: React.FC<{
   enabled = true,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   glowColor = DEFAULT_GLOW_COLOR,
+  
 }) => {
     const spotlightRef = useRef<HTMLDivElement | null>(null);
     const isInsideSection = useRef(false);
+    
+
 
     useEffect(() => {
       if (disableAnimations || !gridRef?.current || !enabled) return;
@@ -207,7 +202,7 @@ const BentoCardGrid: React.FC<{
   gridRef?: React.RefObject<HTMLDivElement | null>;
 }> = ({ children, gridRef }) => (
   <div
-    className="bento-section grid gap-2 p-3 max-w-[54rem] select-none relative"
+    className="bento-section grid gap-2 p-3 max-w-full select-none relative"
     ref={gridRef}
   >
     {children}
@@ -235,10 +230,12 @@ const MagicBento: React.FC<BentoProps> = ({
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   glowColor = DEFAULT_GLOW_COLOR,
+  images = [],
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
+  const imagePaths = images && images.length > 0 ? images : [];
 
   return (
     <>
@@ -342,22 +339,17 @@ const MagicBento: React.FC<BentoProps> = ({
         />
       )}
 
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full flex items-center justify-center min-h-screen">
         <BentoCardGrid gridRef={gridRef}>
-          <div className="card-responsive grid gap-2">
+          <div className="w-full card-responsive grid gap-2">
             {imagePaths.map((path, index) => {
               const baseClassName = `card relative aspect-[4/3] min-h-[300px] w-full max-w-full rounded-[20px]
-             border border-solid overflow-hidden transition-all duration-300 ease-in-out 
-             hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""
-                }`;
+     border border-solid overflow-hidden transition-all duration-300 ease-in-out 
+     hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${enableBorderGlow ? "card--border-glow" : ""}`;
 
               const cardStyle = {
                 backgroundColor: "var(--background-dark)",
                 borderColor: "var(--border-color)",
-                "--glow-x": "50%",
-                "--glow-y": "50%",
-                "--glow-intensity": "0",
-                "--glow-radius": "200px",
               } as React.CSSProperties;
 
               return (
@@ -371,6 +363,7 @@ const MagicBento: React.FC<BentoProps> = ({
                 </div>
               );
             })}
+
           </div>
 
         </BentoCardGrid>

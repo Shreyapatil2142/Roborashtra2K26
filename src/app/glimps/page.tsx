@@ -40,12 +40,12 @@ export default function GlimpsPage() {
 
 
   return (
-    <section className="min-h-screen px-6 w-screen relative overflow-hidden lg:overflow-y-hidden">
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
 
-      <div className="max-w-[80%] mx-auto relative z-10 flex flex-col min-h-screen">
+      <div className="w-[80%] mx-auto relative z-10 flex flex-col min-h-screen gap-16">
         {/* Header Section */}
-        <div data-aos="fade-up" className="text-center mb-16">
+        <div data-aos="fade-up" className="text-center">
           <h2 className="mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="text-white">ARCHIVE_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
@@ -169,7 +169,7 @@ export default function GlimpsPage() {
               </button>
             ))}
           </div>
-          
+
         </div>
 
         {activeGlimpse !== null && (
@@ -181,8 +181,10 @@ export default function GlimpsPage() {
             clickEffect={true}
             spotlightRadius={300}
             glowColor="255, 192 ,69"
+            images={glimpses[activeIndex].images}
           />
         )}
+
 
       </div>
     </section>
