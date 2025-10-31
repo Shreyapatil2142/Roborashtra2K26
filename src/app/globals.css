@@ -67,32 +67,53 @@
 
 /* Glimpse page css */
 /* Flashy Neon Yellow + Blue Scrollbar */
-.thumbnail-scroll::-webkit-scrollbar {
+/* ==== GLOBAL SCROLLBAR STYLING ==== */
+::-webkit-scrollbar {
   width: 12px;
 }
 
-.thumbnail-scroll::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.thumbnail-scroll::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: linear-gradient(180deg, #ffc045, #0a91ab);
   box-shadow: 0 0 10px #ffc045, 0 0 20px #0a91ab, 0 0 40px #ffc045;
   animation: neonPulse 1.5s infinite alternate;
 }
 
-.thumbnail-scroll::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #0a91ab, #ffc045);
   box-shadow: 0 0 20px #0a91ab, 0 0 40px #ffc045, 0 0 60px #0a91ab;
   animation: neonPulseFast 0.8s infinite alternate;
 }
 
-/* Firefox */
-.thumbnail-scroll {
+/* Firefox support */
+* {
   scrollbar-width: thin;
   scrollbar-color: #ffc045 #0a91ab;
 }
+
+/* Animations */
+@keyframes neonPulse {
+  from {
+    box-shadow: 0 0 10px #ffc045, 0 0 20px #0a91ab, 0 0 40px #ffc045;
+  }
+  to {
+    box-shadow: 0 0 20px #0a91ab, 0 0 40px #ffc045, 0 0 60px #0a91ab;
+  }
+}
+
+@keyframes neonPulseFast {
+  from {
+    box-shadow: 0 0 20px #0a91ab, 0 0 40px #ffc045, 0 0 60px #0a91ab;
+  }
+  to {
+    box-shadow: 0 0 30px #ffc045, 0 0 60px #0a91ab, 0 0 90px #ffc045;
+  }
+}
+
 
 /* Keyframes for flashing effect */
 @keyframes neonPulse {
@@ -279,6 +300,6 @@
   animation: float linear infinite;
 }
 
-*{
-  cursor:url("../../public/cursor-icon.png") 25 10,pointer;
-}
+/* *{
+  cursor:url("../../public/cursor-icon2.png") 20 10,pointer;
+} */
