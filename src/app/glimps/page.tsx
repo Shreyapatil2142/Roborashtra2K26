@@ -43,7 +43,7 @@ export default function GlimpsPage() {
     <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
 
-      <div className="w-[80%] mx-auto relative z-10 flex flex-col min-h-screen gap-16">
+      <div className="w-[80%] mx-auto relative z-10 flex flex-col gap-16">
         {/* Header Section */}
         <div data-aos="fade-up" className="text-center">
           <h2 className="mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
