@@ -7,17 +7,18 @@ import { ChevronLeft, ChevronRight, Award } from "lucide-react";
 import { glimpses } from "../constants/glimps";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";
+import MagicBento from "@/app/components/MagicBento";
 
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [activeGlimpse, setActiveGlimpse] = useState<number | null>(null);
 
   // ✅ Initialize AOS once
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // ✅ Scroll to active thumbnail when index changes
   useEffect(() => {
     const activeThumb = thumbnailRefs.current[activeIndex];
     if (activeThumb) {
@@ -36,6 +37,7 @@ export default function GlimpsPage() {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + glimpses.length) % glimpses.length);
   };
+
 
   return (
     <section className="min-h-screen px-6 w-screen relative overflow-hidden lg:overflow-y-hidden">
@@ -131,15 +133,18 @@ export default function GlimpsPage() {
                 ref={(el) => {
                   thumbnailRefs.current[index] = el;
                 }}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => {
+                  setActiveIndex(index);
+                  setActiveGlimpse(glimpse.id);
+                }}
+
                 aria-label={`View glimpse ${glimpse.title}`}
                 className={`relative shrink-0 
                   h-24 w-36 md:h-28 md:w-full 
                   border-2 transition-all duration-300 group rounded
-                  ${
-                    index === activeIndex
-                      ? "border-[#ffc045] scale-105"
-                      : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
+                  ${index === activeIndex
+                    ? "border-[#ffc045] scale-105"
+                    : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
                   }
                 `}
               >
@@ -151,11 +156,10 @@ export default function GlimpsPage() {
                   priority
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${
-                    index === activeIndex
-                      ? "from-[#ffc045]/40 to-[#0a91ab]/40"
-                      : "from-[#0a91ab]/20 to-[#065471]/20 group-hover:from-[#0a91ab]/40 group-hover:to-[#065471]/40"
-                  }`}
+                  className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${index === activeIndex
+                    ? "from-[#ffc045]/40 to-[#0a91ab]/40"
+                    : "from-[#0a91ab]/20 to-[#065471]/20 group-hover:from-[#0a91ab]/40 group-hover:to-[#065471]/40"
+                    }`}
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-[#022333]/80 p-2">
                   <div className="text-xs md:text-sm text-white font-mono truncate">
@@ -165,7 +169,21 @@ export default function GlimpsPage() {
               </button>
             ))}
           </div>
+          
         </div>
+
+        {activeGlimpse !== null && (
+          <MagicBento
+            key={activeGlimpse}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            glowColor="255, 192 ,69"
+          />
+        )}
+
       </div>
     </section>
   );

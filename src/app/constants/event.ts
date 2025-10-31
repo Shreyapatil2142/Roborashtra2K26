@@ -12,8 +12,8 @@ export const events = [
     icon: "⚡",
     gradient: "from-[#0a91ab] to-[#065471]",
     glowColor: "#0a91ab",
-    coverImage: "/events/res2.svg",
-    hoverImage: "/events/res1.svg",
+    coverImage: "/events/yan2.svg",
+    hoverImage: "/events/yan1.svg",
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ export const events = [
     gradient: "from-[#9333ea] to-[#7c3aed]",
     glowColor: "#0a91ab",
     coverImage:
-      "/events/res2.svg",
- hoverImage: "/events/res1.svg",
+      "/events/c2.svg",
+ hoverImage: "/events/c1.svg",
     },
 ];
