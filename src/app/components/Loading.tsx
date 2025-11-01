@@ -7,8 +7,8 @@ const Loading: React.FC = () => {
   useEffect(() => {
     // Total duration = 3s
     const timers = [
-      setTimeout(() => setPhase("name"), 2000), // flash → name at 1s
-      setTimeout(() => setPhase("final"), 3000), // name → final at 3s
+      setTimeout(() => setPhase("name"), 2000), 
+      setTimeout(() => setPhase("final"), 3000), 
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -37,7 +37,7 @@ const Loading: React.FC = () => {
 
       {/* === PHASE 2 — Text Light Sweep (same as logo) === */}
       <h1
-        className={`absolute text-white/65 text-6xl font-mokoto tracking-widest transition-opacity duration-400 ${
+        className={`absolute text-white/65 md:text-6xl text-4xl font-mokoto tracking-widest transition-opacity duration-400 ${
           phase === "name" ? "opacity-100" : "opacity-0"
         }`}
         style={{

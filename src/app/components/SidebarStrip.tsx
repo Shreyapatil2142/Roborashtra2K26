@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { label: "Home", icon: <Home size={18} />, href: "/" },
+  { label: "Home", icon: <Home size={18} />, href: "/start" },
   { label: "About", icon: <Info size={18} />, href: "/about" },
   { label: "Events", icon: <Calendar size={18} />, href: "/events" },
   { label: "Gallery", icon: <FileImage size={18} />, href: "/glimps" },

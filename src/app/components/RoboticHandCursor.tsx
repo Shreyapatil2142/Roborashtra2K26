@@ -23,7 +23,7 @@ export function RoboticHandCursor() {
   const [trailParticles, setTrailParticles] = useState<TrailParticle[]>([]);
   const [energyFlow, setEnergyFlow] = useState(0);
   const lastPositionRef = useRef({ x: 0, y: 0 });
-  const moveTimeoutRef = useRef<NodeJS.Timeout>();
+  const moveTimeoutRef = useRef<NodeJS.Timeout>(setTimeout(() => {}, 150));
   const idleTimeRef = useRef(0);
   const audioContextRef = useRef<AudioContext | null>(null);
   const particleIdRef = useRef(0);

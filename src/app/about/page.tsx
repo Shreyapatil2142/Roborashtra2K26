@@ -6,16 +6,20 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { robots, achievements } from "../constants/about";
 import SidebarStrip from "../components/SidebarStrip";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function ClanSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     AOS.init({
       duration: 800,
       once: true,
       easing: "ease-in-out",
+      offset: -150,     // start animation 100px before element comes into view
     });
+    AOS.refresh();
   }, []);
 
   useEffect(() => {
@@ -25,9 +29,28 @@ export default function ClanSection() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    let loadedCount = 0;
+    const totalImages = robots.length;
+    robots.forEach((robot) => {
+      const img = new window.Image();
+      img.src = robot.image;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          // Add a short delay for smoothness
+          setTimeout(() => setLoading(false), 800);
+        }
+      };
+    });
+  }, []);
+
   const nextSlide = () => setActiveIndex((prev) => (prev + 1) % robots.length);
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + robots.length) % robots.length);
-
+  
+  if (loading) {
+    return <LoadingScreen />;
+  }
   return (
     <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
@@ -167,8 +190,8 @@ export default function ClanSection() {
                 key={robot.id}
                 onClick={() => setActiveIndex(index)}
                 className={`relative h-16 sm:h-20 overflow-hidden border-2 rounded-md transition-all duration-300 ${index === activeIndex
-                    ? "border-[#ffc045] scale-105"
-                    : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
+                  ? "border-[#ffc045] scale-105"
+                  : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
                   }`}
               >
                 <Image

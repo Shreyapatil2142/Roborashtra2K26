@@ -4,7 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import ClientLayout from "./client-layout";
 import FogCursor from "@/app/components/FogCursor";
-import { RoboticHandCursor } from "./components/RoboticHandCursor";
+
+
 
 
 const MokotoDemo = localFont({
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  
   return (
     <html
       lang="en"
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="antialiased">
         {/* <FogCursor /> */}
-        <RoboticHandCursor />
+        
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

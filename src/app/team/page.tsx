@@ -90,7 +90,7 @@ export default function TeamPage() {
           onClick={() => scroll("left")}
           className="absolute left-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90 border-highlight border-1"
         >
-          <MoveLeft size={20} />
+          <MoveLeft size={20} className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400 group-hover:text-white" />
         </button>
 
         {/* Navbar */}
@@ -119,7 +119,7 @@ export default function TeamPage() {
           onClick={() => scroll("right")}
           className="absolute right-2 z-20 bg-[#065471] bg-opacity-70 hover:bg-opacity-90 text-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:bg-[#065471]/90 border-highlight border-1"
         >
-          <MoveRight size={20} />
+          <MoveRight size={20} className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400 group-hover:text-white"/>
         </button>
       </div>
 

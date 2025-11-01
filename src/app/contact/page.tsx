@@ -55,7 +55,8 @@ export default function ContactPage() {
   };
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, once: true, offset: -250 });
+    AOS.refresh();
   }, []);
 
   return (

@@ -11,11 +11,13 @@ export default function EventsPage() {
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({
+    AOS.init({  
       duration: 800,  // animation duration
       once: true,     // animate only once
-      easing: "ease-in-out"
+      easing: "ease-in-out",
+      offset: -150,     // start animation 100px before element comes into view
     });
+    AOS.refresh();
   }, []);
 
   return (

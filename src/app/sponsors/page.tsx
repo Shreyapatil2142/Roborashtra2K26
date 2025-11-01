@@ -11,6 +11,7 @@ export type Tier = "title" | "platinum" | "gold" | "silver";
 export default function Sponsors() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+    AOS.refresh();
   }, []);
 
   interface SponsorCardProps {
@@ -81,7 +82,7 @@ export default function Sponsors() {
           <h2
             data-aos="fade-up"
             data-aos-delay="100"
-            className="text-5xl font-mokoto tracking-widest font-bold mb-4"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6"
           >
             <span className="text-white">POWER_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">

@@ -8,15 +8,18 @@ import { glimpses } from "../constants/glimps";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";
 import MagicBento from "@/app/components/MagicBento";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [activeGlimpse, setActiveGlimpse] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
   // ✅ Initialize AOS once
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
+    AOS.refresh();
   }, []);
 
   useEffect(() => {
@@ -30,6 +33,35 @@ export default function GlimpsPage() {
     }
   }, [activeIndex]);
 
+   // ✅ Preload ALL images from glimpses (main + extra)
+  useEffect(() => {
+    if (!glimpses || glimpses.length === 0) return;
+
+    let allImageUrls: string[] = [];
+
+    glimpses.forEach((glimpse) => {
+      if (glimpse.image) allImageUrls.push(glimpse.image); // main image
+      if (glimpse.images && Array.isArray(glimpse.images)) {
+        allImageUrls = [...allImageUrls, ...glimpse.images]; // gallery images
+      }
+    });
+
+    let loadedCount = 0;
+    const totalImages = allImageUrls.length;
+
+    allImageUrls.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          // Add small delay for smooth fade-out
+          setTimeout(() => setLoading(false), 700);
+        }
+      };
+    });
+  }, []);
+
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % glimpses.length);
   };
@@ -38,6 +70,9 @@ export default function GlimpsPage() {
     setActiveIndex((prev) => (prev - 1 + glimpses.length) % glimpses.length);
   };
 
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
