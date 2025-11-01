@@ -13,9 +13,9 @@ export const participants: Participant[] = [
   // Junior - Yantrostav
   {
     id: 1,
-    name: "Team Innovators",
+    name: "Ranveersing Rajput and Team",
     position: "1st Place",
-    college: "PCCoER Pune",
+    college: "",
     image: "/images/1.jpg",
     color: "#0a91ab",
     category: "Junior",
@@ -23,9 +23,9 @@ export const participants: Participant[] = [
   },
   {
     id: 2,
-    name: "Team Visionaries",
+    name: "Arjun Anand Arbuj and Team",
     position: "2nd Place",
-    college: "SPPU",
+    college: "",
     image: "/images/2.jpg",
     color: "#ffc045",
     category: "Junior",
@@ -33,9 +33,9 @@ export const participants: Participant[] = [
   },
   {
     id: 3,
-    name: "Team Pioneers",
+    name: "Team War Machine",
     position: "3rd Place",
-    college: "DY Patil Pune",
+    college: "",
     image: "/images/3.jpg",
     color: "#ff5733",
     category: "Junior",
@@ -45,9 +45,9 @@ export const participants: Participant[] = [
   // Senior - Yantrostav
   {
     id: 7,
-    name: "Team Alpha",
+    name: "Team Pinnnacle Minds",
     position: "1st Place",
-    college: "COEP Pune",
+    college: "Rajarajeswari College of Engineering, Bengaluru",
     image: "/images/3.jpg",
     color: "#0a91ab",
     category: "Senior",
@@ -55,9 +55,9 @@ export const participants: Participant[] = [
   },
   {
     id: 8,
-    name: "Team Beta",
+    name: "Team No-BOT",
     position: "2nd Place",
-    college: "PICT Pune",
+    college: "Dr. D. Y. Patil College of Engineering (DYPCOE), Akurdi, Pune",
     image: "/images/4.jpg",
     color: "#ffc045",
     category: "Senior",
@@ -65,9 +65,9 @@ export const participants: Participant[] = [
   },
   {
     id: 9,
-    name: "Team Gamma",
+    name: "Team Roboyuush",
     position: "3rd Place",
-    college: "AIT Pune",
+    college: "Walchand College of Engineering (WCE), Sangli",
     image: "/images/1.jpg",
     color: "#ff5733",
     category: "Senior",
@@ -77,9 +77,9 @@ export const participants: Participant[] = [
   // Senior - Resqulympic
   {
     id: 10,
-    name: "Team Delta",
+    name: "Team UVIRA3",
     position: "1st Place",
-    college: "DY Patil Pune",
+    college: "KPR Institute of Engineering and Technology (KPRIET), Coimbatore",
     image: "/images/2.jpg",
     color: "#0a91ab",
     category: "Senior",
@@ -87,9 +87,9 @@ export const participants: Participant[] = [
   },
   {
     id: 11,
-    name: "Team Sigma",
+    name: "Samyank Ghangale and Team",
     position: "2nd Place",
-    college: "MIT Pune",
+    college: "Dr. D. Y. Patil College of Engineering (DYPCOE), Akurdi, Pune",
     image: "/images/3.jpg",
     color: "#ffc045",
     category: "Senior",
@@ -97,9 +97,9 @@ export const participants: Participant[] = [
   },
   {
     id: 12,
-    name: "Team Omega",
+    name: "Team UVIRA Z",
     position: "3rd Place",
-    college: "SPPU",
+    college: "KPR Institute of Engineering and Technology (KPRIET), Coimbatore",
     image: "/images/4.jpg",
     color: "#ff5733",
     category: "Senior",

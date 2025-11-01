@@ -8,36 +8,32 @@ import { participants, Participant } from "@/app/constants/participants";
 
 export default function ParticipantsSection() {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
   const [competition, setCompetition] = useState<"Yantrostav" | "Resqulympic">(
     "Yantrostav"
   );
+  const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
   const [selected, setSelected] = useState<Participant | null>(null);
 
-  // ✅ Dynamically find available competitions for the selected category
-  const availableCompetitions = Array.from(
-    new Set(
-      participants
-        .filter((p) => p.category === category)
-        .map((p) => p.competition)
-    )
-  ) as ("Yantrostav" | "Resqulympic")[];
-
-useEffect(() => {
-  if (!availableCompetitions.includes(competition)) {
-    setCompetition(availableCompetitions[0]);
-  }
-}, [availableCompetitions, competition]);
-
-  const filtered = participants.filter(
-    (p) =>
-      p.category === category &&
-      p.competition === competition &&
-      p.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // ✅ Compute filtered participants
+  const filtered = participants.filter((p) => {
+    if (competition === "Resqulympic") {
+      // Resqulympic has no categories
+      return (
+        p.competition === "Resqulympic" &&
+        p.name.toLowerCase().includes(search.toLowerCase())
+      );
+    } else {
+      // Yantrostav has Junior / Senior
+      return (
+        p.competition === "Yantrostav" &&
+        p.category === category &&
+        p.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+  });
 
   return (
-    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+    <section className="w-full min-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
       <div className="max-w-4xl relative z-10">
         {/* Header */}
@@ -53,41 +49,41 @@ useEffect(() => {
           </p>
         </div>
 
-        {/* Category Toggles */}
+        {/* Competition Selection */}
         <div className="flex justify-center gap-6 mb-6">
-          {["Junior", "Senior"].map((c) => (
-            <button
-              key={c}
-              onClick={() => setCategory(c as "Junior" | "Senior")}
-              className={`px-6 py-2 rounded-md font-mono font-bold ${
-                category === c
-                  ? "bg-[#0a91ab] text-white"
-                  : "bg-[#022333]/50 border border-gray-600 text-gray-300"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-
-        {/* Competition Toggles (Dynamic) */}
-        <div className="flex justify-center gap-6 mb-10">
-          {availableCompetitions.map((comp) => (
+          {["Yantrostav", "Resqulympic"].map((comp) => (
             <button
               key={comp}
-              onClick={() =>
-                setCompetition(comp as "Yantrostav" | "Resqulympic")
-              }
-              className={`px-6 py-2 rounded-md font-mono font-bold ${
+              onClick={() => setCompetition(comp as "Yantrostav" | "Resqulympic")}
+              className={`px-6 py-2 rounded-md font-mono font-bold transition-all ${
                 competition === comp
-                  ? "bg-[#ffc045] text-black"
-                  : "bg-[#022333]/50 border border-gray-600 text-gray-300"
+                  ? "bg-[#ffc045] text-black scale-105"
+                  : "bg-[#022333]/50 border border-gray-600 text-gray-300 hover:bg-[#0a91ab]/30"
               }`}
             >
               {comp}
             </button>
           ))}
         </div>
+
+        {/* Category Toggles (only for Yantrostav) */}
+        {competition === "Yantrostav" && (
+          <div className="flex justify-center gap-6 mb-10">
+            {["Junior", "Senior"].map((c) => (
+              <button
+                key={c}
+                onClick={() => setCategory(c as "Junior" | "Senior")}
+                className={`px-6 py-2 rounded-md font-mono font-bold transition-all ${
+                  category === c
+                    ? "bg-[#0a91ab] text-white scale-105"
+                    : "bg-[#022333]/50 border border-gray-600 text-gray-300 hover:bg-[#0a91ab]/30"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Search */}
         <div className="flex justify-center mb-10">
@@ -105,51 +101,57 @@ useEffect(() => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {filtered.map((p, index) => (
-            <motion.div
-              key={p.id}
-              className="relative group p-6 border-2 rounded-xl backdrop-blur-sm overflow-hidden bg-[#022333]/60 cursor-pointer"
-              style={{ borderColor: p.color + "60" }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelected(p)}
-            >
-              {/* Image */}
-              <div
-                className="w-full h-48 mb-4 overflow-hidden rounded-lg border-4"
-                style={{ borderColor: p.color }}
+          {filtered.length > 0 ? (
+            filtered.map((p, index) => (
+              <motion.div
+                key={p.id}
+                className="relative group p-6 border-2 rounded-xl backdrop-blur-sm overflow-hidden bg-[#022333]/60 cursor-pointer"
+                style={{ borderColor: p.color + "60" }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setSelected(p)}
               >
-                <Image
-                  width={400}
-                  height={400}
-                  src={p.image}
-                  alt={p.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                {/* Image */}
+                <div
+                  className="w-full h-48 mb-4 overflow-hidden rounded-lg border-4"
+                  style={{ borderColor: p.color }}
+                >
+                  <Image
+                    width={400}
+                    height={400}
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-              {/* Team Name */}
-              <h3 className="text-xl font-bold text-white text-center mb-1">
-                {p.name}
-              </h3>
+                {/* Team Name */}
+                <h3 className="text-xl font-bold text-white text-center mb-1">
+                  {p.name}
+                </h3>
 
-              {/* Position */}
-              <p
-                className="text-sm text-center font-mono mb-1"
-                style={{ color: p.color }}
-              >
-                {p.position}
-              </p>
+                {/* Position */}
+                <p
+                  className="text-sm text-center font-mono mb-1"
+                  style={{ color: p.color }}
+                >
+                  {p.position}
+                </p>
 
-              {/* College */}
-              <p className="text-xs text-gray-400 text-center mb-4">
-                {p.college}
-              </p>
-            </motion.div>
-          ))}
+                {/* College */}
+                <p className="text-xs text-gray-400 text-center mb-4">
+                  {p.college}
+                </p>
+              </motion.div>
+            ))
+          ) : (
+            <p className="text-center text-gray-400 col-span-full">
+              No teams found for this selection.
+            </p>
+          )}
         </div>
       </div>
 
@@ -199,7 +201,8 @@ useEffect(() => {
               {selected.college}
             </p>
             <p className="text-xs text-gray-400 text-center">
-              {selected.category} - {selected.competition}
+              {selected.competition}
+              {selected.category ? ` - ${selected.category}` : ""}
             </p>
           </motion.div>
         </div>

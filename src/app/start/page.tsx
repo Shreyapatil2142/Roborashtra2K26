@@ -55,7 +55,7 @@ export default function HomePage() {
           </div>
 
           {/* Social Links */}
-          <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-10 md:text-2xl text-yellow-400">
+          <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-20 md:text-2xl text-yellow-400">
             <a
               href="https://facebook.com"
               target="_blank"

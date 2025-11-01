@@ -1,6 +1,5 @@
 "use client";
 
-import GlareHover from "./GlareHover";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState } from "react";
@@ -46,35 +45,92 @@ export default function Navbar() {
     isMobile = false
   ) => (
     <Link href={btn.href} key={i}>
-      <GlareHover
-        glareColor="#ffffff"
-        glareOpacity={0.9}
-        glareAngle={-30}
-        glareSize={200}
-        transitionDuration={1000}
-        playOnce={false}
-        className={`inline-block ${isMobile ? "" : "bg-transparent"}`}
+      <motion.button
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.96 }}
+        className={`relative w-32 sm:w-40 py-3 sm:py-4
+                  text-highlight font-bold text-lg sm:text-xl uppercase tracking-wider
+                  bg-[#00151a]/70 border-2 border-[#00eaff]/60
+                  backdrop-blur-md overflow-hidden transition-all duration-500 
+                  group 
+                  rounded-none
+                  before:absolute before:content-[''] before:w-5 before:h-5 before:bg-[#00151a]
+                  before:top-0 before:right-0 before:clip-path-[polygon(100%_0,100%_100%,0_0)]
+                  after:absolute after:content-[''] after:w-5 after:h-5 after:bg-[#00151a]
+                  after:bottom-0 after:left-0 after:clip-path-[polygon(0_100%,0_0,100%_100%)]
+                  ${isMobile ? "border-none text-2xl bg-transparent" : ""}`}
+        animate={{
+          boxShadow: ["0 0 0px #00eaff", "0 0 10px #00eaff", "0 0 0px #00eaff"],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+
       >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={`relative w-28 sm:w-36 py-3 sm:py-4 border-2 sm:border-4 border-[#0a91ab] text-highlight 
-                     rounded-lg font-bold text-lg sm:text-xl overflow-hidden text-center uppercase
-                     ${isMobile ? "bg-transparent border-none text-2xl sm:text-xl" : "bg-black/10"}`}
-        >
-          {!isMobile && (
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-[#02CCFF]/30 to-transparent"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-          )}
-          <span className="relative z-10">{btn.label}</span>
-        </motion.button>
-      </GlareHover>
+        {/* ⚡ Animated neon border gradient */}
+        <motion.span
+          className="absolute inset-0 bg-gradient-to-r from-[#00eaff] via-[#00ffd5] to-[#00eaff]
+                   opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ backgroundSize: "200% 200%" }}
+        />
+
+        {/* ⚙️ Inner holographic line (moves diagonally) */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg, transparent 45%, rgba(0,255,234,0.3) 50%, transparent 55%)",
+            backgroundSize: "300% 300%",
+          }}
+        />
+
+        {/* 💠 Neon pulse outline */}
+        <motion.div
+          className="absolute inset-0 border-2 border-[#00eaff]/60 opacity-0 group-hover:opacity-100 rounded-none"
+          whileHover={{
+            boxShadow:
+              "0 0 15px #00eaff, 0 0 25px #00ffd5, 0 0 40px rgba(0,255,234,0.6)",
+            transition: { duration: 0.5 },
+          }}
+        />
+
+        {/* 🧠 Button Text */}
+        <span className="relative z-10 group-hover:text-[#00eaff] transition-colors duration-300">
+          {btn.label}
+        </span>
+
+        {/* 🔋 Hover Background Fill Animation */}
+        <motion.div
+          className="absolute inset-0 bg-[#00ffd5] opacity-0 group-hover:opacity-90 transition-opacity duration-500"
+          initial={{ scaleY: 0 }}
+          whileHover={{
+            scaleY: 1,
+            originY: 0,
+            transition: { duration: 0.4, ease: "easeInOut" },
+          }}
+        />
+      </motion.button>
     </Link>
   );
+
 
   return (
     <>
@@ -95,7 +151,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className="p-3 bg-[#0a91ab]/80 rounded-xl border border-white/10 text-white shadow-lg backdrop-blur-xl"
         >
-          {isOpen ? <FiX size={24}/> : <FiMenu size={24}/>}
+          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
 
