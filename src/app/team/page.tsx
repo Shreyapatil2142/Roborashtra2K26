@@ -147,7 +147,7 @@ export default function TeamPage() {
 
       {/* Members */}
       <div
-        className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4 mb-16 max-w-6xl z-10"
+        className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4 mb-16 z-10"
         data-aos="fade-up"
         data-aos-delay="200"
       >
