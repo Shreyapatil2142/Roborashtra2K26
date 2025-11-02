@@ -303,3 +303,49 @@
 *{
   cursor:url("../../public/cursor-icon.png") 25 10,pointer;
 } */
+
+/* ----------------------------------navbar------------------------------------------------- */
+@keyframes border-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes border-spin-fast {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+}
+
+/* ✅ Only define reusable animation classes */
+.animate-border-spin {
+  background-size: 300% 300%;
+  animation: border-spin 5s linear infinite;
+}
+
+.animate-border-spin-fast {
+  background-size: 300% 300%;
+  animation: border-spin-fast 1.5s linear infinite;
+}
+
+.animate-sweep {
+  animation: sweep 1.5s ease-in-out forwards;
+}

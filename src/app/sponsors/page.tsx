@@ -10,7 +10,7 @@ export type Tier = "title" | "platinum" | "gold" | "silver";
 
 export default function Sponsors() {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out", offset: -250 });
     AOS.refresh();
   }, []);
 

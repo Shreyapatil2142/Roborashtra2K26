@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "@/app/components/navbar";
 import { SocialMediaButton } from "@/app/components/social";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import {
   FaLinkedin,
   FaYoutube,
 } from "react-icons/fa";
+import Btn4 from "../components/Btn4";
 
 export default function HomePage() {
   const isMobile = useIsMobile();
@@ -53,6 +54,8 @@ export default function HomePage() {
               />
             </div>
           </div>
+
+          <Btn4 link="/events" text="START" />
 
           {/* Social Links */}
           <div className="absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-3 sm:gap-6 text-base sm:text-xl z-20 md:text-2xl text-yellow-400">

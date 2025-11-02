@@ -22,7 +22,6 @@ const CustomGrid: React.FC<CustomGridProps> = ({
 }) => {
   // Large dash length chosen to comfortably cover the main border length
   const mainDash = 6200;
-  const cornerDash = 1400;
 
   return (
     <div

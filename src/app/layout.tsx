@@ -3,10 +3,7 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import ClientLayout from "./client-layout";
-import FogCursor from "@/app/components/FogCursor";
-
-
-
+// import FogCursor from "@/app/components/FogCursor";
 
 const MokotoDemo = localFont({
   src: [{ path: "../../public/fonts/MokotoDemo.ttf", weight: "400", style: "normal" }],

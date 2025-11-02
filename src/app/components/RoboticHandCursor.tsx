@@ -21,11 +21,9 @@ export function RoboticHandCursor() {
   const [breathingScale, setBreathingScale] = useState(1);
   const [clickFlash, setClickFlash] = useState(0);
   const [trailParticles, setTrailParticles] = useState<TrailParticle[]>([]);
-  const [energyFlow, setEnergyFlow] = useState(0);
   const lastPositionRef = useRef({ x: 0, y: 0 });
   const moveTimeoutRef = useRef<NodeJS.Timeout>(setTimeout(() => {}, 150));
   const idleTimeRef = useRef(0);
-  const audioContextRef = useRef<AudioContext | null>(null);
   const particleIdRef = useRef(0);
 
   // Track movement to detect when cursor is idle
@@ -97,8 +95,6 @@ export function RoboticHandCursor() {
 
   // Advanced animation frame for all continuous animations
   useAnimationFrame((time) => {
-    // Energy flow animation (continuous)
-    setEnergyFlow((time / 1000) % 2);
     
     // Fade out trail particles
     setTrailParticles((prev) => 

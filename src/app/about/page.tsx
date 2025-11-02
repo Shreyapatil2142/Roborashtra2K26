@@ -17,7 +17,7 @@ export default function ClanSection() {
       duration: 800,
       once: true,
       easing: "ease-in-out",
-      offset: -150,     // start animation 100px before element comes into view
+      offset: -250,     // start animation 100px before element comes into view
     });
     AOS.refresh();
   }, []);

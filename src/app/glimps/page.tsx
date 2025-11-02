@@ -18,7 +18,7 @@ export default function GlimpsPage() {
 
   // ✅ Initialize AOS once
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, once: true, offset: -250, easing: "ease-in-out" });
     AOS.refresh();
   }, []);
 

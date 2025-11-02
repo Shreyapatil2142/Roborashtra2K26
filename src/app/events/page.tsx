@@ -15,7 +15,7 @@ export default function EventsPage() {
       duration: 800,  // animation duration
       once: true,     // animate only once
       easing: "ease-in-out",
-      offset: -150,     // start animation 100px before element comes into view
+      offset: -250,    // start animation 250px before element comes into view
     });
     AOS.refresh();
   }, []);
