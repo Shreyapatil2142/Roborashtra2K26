@@ -57,7 +57,7 @@ export default function EventsPage() {
             >
               <div className="card relative w-full min-h-full flex justify-center items-end p-[0_20px]">
                 {/* Image */}
-                <div className="wrapper absolute w-full h-full z-[-1] overflow-hidden rounded-xl">
+                <div className="wrapper absolute h-full z-[-1] overflow-hidden rounded-xl">
                   {/* Fixed cover image (base layer, always visible) */}
                   <Image
                     src={event.coverImage}

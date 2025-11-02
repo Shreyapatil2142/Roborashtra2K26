@@ -27,7 +27,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
       {/* Background Card Shape */}
       <div className="absolute inset-0">
         <Image
-          src="/images/teambg.png"
+          src="/members/teambg.png"
           alt="Card Background"
           fill
           className="object-contain select-none pointer-events-none z-10 absolute"

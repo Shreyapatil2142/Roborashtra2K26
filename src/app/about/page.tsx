@@ -103,7 +103,7 @@ export default function ClanSection() {
               PCCOE&R under the guidance of Dr. Mahendra B. Salunke, is led by
               the dynamic leader Om Khare.
             </p>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
               RoboHawk has executed diverse projects in 3D printing, drones, and
               robotics. It offers hands-on learning, collaboration, and
               innovation opportunities.

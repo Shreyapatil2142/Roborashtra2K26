@@ -8,24 +8,24 @@ import { participants, Participant } from "@/app/constants/participants";
 
 export default function ParticipantsSection() {
   const [search, setSearch] = useState("");
-  const [competition, setCompetition] = useState<"Yantrostav" | "Resqulympic">(
-    "Yantrostav"
+  const [competition, setCompetition] = useState<"YantroUstav" | "ResQlympic">(
+    "YantroUstav"
   );
   const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
   const [selected, setSelected] = useState<Participant | null>(null);
 
   // ✅ Compute filtered participants
   const filtered = participants.filter((p) => {
-    if (competition === "Resqulympic") {
-      // Resqulympic has no categories
+    if (competition === "ResQlympic") {
+      // ResQlympic has no categories
       return (
-        p.competition === "Resqulympic" &&
+        p.competition === "ResQlympic" &&
         p.name.toLowerCase().includes(search.toLowerCase())
       );
     } else {
-      // Yantrostav has Junior / Senior
+      // YantroUstav has Junior / Senior
       return (
-        p.competition === "Yantrostav" &&
+        p.competition === "YantroUstav" &&
         p.category === category &&
         p.name.toLowerCase().includes(search.toLowerCase())
       );
@@ -51,10 +51,10 @@ export default function ParticipantsSection() {
 
         {/* Competition Selection */}
         <div className="flex justify-center gap-6 mb-6">
-          {["Yantrostav", "Resqulympic"].map((comp) => (
+          {["YantroUstav", "ResQlympic"].map((comp) => (
             <button
               key={comp}
-              onClick={() => setCompetition(comp as "Yantrostav" | "Resqulympic")}
+              onClick={() => setCompetition(comp as "YantroUstav" | "ResQlympic")}
               className={`px-6 py-2 rounded-md font-mono font-bold transition-all ${
                 competition === comp
                   ? "bg-[#ffc045] text-black scale-105"
@@ -66,8 +66,8 @@ export default function ParticipantsSection() {
           ))}
         </div>
 
-        {/* Category Toggles (only for Yantrostav) */}
-        {competition === "Yantrostav" && (
+        {/* Category Toggles (only for YantroUstav) */}
+        {competition === "YantroUstav" && (
           <div className="flex justify-center gap-6 mb-10">
             {["Junior", "Senior"].map((c) => (
               <button

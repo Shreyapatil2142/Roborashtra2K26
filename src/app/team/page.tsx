@@ -41,7 +41,7 @@ export default function TeamPage() {
       {/* Background Grid */}
       <div className="absolute top-0 left-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
         <Image
-          src="/images/teamPageBG1.png"
+          src="/members/teamPageBG1.png"
           alt="Card Background"
           width={512}
           height={512}
@@ -51,7 +51,7 @@ export default function TeamPage() {
 
       <div className="absolute bottom-0 right-0 opacity-70 z-0 w-40 sm:w-56 md:w-72 lg:w-96">
         <Image
-          src="/images/teamPageBG2.png"
+          src="/members/teamPageBG2.png"
           alt="Card Background"
           width={512}
           height={512}
@@ -85,7 +85,7 @@ export default function TeamPage() {
               Meet our amazing{" "}
               <span className="text-yellow-300 font-semibold">mentors</span>,{" "}
               <span className="text-yellow-300 font-semibold">leads</span>, and{" "}
-              <span className="text-yellow-300 font-semibold">co-leads!</span>
+              <span className="text-yellow-300 font-semibold">heads!</span>
             </p>
           </div>
         </div>

@@ -64,20 +64,20 @@ export const teamData: Record<string, TeamMember[]> = {
 
   Workshop: [
     {
-      name: "Bhargavi",
-      role: "Head",
-      linkedin: "https://linkedin.com/in/bhargavi",
-      contact: "+91 9876543216",
-      mail: "bhargavi@example.com",
-      image: "/members/bhargavi.png",
-    },
-    {
       name: "Atharva",
-      role: "Co-Head",
+      role: "Head",
       linkedin: "https://www.linkedin.com/in/atharva-kalage-01692a28a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       contact: "+91 9876543217",
       mail: "atharva@example.com",
       image: "/members/atharva.png",
+    },
+     {
+      name: "Bhargavi",
+      role: "Co-Head",
+      linkedin: "https://linkedin.com/in/bhargavi",
+      contact: "+91 9876543216",
+      mail: "bhargavi@example.com",
+      image: "/members/bhargavi.png",
     },
   ],
 

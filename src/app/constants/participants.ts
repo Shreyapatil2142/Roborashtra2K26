@@ -6,11 +6,11 @@ export interface Participant {
   image: string;
   color: string;
   category: "Junior" | "Senior";
-  competition: "Yantrostav" | "Resqulympic";
+  competition: "YantroUstav" | "ResQlympic";
 }
 
 export const participants: Participant[] = [
-  // Junior - Yantrostav
+  // Junior - YantroUstav
   {
     id: 1,
     name: "Ranveersing Rajput and Team",
@@ -19,7 +19,7 @@ export const participants: Participant[] = [
     image: "/winners/YJ1.JPG",
     color: "#0a91ab",
     category: "Junior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const participants: Participant[] = [
     image: "/winners/YJ2.JPG",
     color: "#ffc045",
     category: "Junior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
   {
     id: 3,
@@ -39,10 +39,10 @@ export const participants: Participant[] = [
     image: "/winners/YJ3.JPG",
     color: "#ff5733",
     category: "Junior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
 
-  // Senior - Yantrostav
+  // Senior - YantroUstav
   {
     id: 7,
     name: "Team Pinnnacle Minds",
@@ -51,7 +51,7 @@ export const participants: Participant[] = [
     image: "/winners/YS1.JPG",
     color: "#0a91ab",
     category: "Senior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const participants: Participant[] = [
     image: "/winners/YS2.JPG",
     color: "#ffc045",
     category: "Senior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
   {
     id: 9,
@@ -71,10 +71,10 @@ export const participants: Participant[] = [
     image: "/winners/YS3.JPG",
     color: "#ff5733",
     category: "Senior",
-    competition: "Yantrostav",
+    competition: "YantroUstav",
   },
 
-  // Senior - Resqulympic
+  // Senior - ResQlympic
   {
     id: 10,
     name: "Team UVIRA3",
@@ -83,7 +83,7 @@ export const participants: Participant[] = [
     image: "/winners/R1.JPG",
     color: "#0a91ab",
     category: "Senior",
-    competition: "Resqulympic",
+    competition: "ResQlympic",
   },
   {
     id: 11,
@@ -93,7 +93,7 @@ export const participants: Participant[] = [
     image: "/winners/R2.JPG",
     color: "#ffc045",
     category: "Senior",
-    competition: "Resqulympic",
+    competition: "ResQlympic",
   },
   {
     id: 12,
@@ -103,6 +103,6 @@ export const participants: Participant[] = [
     image: "/winners/R3.JPG",
     color: "#ff5733",
     category: "Senior",
-    competition: "Resqulympic",
+    competition: "ResQlympic",
   },
 ];
