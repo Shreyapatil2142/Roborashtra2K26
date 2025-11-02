@@ -6,7 +6,7 @@ export default function Frame() {
   return (
     <>
       {/* Desktop / Tablet Frame Overlay (hidden on small screens) */}
-      <div className="absolute w-full min-h-screen overflow-hidden inset-0 pointer-events-none z-10 hidden lg:block">
+      <div className="w-full min-h-screen overflow-hidden inset-0 pointer-events-none z-10 hidden lg:block fixed">
         <Image
           src="/bg.svg"
           alt="Frame overlay"
@@ -17,7 +17,7 @@ export default function Frame() {
       </div>
 
       {/* Mobile Background / Frame (visible on small screens) */}
-      <div className="absolute inset-0 pointer-events-none z-10 block lg:hidden">
+      <div className="fixed inset-0 pointer-events-none z-10 block lg:hidden">
         <Image
           src="/mbBG.jpg"
           alt="Mobile background"

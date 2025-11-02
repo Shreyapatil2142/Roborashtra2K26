@@ -33,13 +33,13 @@ export default function ParticipantsSection() {
   });
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+    <section className="w-full min-h-screen flex flex-col items-center justify-start py-25 px-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
       <div className="max-w-4xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-mokoto tracking-widest font-bold mb-4">
-            <span className="text-white">EVENT_</span>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
+            <span className="text-white">2K25 Winner_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               TEAMS
             </span>
@@ -157,7 +157,7 @@ export default function ParticipantsSection() {
 
       {/* Modal Popup */}
       {selected && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/70 flex items-center px-5 justify-center z-50">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

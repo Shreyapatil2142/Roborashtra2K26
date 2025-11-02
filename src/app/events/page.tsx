@@ -21,7 +21,7 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+    <section className="w-full min-h-screen flex flex-col items-center justify-start py-25  bg-transparent overflow-x-hidden">
 
       <SidebarStrip />
 
@@ -55,7 +55,7 @@ export default function EventsPage() {
               onMouseEnter={() => setHoveredCard(event.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="card relative w-full h-full flex justify-center items-end p-[0_20px]">
+              <div className="card relative w-full min-h-full flex justify-center items-end p-[0_20px]">
                 {/* Image */}
                 <div className="wrapper absolute w-full h-full z-[-1] overflow-hidden rounded-xl">
                   {/* Fixed cover image (base layer, always visible) */}

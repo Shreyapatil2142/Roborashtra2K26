@@ -52,7 +52,7 @@ export default function ClanSection() {
     return <LoadingScreen />;
   }
   return (
-    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+    <section className="w-full min-h-screen flex flex-col items-center justify-start py-25 md:px-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
       <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
 
