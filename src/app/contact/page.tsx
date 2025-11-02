@@ -60,7 +60,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
+    <section className="w-full min-h-screen flex flex-col items-center justify-start py-25 bg-transparent overflow-x-hidden">
       <SidebarStrip />
 
       <div className="w-3/4 h-full max-w-7xl mx-auto mb-20 relative z-10">

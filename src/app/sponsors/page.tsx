@@ -74,7 +74,7 @@ export default function Sponsors() {
   );
 
   return (
-    <section className="py-10 px-6 relative overflow-auto flex-1 max-h-screen flex flex-col justify-start">
+    <section className="px-6 py-25 relative overflow-auto flex-1 min-h-screen flex flex-col justify-start">
       <SidebarStrip />
       <div className="max-w-7xl w-full mx-auto relative z-10">
         {/* Section Header */}

@@ -133,7 +133,7 @@ export const teamData: Record<string, TeamMember[]> = {
     },
   ],
 
-  Problem: [
+  ProblemStatement: [
     {
       name: "Misba",
       role: "Head",

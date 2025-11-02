@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface Btn4Props {
   link: string;
@@ -11,7 +12,7 @@ interface Btn4Props {
 const Btn4: React.FC<Btn4Props> = ({ link, text = "START" }) => {
   return (
     <div className="flex justify-center items-center absolute top-[82%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-      <a href={link}>
+      <Link href={link}>
         <motion.button
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
@@ -92,7 +93,7 @@ const Btn4: React.FC<Btn4Props> = ({ link, text = "START" }) => {
             }
           `}</style>
         </motion.button>
-      </a>
+      </Link>
     </div>
   );
 };
