@@ -21,7 +21,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <>
       <Frame />
 
-      {!isMobile && <RoboticHandCursor />}
+      {!isMobile && !isLoading && <RoboticHandCursor />}
 
       {/* Floating background particles */}
       <div className="absolute w-full h-screen overflow-hidden">
