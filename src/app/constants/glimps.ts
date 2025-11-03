@@ -15,7 +15,7 @@ export const glimpses: Glimpse[] = [
     date: "Feb 2025",
     image: "/glimps/img.jpg",
     description: "Epic battles between autonomous fighting robots",
-    stats: "32 Teams, 5 Countries",
+    stats: "32+ Teams",
     images: [
       "/glimps/robo1.JPG",
       "/glimps/robo2.JPG",
@@ -27,11 +27,11 @@ export const glimpses: Glimpse[] = [
   },
   {
     id: 2,
-    title: "Yantrostav",
+    title: "YantroUtsav",
     date: "Feb 2025",
     image: "/glimps/1.jpg",
     description: "Cutting-edge AI demonstrations and breakthroughs",
-    stats: "150+ Participants, 20 Projects",
+    stats: "150+ Participants",
     images: [
       "/glimps/yan1.JPG",
       "/glimps/yan2.JPG",
@@ -44,11 +44,11 @@ export const glimpses: Glimpse[] = [
   },
   {
     id: 3,
-    title: "Resqlypmic",
+    title: "ResQlypmic",
     date: "Feb 2025",
     image: "/glimps/4.jpg",
     description: "High-speed autonomous drone racing through obstacle courses",
-    stats: "64 Pilots, 12 Countries",
+    stats: "64+ Teams",
     images: [
       "/glimps/res1.JPG",
       "/glimps/res2.JPG",

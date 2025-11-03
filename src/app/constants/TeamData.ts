@@ -83,7 +83,7 @@ export const teamData: Record<string, TeamMember[]> = {
 
   PR: [
     {
-      name: "samruddhi",
+      name: "Sumruddhi",
       role: "Head",
       linkedin: "https://www.linkedin.com/in/sumruddhi-morey-599323292/",
       contact: "+91 9876543218",

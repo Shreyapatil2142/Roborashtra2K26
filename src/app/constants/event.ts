@@ -1,7 +1,7 @@
 export const events = [
   {
     id: 1,
-    title: "Yantrautsav",
+    title: "YantroUtsav",
     category: "Combat",
     description: "An innovation where creators and robotics bring bold ideas to life",
     date: "March 15, 2025",
@@ -17,7 +17,7 @@ export const events = [
   },
   {
     id: 2,
-    title: "Resqlympics",
+    title: "ResQlympics",
     category: "Speed",
     description:
       "A rescue robotics challenge where strategy decide victory",

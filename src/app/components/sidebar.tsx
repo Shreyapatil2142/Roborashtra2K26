@@ -24,8 +24,8 @@ export default function Sidebar() {
   return (
     <>
       {/* Left Sidebar */}
-      <div className="absolute top-1/2 mt-20 -translate-y-1/2 left-20 flex flex-col gap-4">
-        {leftButtons.map((btn, i) => (
+      <div className="absolute top-1/2 mt-20 -translate-y-1/2 left-20 mr-20 flex flex-col gap-4">
+{leftButtons.map((btn, i) => (
           <Link href={btn.href} key={i}>
             <motion.button
               whileHover={{ scale: 1.1 }}
