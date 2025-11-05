@@ -13,11 +13,11 @@ export const glimpses: Glimpse[] = [
     id: 1,
     title: "RoboRashtra 2k25",
     date: "Feb 2025",
-    image: "/glimps/img.jpg",
+    image: "/glimps/robo1.JPG",
     description: "Epic battles between autonomous fighting robots",
     stats: "32+ Teams",
     images: [
-      "/glimps/robo1.JPG",
+      "/glimps/img.JPG",
       "/glimps/robo2.JPG",
       "/glimps/robo3.JPG",
       "/glimps/robo4.JPG",
