@@ -12,6 +12,7 @@ export default function Frame() {
           alt="Frame overlay"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, 800px"
           className="object-cover pointer-events-none select-none object-center fixed"
         />
       </div>
@@ -23,6 +24,7 @@ export default function Frame() {
           alt="Mobile background"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, 800px"
           className="object-cover w-full h-full blur-sm"
         />
       </div>

@@ -33,7 +33,7 @@ export default function GlimpsPage() {
     }
   }, [activeIndex]);
 
-   // ✅ Preload ALL images from glimpses (main + extra)
+  // ✅ Preload ALL images from glimpses (main + extra)
   useEffect(() => {
     if (!glimpses || glimpses.length === 0) return;
 
@@ -107,14 +107,15 @@ export default function GlimpsPage() {
             <div className="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-[#ffc045]" />
             <div className="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-[#ffc045]" />
 
-            {/* Image (Replaced ImageWithFallback with <img>) */}
             <Image
               src={glimpses[activeIndex].image}
               alt={glimpses[activeIndex].title}
               fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, 800px"
             />
+
 
             {/* Info Overlay */}
             <div
@@ -189,6 +190,7 @@ export default function GlimpsPage() {
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 150px, 200px"
                 />
                 <div
                   className={`absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${index === activeIndex
