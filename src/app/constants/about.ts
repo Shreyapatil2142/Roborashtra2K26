@@ -6,19 +6,19 @@ export const robots = [
     id: 1,
     title: "Autonomous Rover",
     image:
-      "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg2.27ba7ad2.jpg&w=3840&q=75",
+      "/about/img1.jpg",
   },
   {
     id: 2,
     title: "Surveillance Drone",
     image:
-      "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg3.f6a0998b.jpg&w=3840&q=75",
+      "/about/img2.jpg",
   },
   {
     id: 3,
     title: "Humanoid Prototype",
     image:
-      "https://www.roborashtra.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimg4.a13fe0d2.jpg&w=3840&q=75",
+      "/about/img3.jpg",
   },
 ];
 
