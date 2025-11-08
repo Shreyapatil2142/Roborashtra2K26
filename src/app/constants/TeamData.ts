@@ -8,7 +8,7 @@ export interface TeamMember {
 }
 
 export const teamData: Record<string, TeamMember[]> = {
-  EventCoordinators: [
+  FacultyCoordinators: [
     {
       name: "Dr. Mahendra Salunke",
       role: "Faculty Coordinator",
@@ -89,6 +89,14 @@ export const teamData: Record<string, TeamMember[]> = {
       contact: "+91 9876543218",
       mail: "samruddhi@example.com",
       image: "/members/samruddhi.png",
+    },
+     {
+      name: "Shivraj",
+      role: "Co-Head",
+      linkedin: "https://www.linkedin.com/in/sumruddhi-morey-599323292/",
+      contact: "+91 9876543218",
+      mail: "shivraj@example.com",
+      image: "/members/shivraj.png",
     },
   ],
 
