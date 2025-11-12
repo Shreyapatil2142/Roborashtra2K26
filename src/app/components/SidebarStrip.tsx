@@ -46,7 +46,7 @@ export default function SidebarStrip() {
         className={`hidden md:flex fixed left-1/16 top-1/2 -translate-y-1/2
                    bg-gradient-to-br from-[#0a91ab]/70 via-[#0a91ab]/40 to-[#0a91ab]/50
                    backdrop-blur-2xl border border-white/10 
-                   shadow-[0_0_25px_rgba(0,140,255,0.2)] h-[90%]
+                   shadow-[0_0_25px_rgba(0,140,255,0.2)] h-fit lg:py-10
                    rounded-3xl text-white flex-col justify-between items-center overflow-hidden group
                    transition-all duration-300 z-30 
                    ${isExpanded ? "w-[230px]" : "w-[75px]"}`}
@@ -55,7 +55,7 @@ export default function SidebarStrip() {
           {menuItems.map((item, index) => (
             <Link href={item.href} key={index}>
               <div
-                className="relative flex items-center gap-3 px-4 py-3 cursor-pointer
+                className="relative flex items-center gap-3 px-4 py-2 cursor-pointer
                            rounded-xl transition-all duration-300 justify-start hover:bg-[#0ea5e91f]
                            hover:shadow-[0_0_10px_rgba(14,165,233,0.3)]"
               >

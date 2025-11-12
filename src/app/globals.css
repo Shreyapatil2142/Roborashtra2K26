@@ -215,6 +215,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --background: #022333;
+  --primary: #065471;
+  --secondary: #0a91ab;
   --highlight: #ffc045;
   --foreground: oklch(0.145 0 0);
 }
@@ -348,4 +350,34 @@
 
 .animate-sweep {
   animation: sweep 1.5s ease-in-out forwards;
+}
+
+/* -----------------------------countdown---------------------------------*/
+/* Flip animations (split-flap style) */
+@keyframes flipTop {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+@keyframes flipBottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.animate-flip-top {
+  animation: flipTop 0.3s ease-in forwards;
+  transform-origin: bottom;
+  backface-visibility: hidden;
+}
+.animate-flip-bottom {
+  animation: flipBottom 0.3s ease-out 0.3s forwards;
+  transform-origin: top;
+  backface-visibility: hidden;
 }

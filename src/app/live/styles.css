@@ -1,0 +1,248 @@
+:root {
+  --background: #022333;
+  --primary: #065471;
+  --secondary: #0a91ab;
+  --highlight: #ffc045;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.35) saturate(1.2) contrast(1.1);
+}
+
+/* Hide glass effect for mobile for better readability */
+@media (max-width: 900px) {
+
+  .background-video {
+    display: none;
+  }
+}
+
+/* ========== Base Styles ========== */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: hidden;
+  font-size: clamp(1rem, 2vw + 0.5rem, 2.25rem);
+}
+
+/* ========== Flip Card Core ========== */
+.flip-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(10, 145, 171, 0.5);
+  border-radius: 0.2em;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  perspective: 1000px;
+  min-width: clamp(1.5em, 5vw, 3em);
+  font-size: clamp(1rem, 2vw + 0.5rem, 2.25rem);
+}
+
+/* ========== Card Faces ========== */
+.top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+  overflow: hidden;
+  color: var(--highlight);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 192, 69, 0.8);
+  text-align: center;
+  font-size: 4vw;
+}
+
+/* Top half */
+.top,
+.flip-card .top-flip {
+  background: linear-gradient(to bottom, var(--secondary), var(--primary));
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom half */
+.bottom,
+.flip-card .bottom-flip {
+  background: linear-gradient(to top, var(--secondary), var(--primary));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom-right-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+}
+
+/* ========== Flip Animations ========== */
+.flip-card .top-flip {
+  position: absolute;
+  width: 100%;
+  animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+  backface-visibility: hidden;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card .bottom-flip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  backface-visibility: hidden;
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* ========== Layout ========== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5em, 1vw, 1em);
+  padding: 2em;
+  background: radial-gradient(circle at center, var(--primary) 0%, var(--background) 100%);
+  border: 2px solid var(--secondary);
+  border-radius: 1em;
+  box-shadow: 0 0 30px rgba(10, 145, 171, 0.4);
+  max-width: 90vw;
+}
+
+/* Each segment group (Days, Hours, etc.) */
+.container-segment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.segment {
+  display: flex;
+  gap: 0.2em;
+}
+
+.segment-title {
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  color: var(--highlight);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(255, 192, 69, 0.8);
+}
+
+/* ========== Glowing Accent ========== */
+.flip-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.2em;
+  box-shadow: inset 0 0 10px rgba(255, 192, 69, 0.5);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* ========== Responsive Behavior ========== */
+
+/* Tablet (below 900px) */
+@media (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+    padding: 1.5em;
+  }
+
+  .container-segment {
+    min-width: 6em;
+  }
+
+  .flip-card {
+    min-width: 2.2em;
+  }
+}
+
+/* Mobile (below 600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 2em 1em;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 1em;
+    gap: 1.5em;
+  }
+
+  .container-segment {
+    flex-direction: column;
+    gap: 0.3em;
+  }
+
+  .segment {
+    justify-content: center;
+  }
+
+  .flip-card {
+    transform: scale(1.2);
+  }
+
+  .segment-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tiny Screens (below 400px) */
+@media (max-width: 400px) {
+  
+  .flip-card {
+    transform: scale(1);
+  }
+  .container-segment{
+    transform: scale(1.5);
+  }
+
+  .container {
+    width: 50vw;
+    height: 50vh;
+    padding: 1em;
+    gap: 3em;
+  }
+
+  .segment-title {
+    font-size: 0.8rem;
+  }
+
+  .top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip{
+  font-size: 20px;
+}
+}
