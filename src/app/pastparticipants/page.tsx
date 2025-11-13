@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Search, X } from "lucide-react";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";

@@ -64,10 +64,12 @@ export default function GlimpsPage() {
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % glimpses.length);
+    setActiveGlimpse(glimpses[(activeIndex + 1) % glimpses.length].id);
   };
 
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + glimpses.length) % glimpses.length);
+    setActiveGlimpse(glimpses[(activeIndex - 1 + glimpses.length) % glimpses.length].id);
   };
 
   if (loading) {
@@ -144,6 +146,7 @@ export default function GlimpsPage() {
               onClick={prevSlide}
               aria-label="Previous Slide"
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#065471]/70 hover:bg-[#065471] border-2 border-[#ffc045] p-3 transition-all"
+
             >
               <ChevronLeft className="h-6 w-6 text-[#ffc045]" />
             </button>

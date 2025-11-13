@@ -16,13 +16,11 @@ export default function Home() {
     }, []);
     useEffect(() => {
         const countToDate = new Date("2026-02-06T08:00:00").getTime();
-        let previousTimeBetweenDates: number;
 
         const interval = setInterval(() => {
             const currentDate = new Date().getTime();
             const timeBetweenDates = Math.ceil((countToDate - currentDate) / 1000);
             flipAllCards(timeBetweenDates);
-            previousTimeBetweenDates = timeBetweenDates;
         }, 250);
 
         function flipAllCards(time: number) {

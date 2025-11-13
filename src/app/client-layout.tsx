@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import Frame from "./components/frame";
 import FloatingParticles from "./components/FloatingParticles";
 import Loading from "./components/Loading";

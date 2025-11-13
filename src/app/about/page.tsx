@@ -80,7 +80,7 @@ export default function ClanSection() {
             className="mx-auto lg:mx-0 w-full max-w-md bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-6 md:p-8 relative"
           >
             <div className="relative text-center">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold font-mokoto mb-2 animate-glow">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold font-mokoto mb-2 animate-glow overflow-auto">
                 <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text tracking-widest text-transparent">
                   ROBOHAWK
                 </span>

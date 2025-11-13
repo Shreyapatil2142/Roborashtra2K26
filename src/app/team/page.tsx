@@ -110,7 +110,7 @@ export default function TeamPage() {
           ref={scrollRef}
           className="flex space-x-3 overflow-x-auto no-scrollbar text-sm font-semibold scroll-smooth px-4"
         >
-          {categories.map((cat, i) => (
+          {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
