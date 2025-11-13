@@ -224,6 +224,30 @@ const useMobileDetection = () => {
   return isMobile;
 };
 
+const ImagePopup: React.FC<{
+  imageSrc: string;
+  onClose: () => void;
+}> = ({ imageSrc, onClose }) => (
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div className="relative max-w-3xl w-[90%]">
+      <button
+        onClick={onClose}
+        className="absolute -top-10 right-0 bg-white/10 text-white rounded-full px-4 py-1 hover:bg-white/20 transition"
+      >
+        ✕ Close
+      </button>
+      <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-white/20">
+        <Image
+          src={imageSrc}
+          alt="Expanded Image"
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div>
+  </div>
+);
+
 const MagicBento: React.FC<BentoProps> = ({
   enableSpotlight = true,
   enableBorderGlow = true,
@@ -236,6 +260,8 @@ const MagicBento: React.FC<BentoProps> = ({
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
   const imagePaths = images && images.length > 0 ? images : [];
+  const [popupImage, setPopupImage] = useState<string | null>(null);
+
 
   return (
     <>
@@ -353,7 +379,8 @@ const MagicBento: React.FC<BentoProps> = ({
               } as React.CSSProperties;
 
               return (
-                <div key={index} className={baseClassName} style={cardStyle}>
+                <div key={index} className={baseClassName} style={cardStyle}
+                onClick={() => setPopupImage(path)}>
                   <Image
                     src={path}
                     alt={`Card Image ${index + 1}`}
@@ -368,6 +395,13 @@ const MagicBento: React.FC<BentoProps> = ({
 
         </BentoCardGrid>
       </div>
+
+      {popupImage && (
+        <ImagePopup
+          imageSrc={popupImage}
+          onClose={() => setPopupImage(null)}
+        />
+      )}
     </>
   );
 };

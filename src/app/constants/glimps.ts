@@ -17,7 +17,7 @@ export const glimpses: Glimpse[] = [
     description: "Epic battles between autonomous fighting robots",
     stats: "32+ Teams",
     images: [
-      "/glimps/img.JPG",
+      "/glimps/img.jpg",
       "/glimps/robo2.JPG",
       "/glimps/robo3.JPG",
       "/glimps/robo4.JPG",
