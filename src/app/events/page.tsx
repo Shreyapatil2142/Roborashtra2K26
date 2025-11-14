@@ -104,7 +104,7 @@ export default function EventsPage() {
             </div>
           ))}
         </div>
-        
+
         {openEvent && (
           <div className="fixed inset-0 z-[999] flex items-center justify-center">
 
@@ -129,7 +129,7 @@ export default function EventsPage() {
               {openEvent === "ResQlympics" && <ResQlympics />}
               {openEvent === "YantroUtsav" && <YantroUtsav />}
               {openEvent === "Chakravyuh" && <Chakravyuh />
-}
+              }
             </div>
           </div>
         )}

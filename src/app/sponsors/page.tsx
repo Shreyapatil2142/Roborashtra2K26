@@ -171,34 +171,40 @@ export default function Sponsors() {
               Become a Sponsor
             </button>
 
-            {/* Modal Popup */}
-            {showSponsorForm && (
-              <div
-                className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
-                data-aos="fade-in"
-              >
-                {/* Modal content box */}
-                <div
-                  className="relative bg-[#022333] border-2 border-[#0a91ab]/40 p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-2xl mx-4 overflow-y-auto max-h-[80vh]"
-                  data-aos="zoom-in"
-                >
-                  {/* Close Button */}
-                  <button
-                    onClick={() => setShowSponsorForm(false)}
-                    className="absolute top-3 right-3 text-white hover:text-[#ffc045] text-3xl font-bold transition-all duration-200"
-                    aria-label="Close sponsor form"
-                  >
-                    ×
-                  </button>
 
-                  {/* Sponsor Form Component */}
-                  <BecomeSponsor />
-                </div>
-              </div>
-            )}
 
           </div>
         </div>
+        
+        {/* Modal Popup */}
+        {showSponsorForm && (
+          <div className="fixed inset-0 z-[999] flex items-center justify-center">
+
+            {/* Blurred & Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowSponsorForm(false)}
+            />
+
+            {/* Popup Box */}
+            <div className="relative w-[90%] max-w-3xl max-h-[90vh] overflow-auto bg-[#022333]/90 border-2 border-[#0a91ab] rounded-2xl shadow-xl p-6 z-[1000]">
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowSponsorForm(false)}
+                className="absolute top-3 right-3 text-white hover:text-[#ffc045] 
+                   text-3xl md:text-4xl font-bold transition-all duration-200"
+                aria-label="Close sponsor form"
+              >
+                ×
+              </button>
+
+              {/* Sponsor Form Component */}
+              <BecomeSponsor />
+            </div>
+
+          </div>
+        )}
 
 
       </div>
