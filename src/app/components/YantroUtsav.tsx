@@ -28,10 +28,10 @@ const YantroUtsav = () => {
           <br />
           <br />
 
-          <h2 className="headContact text-[#ffc045] font-bold mt-4">
+          <span className="headContact text-[#ffc045] font-bold mt-4">
             For any event related query <br />
              Contact Sana (Event Lead): 8087666355
-          </h2>
+          </span>
 
           <span className="text-red-500 font-bold block mt-2">
             NO Refund available

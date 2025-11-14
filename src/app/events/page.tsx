@@ -58,6 +58,7 @@ export default function EventsPage() {
               className="h-[380px]"
               onMouseEnter={() => setHoveredCard(event.id)}
               onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => setOpenEvent(event.title)}
             >
               <div className="card relative w-full min-h-full flex justify-center items-end p-[0_20px]">
                 {/* Image */}
@@ -87,8 +88,7 @@ export default function EventsPage() {
                   className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? "opacity-100" : "opacity-0"
                     } rounded-b-xl`}
                 >
-                  <p className="text-xl mb-12"  onClick={() => setOpenEvent(event.title)}
-                    >{event.description}</p>
+                  <p className="text-xl mb-12">{event.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs flex items-center">
                       <span className="mr-1">🏆</span>

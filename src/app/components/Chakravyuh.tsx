@@ -21,10 +21,11 @@ const Chakravyuh = () => {
                     <br />
                     ⏱️ The winner will be decided based on the <span className="text-[#ffc045] font-bold">fastest combined completion time</span> across both stages. Bring your technical skills and strategy to conquer the Chakravyuh arena! <br />
                     <br />
-                    <h2 className="headContact text-[#ffc045] font-bold mt-4">
+                    <span className="headContact text-[#ffc045] font-bold mt-4">
                         For any event related query <br />
                         Contact Sana (Event Lead): 8087666355
-                    </h2>
+                    </span>
+                   
                     <span className="text-red-500 font-bold block mt-2">
                         NO Refund available
                     </span>
