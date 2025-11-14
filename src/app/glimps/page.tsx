@@ -37,13 +37,13 @@ export default function GlimpsPage() {
   useEffect(() => {
     if (!glimpses || glimpses.length === 0) return;
 
-    let allImageUrls: string[] = [];
+    const allImageUrls: string[] = [];
 
     glimpses.forEach((glimpse) => {
       if (glimpse.image) allImageUrls.push(glimpse.image); // main image
-      if (glimpse.images && Array.isArray(glimpse.images)) {
-        allImageUrls = [...allImageUrls, ...glimpse.images]; // gallery images
-      }
+      // if (glimpse.images && Array.isArray(glimpse.images)) {
+      //   allImageUrls = [...allImageUrls, ...glimpse.images]; // gallery images
+      // }
     });
 
     let loadedCount = 0;
