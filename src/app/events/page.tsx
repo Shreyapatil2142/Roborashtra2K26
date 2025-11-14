@@ -5,13 +5,17 @@ import "aos/dist/aos.css";
 import { events } from "../constants/event";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";
+import ResQlympics from "@/app/components/Resqlympics";
+import YantroUtsav from "@/app/components/YantroUtsav";
+import Chakravyuh from "@/app/components/Chakravyuh";
 
 export default function EventsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [openEvent, setOpenEvent] = useState<string | null>(null);
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({  
+    AOS.init({
       duration: 800,  // animation duration
       once: true,     // animate only once
       easing: "ease-in-out",
@@ -72,8 +76,8 @@ export default function EventsPage() {
                     alt={`${event.title} hover`}
                     fill
                     className={`absolute inset-0 object-cover rounded-xl transition-all duration-500 ${hoveredCard === event.id
-                        ? "opacity-100 translate-y-[-40px] scale-105"
-                        : "opacity-0 translate-y-0 scale-100"
+                      ? "opacity-100 translate-y-[-40px] scale-105"
+                      : "opacity-0 translate-y-0 scale-100"
                       }`}
                   />
                 </div>
@@ -83,7 +87,8 @@ export default function EventsPage() {
                   className={`details absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white transition-opacity duration-500 ${hoveredCard === event.id ? "opacity-100" : "opacity-0"
                     } rounded-b-xl`}
                 >
-                  <p className="text-xl mb-12">{event.description}</p>
+                  <p className="text-xl mb-12"  onClick={() => setOpenEvent(event.title)}
+                    >{event.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs flex items-center">
                       <span className="mr-1">🏆</span>
@@ -99,7 +104,39 @@ export default function EventsPage() {
             </div>
           ))}
         </div>
+        
+        {openEvent && (
+          <div className="fixed inset-0 z-[999] flex items-center justify-center">
+
+            {/* Blurred & Dark Overlay */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setOpenEvent(null)}
+            />
+
+            {/* Popup Box */}
+            <div className="relative w-[90%] max-w-3xl max-h-[90vh] overflow-auto bg-[#022333]/90 border-2 border-[#0a91ab] rounded-2xl shadow-xl p-6 z-[1000]">
+
+              {/* Close Button */}
+              <button
+                onClick={() => setOpenEvent(null)}
+                className="absolute top-3 right-3 md:top-5 md:right-5 text-white hover:text-[#ffc045] text-2xl md:text-3xl font-bold transition-all duration-200"
+              >
+                ✕
+              </button>
+
+              {/* Render Correct Component */}
+              {openEvent === "ResQlympics" && <ResQlympics />}
+              {openEvent === "YantroUtsav" && <YantroUtsav />}
+              {openEvent === "Chakravyuh" && <Chakravyuh />
+}
+            </div>
+          </div>
+        )}
       </div>
+
+
+
 
       {/* CSS */}
       <style jsx>{`
