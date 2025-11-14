@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Star } from "lucide-react";
@@ -7,9 +7,12 @@ import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";
 export type Tier = "title" | "platinum" | "gold" | "silver";
+import BecomeSponsor from "@/app/components/BecomeSponsor";
 
 export default function Sponsors() {
+  const [showSponsorForm, setShowSponsorForm] = useState<boolean>(false);
   useEffect(() => {
+
     AOS.init({ duration: 1000, once: true, easing: "ease-in-out", offset: -250 });
     AOS.refresh();
   }, []);
@@ -58,7 +61,7 @@ export default function Sponsors() {
               height={512}
               className="h-auto max-h-36 object-contain hover:scale-115 transition-transform duration-500"
             />
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-2 text-xs text-gray-400 font-mono">{sponsor.name}</div>
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-2 text-xs text-gray-400 font-mono">{sponsor.name}</div>
           </div>
         </div>
       </div>
@@ -118,9 +121,8 @@ export default function Sponsors() {
               >
                 {React.createElement(icon, { className: `h-6 w-6 text-[#ffc045]` })}
                 <h3
-                  className={`text-2xl font-bold ${
-                    tier === "title" ? "text-[#ffc045]" : "text-gray-300"
-                  } font-mono`}
+                  className={`text-2xl font-bold ${tier === "title" ? "text-[#ffc045]" : "text-gray-300"
+                    } font-mono`}
                 >
                   {config.label}
                 </h3>
@@ -129,18 +131,16 @@ export default function Sponsors() {
             )}
             {!icon && (
               <h3
-                className={`text-lg font-bold font-mono text-center mb-8 ${
-                  tier === "gold" ? "text-[#0a91ab]" : "text-[#065471]"
-                }`}
+                className={`text-lg font-bold font-mono text-center mb-8 ${tier === "gold" ? "text-[#0a91ab]" : "text-[#065471]"
+                  }`}
               >
                 {config.label}
               </h3>
             )}
 
             <div
-              className={`flex justify-center gap-${
-                tier === "silver" ? 3 : tier === "gold" ? 4 : 6
-              } flex-wrap`}
+              className={`flex justify-center gap-${tier === "silver" ? 3 : tier === "gold" ? 4 : 6
+                } flex-wrap`}
             >
               {sponsors[tier as Tier].map((sponsor: Sponsor) => (
                 <SponsorCard key={sponsor.id} sponsor={sponsor} config={config} />
@@ -162,13 +162,45 @@ export default function Sponsors() {
             >
               Partner with us to shape the future of robotics and AI innovation
             </p>
+
+
             <button
-              className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] hover:from-[#0a91ab]/80 hover:to-[#ffc045]/80 text-white px-8 py-3 font-mono uppercase tracking-wider transition-all duration-300"
+              onClick={() => setShowSponsorForm(true)}
+              className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] hover:from-[#0a91ab]/80 hover:to-[#ffc045]/80 text-white px-8 py-3 font-mono uppercase tracking-wider transition-all duration-300 rounded-lg"
             >
               Become a Sponsor
             </button>
+
+            {/* Modal Popup */}
+            {showSponsorForm && (
+              <div
+                className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
+                data-aos="fade-in"
+              >
+                {/* Modal content box */}
+                <div
+                  className="relative bg-[#022333] border-2 border-[#0a91ab]/40 p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-2xl mx-4 overflow-y-auto max-h-[80vh]"
+                  data-aos="zoom-in"
+                >
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setShowSponsorForm(false)}
+                    className="absolute top-3 right-3 text-white hover:text-[#ffc045] text-3xl font-bold transition-all duration-200"
+                    aria-label="Close sponsor form"
+                  >
+                    ×
+                  </button>
+
+                  {/* Sponsor Form Component */}
+                  <BecomeSponsor />
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
+
+
       </div>
     </section>
   );
