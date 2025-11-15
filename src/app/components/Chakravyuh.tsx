@@ -9,15 +9,15 @@ const Chakravyuh = () => {
                     Chakravyuh
                 </h1>
 
-                <p className="Content leading-relaxed text-white/90">
-                    🤖 Welcome to <span className="text-[#ffc045] font-bold">Chakravyuh</span> – The Ultimate Dual-Mode Robotics Challenge! <br />
+                <div className="Content leading-relaxed text-white/90">
+                    🤖 Welcome to <span className="text-[#ffc045] font-bold">Chakravyuh</span> - The Ultimate Dual-Mode Robotics Challenge! <br />
                     <br />
                     Chakravyuh is an exciting robotics competition where participants design an autonomous bot capable of tackling <span className="text-[#ffc045] font-bold">two intense stages</span>. Precision, speed, and smart programming will determine the champion! <br />
                     <br />
                     🏁{" "}
                     <span className="text-[#ffc045] font-bold">How It Works:</span> <br />
-                    <span className="font-semibold">Stage 1 – Line Following:</span> Your bot must accurately follow a designated track without breaking flow. <br />
-                    <span className="font-semibold">Stage 2 – Maze Solving:</span> After completing the line track, the bot must switch modes—either manually using a button or automatically—to enter a maze and find its way out in the minimum possible time. <br />
+                    <span className="font-semibold">Stage 1 - Line Following:</span> Your bot must accurately follow a designated track without breaking flow. <br />
+                    <span className="font-semibold">Stage 2 - Maze Solving:</span> After completing the line track, the bot must switch modes—either manually using a button or automatically—to enter a maze and find its way out in the minimum possible time. <br />
                     <br />
                     ⏱️ The winner will be decided based on the <span className="text-[#ffc045] font-bold">fastest combined completion time</span> across both stages. Bring your technical skills and strategy to conquer the Chakravyuh arena! <br />
                     <br />
@@ -50,7 +50,7 @@ const Chakravyuh = () => {
                             Tutorial Video
                         </a>
                     </div>
-                </p>
+                </div>
 
             </div>
         </div>

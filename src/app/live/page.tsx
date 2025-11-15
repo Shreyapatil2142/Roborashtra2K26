@@ -86,7 +86,7 @@ export default function Home() {
             </video>
             <SidebarStrip />
             <div data-aos="fade-up" className="text-center mb-12">
-                <h2 data-aos="zoom-in" className="text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-mokoto tracking-widest font-bold mb-6">
+                <h2 data-aos="zoom-in" className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-mokoto tracking-widest font-bold mb-6">
                     <span className="text-white">Countdown </span>
                     <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
                         For Roborashtra 2K26

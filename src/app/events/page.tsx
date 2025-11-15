@@ -35,7 +35,7 @@ export default function EventsPage() {
         {/* Section Header */}
         <div data-aos="fade-up" className="text-center mb-16">
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest font-bold mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest wrap-normal font-bold mb-6">
             <span className="text-white">Championship_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
               Events
@@ -55,7 +55,7 @@ export default function EventsPage() {
               key={event.id}
               data-aos="fade-up"
               data-aos-delay={event.id * 100}
-              className="h-[380px]"
+              className="sm:h-[410px] sm:w-[300px] w-[100%] min:h-[410px] justify-self-center cursor-pointer lg:px-3"
               onMouseEnter={() => setHoveredCard(event.id)}
               onMouseLeave={() => setHoveredCard(null)}
               onClick={() => setOpenEvent(event.title)}
@@ -115,7 +115,7 @@ export default function EventsPage() {
             />
 
             {/* Popup Box */}
-            <div className="relative w-[90%] max-w-3xl max-h-[90vh] overflow-auto bg-[#022333]/90 border-2 border-[#0a91ab] rounded-2xl shadow-xl p-6 z-[1000]">
+            <div className="relative w-[90%] max-w-3xl max-h-[80vh] sm:max-h-[90vh] overflow-auto bg-[#022333]/90 border-2 border-[#0a91ab] rounded-2xl shadow-xl p-6 z-[1000]">
 
               {/* Close Button */}
               <button

@@ -13,6 +13,7 @@ import LoadingScreen from "../components/LoadingScreen";
 export default function GlimpsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
   const [activeGlimpse, setActiveGlimpse] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -172,15 +173,24 @@ export default function GlimpsPage() {
                 ref={(el) => {
                   thumbnailRefs.current[index] = el;
                 }}
+                title="Click to unveil the full gallery"
                 onClick={() => {
                   setActiveIndex(index);
                   setActiveGlimpse(glimpse.id);
+                  setTimeout(() => {
+                    if (galleryRef.current) {
+                      galleryRef.current.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                      });
+                    }
+                  }, 300);
                 }}
 
                 aria-label={`View glimpse ${glimpse.title}`}
                 className={`relative shrink-0 
                   h-24 w-36 md:h-28 md:w-full 
-                  border-2 transition-all duration-300 group rounded
+                  border-2 transition-all duration-300 group rounded mb-4
                   ${index === activeIndex
                     ? "border-[#ffc045] scale-105"
                     : "border-[#0a91ab]/30 hover:border-[#0a91ab]/60"
@@ -206,6 +216,16 @@ export default function GlimpsPage() {
                     {glimpse.title}
                   </div>
                 </div>
+                {/* Pulsing clickable hint */}
+                <div className="absolute inset-0 border-2 border-[#ffc045]/70 rounded animate-pulse pointer-events-none"></div>
+
+                {/* Eye icon indicator */}
+                <div
+                  className="absolute top-0 right-0 w-6 h-6 bg-black/50 
+                  flex items-center justify-center text-white text-xs 
+                  animate-pulse pointer-events-none z-20">
+                  ⇢
+                </div>
               </button>
             ))}
           </div>
@@ -213,17 +233,20 @@ export default function GlimpsPage() {
         </div>
 
         {activeGlimpse !== null && (
-          <MagicBento
-            key={activeGlimpse}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            spotlightRadius={300}
-            glowColor="255, 192 ,69"
-            images={glimpses[activeIndex].images}
-          />
+          <div ref={galleryRef}>
+            <MagicBento
+              key={activeGlimpse}
+              enableBorderGlow={true}
+              enableTilt={true}
+              enableMagnetism={true}
+              clickEffect={true}
+              spotlightRadius={300}
+              glowColor="255, 192 ,69"
+              images={glimpses[activeIndex].images}
+            />
+          </div>
         )}
+
 
 
       </div>

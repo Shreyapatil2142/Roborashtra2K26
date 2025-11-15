@@ -3,14 +3,14 @@ import React from "react";
 const ResQlympics = () => {
  
   return (
-      <div className="Event bg-[#022333]/40 p-6 md:p-10 shadow-lg">
+      <div className="Event bg-[#022333]/40  p-6 md:p-10 shadow-lg">
         <div className="Event-content resq text-white">
           <h1 className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent font-extrabold text-4xl mb-4">
             ResQlympic
           </h1>
 
-          <p className="Content leading-relaxed text-white/90">
-            🚨 Welcome to ResQlympic – The Ultimate Robotics Rescue Challenge!
+          <div className="Content leading-relaxed text-white/90">
+            🚨 Welcome to ResQlympic - The Ultimate Robotics Rescue Challenge!
             🤖🛠️ <br />
             <br />
             Get ready for ResQlympic, where manual-operated robots with in-built
@@ -59,7 +59,7 @@ const ResQlympics = () => {
                 Tutorial Video
               </a>
             </div>
-          </p>
+          </div>
         </div>
       </div>
   );

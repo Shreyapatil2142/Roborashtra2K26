@@ -10,8 +10,8 @@ const YantroUtsav = () => {
           YantroUtsav
         </h1>
 
-        <p className="Content leading-relaxed text-white/90">
-          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav</span> – Unleash Your Robotics Genius! 🤖🚀
+        <div className="Content leading-relaxed text-white/90">
+          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav</span> - Unleash Your Robotics Genius! 🤖🚀
           <br />
           <br />
           Join Yantrautsav, where aspiring innovators showcase their creativity and robotics skills! Whether you are a beginner or a pro, this is your chance to bring your bold ideas to life.
@@ -24,7 +24,7 @@ const YantroUtsav = () => {
           Showcase your creations and compete with the best. <br />
           Learn, build, and get inspired alongside passionate tech minds. <br />
           Open to all — no matter your experience, students of all ages are welcome! <br />
-          Don’t miss this thrilling event — register now and make your mark in the world of robotics!
+          Don't miss this thrilling event — register now and make your mark in the world of robotics!
           <br />
           <br />
 
@@ -63,7 +63,7 @@ const YantroUtsav = () => {
             </Button>
 
           </div>
-        </p>
+        </div>
 
       </div>
     </div>

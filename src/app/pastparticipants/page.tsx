@@ -23,8 +23,8 @@ interface CSVParticipant {
 
 export default function ParticipantsSection() {
   const [search, setSearch] = useState("");
-  const [competition, setCompetition] = useState<"YantroUstav" | "ResQlympic">(
-    "YantroUstav"
+  const [competition, setCompetition] = useState<"YantraUtsav" | "ResQlympic">(
+    "YantraUtsav"
   );
   const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
   const [selected, setSelected] = useState<Participant | null>(null);
@@ -82,9 +82,9 @@ export default function ParticipantsSection() {
         p.name.toLowerCase().includes(search.toLowerCase())
       );
     } else {
-      // YantroUstav has Junior / Senior
+      // YantraUtsav has Junior / Senior
       return (
-        p.competition === "YantroUstav" &&
+        p.competition === "YantraUtsav" &&
         p.category === category &&
         p.name.toLowerCase().includes(search.toLowerCase())
       );
@@ -110,10 +110,10 @@ export default function ParticipantsSection() {
 
         {/* Competition Selection */}
         <div className="flex justify-center gap-6 mb-6">
-          {["YantroUstav", "ResQlympic"].map((comp) => (
+          {["YantraUtsav", "ResQlympic"].map((comp) => (
             <button
               key={comp}
-              onClick={() => setCompetition(comp as "YantroUstav" | "ResQlympic")}
+              onClick={() => setCompetition(comp as "YantraUtsav" | "ResQlympic")}
               className={`px-6 py-2 rounded-md font-mono font-bold transition-all ${competition === comp
                 ? "bg-[#ffc045] text-black scale-105"
                 : "bg-[#022333]/50 border border-gray-600 text-gray-300 hover:bg-[#0a91ab]/30"
@@ -124,8 +124,8 @@ export default function ParticipantsSection() {
           ))}
         </div>
 
-        {/* Category Toggles (only for YantroUstav) */}
-        {competition === "YantroUstav" && (
+        {/* Category Toggles (only for YantraUtsav) */}
+        {competition === "YantraUtsav" && (
           <div className="flex justify-center gap-6 mb-10">
             {["Junior", "Senior"].map((c) => (
               <button

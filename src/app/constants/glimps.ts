@@ -27,7 +27,7 @@ export const glimpses: Glimpse[] = [
   },
   {
     id: 2,
-    title: "YantroUtsav",
+    title: "YantraUtsav",
     date: "Feb 2025",
     image: "/glimps/1.jpg",
     description: "Cutting-edge AI demonstrations and breakthroughs",
