@@ -23,8 +23,8 @@ const YantroUtsav = () => {
           <br />
           Showcase your creations and compete with the best. <br />
           Learn, build, and get inspired alongside passionate tech minds. <br />
-          Open to all — no matter your experience, students of all ages are welcome! <br />
-          Don't miss this thrilling event — register now and make your mark in the world of robotics!
+          Open to all - no matter your experience, students of all ages are welcome! <br />
+          Don&rsquo;t miss this thrilling event - register now and make your mark in the world of robotics!
           <br />
           <br />
 

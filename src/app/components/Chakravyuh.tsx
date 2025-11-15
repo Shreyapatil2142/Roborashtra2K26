@@ -17,7 +17,7 @@ const Chakravyuh = () => {
                     🏁{" "}
                     <span className="text-[#ffc045] font-bold">How It Works:</span> <br />
                     <span className="font-semibold">Stage 1 - Line Following:</span> Your bot must accurately follow a designated track without breaking flow. <br />
-                    <span className="font-semibold">Stage 2 - Maze Solving:</span> After completing the line track, the bot must switch modes—either manually using a button or automatically—to enter a maze and find its way out in the minimum possible time. <br />
+                    <span className="font-semibold">Stage 2 - Maze Solving:</span> After completing the line track, the bot must switch modes—either manually using a button or automatically-to enter a maze and find its way out in the minimum possible time. <br />
                     <br />
                     ⏱️ The winner will be decided based on the <span className="text-[#ffc045] font-bold">fastest combined completion time</span> across both stages. Bring your technical skills and strategy to conquer the Chakravyuh arena! <br />
                     <br />
