@@ -192,7 +192,7 @@ export default function Sponsors() {
               {/* Close Button */}
               <button
                 onClick={() => setShowSponsorForm(false)}
-                className="absolute top-3 right-3 text-white hover:text-[#ffc045] 
+                className="absolute top-8 right-3 text-white hover:text-[#ffc045] 
                    text-3xl md:text-4xl font-bold transition-all duration-200"
                 aria-label="Close sponsor form"
               >
