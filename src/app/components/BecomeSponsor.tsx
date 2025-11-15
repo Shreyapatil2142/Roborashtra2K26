@@ -5,7 +5,6 @@ import {Button} from "../ui/button";
 import {Textarea} from "../ui/textarea";
 import emailjs from "emailjs-com";
 
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function BecomeSponsor() {
@@ -30,7 +29,7 @@ export default function BecomeSponsor() {
 
     const serviceID = "default_service";
     const templateID = "template_qgttzuo";
-    const userID = "srSNnRMfoAq3x1tD3"; // replace with your EmailJS public key
+    const userID = "srSNnRMfoAq3x1tD3"; 
 
     if (!formData.name.trim() || !formData.contact.trim() || !formData.message.trim()) {
       alert("⚠️ Please fill in all fields before sending.");
@@ -56,9 +55,9 @@ export default function BecomeSponsor() {
   data-aos="fade-left"
   className="min-h-screen flex items-center justify-center px-4 py-16"
 >
-  <div className="bg-gradient-to-br from-[#065471]/30 to-[#022333]/50 backdrop-blur-sm border-2 border-[#0a91ab]/40 p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-2xl relative overflow-hidden">
-    <h3 className="text-3xl font-bold text-white mb-8 font-mono flex items-center gap-2 justify-center">
-      <Send className="h-7 w-7 text-[#0a91ab]" />
+  <div className="backdrop-blur-sm p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-2xl relative overflow-hidden">
+    <h3 className="text-3xl font-bold text-[#0a91ab] mb-8 font-mono flex items-center gap-2 justify-center">
+      <Send className="h-7 w-7 text-[#ffc045]" />
       Become a Sponsor
     </h3>
 

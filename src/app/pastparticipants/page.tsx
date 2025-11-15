@@ -216,7 +216,7 @@ export default function ParticipantsSection() {
         {/* --------------------------------------- */}
 
         <div className="w-full mt-20">
-          <h3 className="text-2xl sm:text-3xl font-mokoto text-center mb-6 text-[#ffc045] tracking-widest">
+          <h3 className="text-2xl sm:text-3xl font-mokoto text-center mb-6 text-[#0a91ab] tracking-widest">
             Past Participants
           </h3>
 
