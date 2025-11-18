@@ -1,13 +1,16 @@
 import React from "react";
 import { Button } from "../ui/button";
+import EventActions from "../components/EventActions";
+import { events } from "../constants/event";
 
 const YantroUtsav = () => {
- 
+  const event = events.find(e => e.title === "YantroUtsav")!;
+
   return (
     <div className="Event bg-[#022333]/40 p-6 md:p-10 shadow-lg">
       <div className="Event-content resq text-white">
         <h1 className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent font-extrabold text-4xl mb-4">
-          YantroUtsav
+          {event.title}
         </h1>
 
         <div className="Content leading-relaxed text-white/90">
@@ -30,7 +33,7 @@ const YantroUtsav = () => {
 
           <span className="headContact text-[#ffc045] font-bold mt-4">
             For any event related query <br />
-             Contact Sana (Event Lead): 8087666355
+            Contact Sana (Event Lead): 8087666355
           </span>
 
           <span className="text-red-500 font-bold block mt-2">
@@ -49,25 +52,17 @@ const YantroUtsav = () => {
             </a>
           </div>
 
-          <div className="action_btn mt-6 flex flex-wrap gap-4">
-            <Button className="bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-6 ">Rulebook</Button>
-
-            <Button className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] md:text-lg text-white py-6 sm:text-base font-mono uppercase tracking-wider rounded-lg"
-            >
-              Register (Junior)
-            </Button>
-
-            <Button className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] md:text-lg text-white py-6 sm:text-base font-mono uppercase tracking-wider rounded-lg"
-            >
-              Register (Senior)
-            </Button>
-
-          </div>
+          <EventActions 
+            rulebookPath={event.rulebookPath}
+            registrationUrl={event.registrationUrl}
+            eventTitle={event.title}
+            className="mt-6"
+          />
         </div>
-
       </div>
     </div>
   );
 };
+
 
 export default YantroUtsav;
