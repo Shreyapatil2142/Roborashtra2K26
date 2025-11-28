@@ -25,15 +25,24 @@ export async function GET(
   try {
     const config = PDF_CONFIG[event];
     const pdfPath = join(process.cwd(), 'public', 'rulebooks', config.filename);
-    const buffer = await readFile(pdfPath);
+    // const buffer = await readFile(pdfPath);
 
-    return new NextResponse(buffer, {
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${config.displayName}"`,
-        'Cache-Control': 'public, max-age=31536000, immutable',
-      },
-    });
+    const buffer = await readFile(pdfPath);
+return new NextResponse(new Uint8Array(buffer), {
+  headers: {
+    "Content-Type": "application/pdf",
+    "Content-Disposition": `attachment; filename="${config.displayName}"`,
+  },
+});
+
+
+    // return new NextResponse(buffer, {
+    //   headers: {
+    //     'Content-Type': 'application/pdf',
+    //     'Content-Disposition': `attachment; filename="${config.displayName}"`,
+    //     'Cache-Control': 'public, max-age=31536000, immutable',
+    //   },
+    // });
   } catch (error) {
     console.error('PDF download error:', error);
     return NextResponse.json({ error: 'PDF not found' }, { status: 404 });

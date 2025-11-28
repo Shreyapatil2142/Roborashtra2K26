@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../ui/button";
 import EventActions from "../components/EventActions";
 import { events } from "../constants/event";
 

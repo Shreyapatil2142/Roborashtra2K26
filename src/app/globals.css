@@ -2,6 +2,7 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "tw-animate-css";
 
+
 /* No Scoll bars on entire site */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
