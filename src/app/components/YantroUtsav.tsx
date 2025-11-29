@@ -13,10 +13,10 @@ const YantroUtsav = () => {
         </h1>
 
         <div className="Content leading-relaxed text-white/90">
-          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav</span> - Unleash Your Robotics Genius! 🤖🚀
+          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav </span> - Unleash Your Robotics Genius! 🤖🚀
           <br />
           <br />
-          Join Yantrautsav, where aspiring innovators showcase their creativity and robotics skills! Whether you are a beginner or a pro, this is your chance to bring your bold ideas to life.
+          Join Yantrautsav , where aspiring innovators showcase their creativity and robotics skills! Whether you are a beginner or a pro, this is your chance to bring your bold ideas to life.
           <br />
           <br />
 
@@ -48,6 +48,14 @@ const YantroUtsav = () => {
               <button className="whatsapp bg-[#0a91ab] hover:bg-[#0a91ab]/80 text-white px-6 py-2 rounded-lg font-semibold">
                 Contact Us On Whatsapp
               </button>
+            </a>
+                        <a
+              href="https://www.youtube.com/@RobohawkPCCOER"
+              className="youtube bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-2 rounded-lg text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tutorial Video
             </a>
           </div>
 

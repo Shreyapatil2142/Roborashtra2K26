@@ -57,7 +57,7 @@ const ResQlympics = () => {
             </a>
 
             <a
-              href="https://youtu.be/I1SMKisHUbM?si=OSec1umXgSNuwO0O"
+              href="https://www.youtube.com/@RobohawkPCCOER"
               className="youtube bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-2 rounded-lg text-center"
               target="_blank"
               rel="noopener noreferrer"
