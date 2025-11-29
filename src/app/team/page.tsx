@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import TeamCard from "@/app/components/TeamCards";
 import { teamData } from "../constants/TeamData";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import { MoveRight, MoveLeft } from "lucide-react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function TeamPage() {
@@ -14,14 +13,7 @@ export default function TeamPage() {
   const [activeCategory, setActiveCategory] = useState<keyof typeof teamData>(categories[0]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
-
+ 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
     const scrollAmount = 200; // adjust for faster/slower scroll
@@ -64,7 +56,6 @@ export default function TeamPage() {
         <SidebarStrip />
         <div className="flex items-center gap-2 sm:gap-4">
           <div
-            data-aos="fade-up"
             className="text-center mb-6 h-full flex flex-col justify-center pr-2"
           >
             <h2
@@ -148,11 +139,9 @@ export default function TeamPage() {
       {/* Members */}
       <div
         className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4 mb-16 z-10"
-        data-aos="fade-up"
-        data-aos-delay="200"
       >
         {teamData[activeCategory]?.map((member, index) => (
-          <div key={index} data-aos="zoom-in-up" data-aos-delay={index * 100}>
+          <div key={index} data-aos="zoom-in-up">
             <TeamCard {...member} />
           </div>
         ))}

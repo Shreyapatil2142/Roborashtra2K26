@@ -6,7 +6,7 @@ import { events } from "../constants/event";
 import Image from "next/image";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import ResQlympics from "@/app/components/Resqlympics";
-import YantroUtsav from "@/app/components/YantroUtsav";
+import YantraUtsav from "@/app/components/YantraUtsav";
 import Chakravyuh from "@/app/components/Chakravyuh";
 
 export default function EventsPage() {
@@ -127,7 +127,7 @@ export default function EventsPage() {
 
               {/* Render Correct Component */}
               {openEvent === "ResQlympics" && <ResQlympics />}
-              {openEvent === "YantroUtsav" && <YantroUtsav />}
+              {openEvent === "YantraUtsav" && <YantraUtsav />}
               {openEvent === "Chakravyuh" && <Chakravyuh />
               }
             </div>

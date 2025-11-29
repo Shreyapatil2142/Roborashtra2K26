@@ -115,7 +115,7 @@ export const teamData: Record<string, TeamMember[]> = {
     {
       name: "Shreya",
       role: "Head",
-      linkedin: "https://www.linkedin.com/in/shreya-patil-9530shreya/",
+      linkedin: "https://www.linkedin.com/in/shreyapatil2142/",
       contact: "+91 1234567890",
       mail: "shreya@example.com",
       image: "/members/shreya.png",

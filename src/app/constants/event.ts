@@ -20,7 +20,7 @@ export interface EventConfig {
 export const events: EventConfig[] = [
   {
     id: 1,
-    title: "YantroUtsav",
+    title: "YantraUtsav",
     category: "Combat",
     description: "An innovation where creators and robotics bring bold ideas to life",
     date: "March 15, 2025",

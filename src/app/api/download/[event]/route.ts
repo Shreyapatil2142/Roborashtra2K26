@@ -36,13 +36,6 @@ return new NextResponse(new Uint8Array(buffer), {
 });
 
 
-    // return new NextResponse(buffer, {
-    //   headers: {
-    //     'Content-Type': 'application/pdf',
-    //     'Content-Disposition': `attachment; filename="${config.displayName}"`,
-    //     'Cache-Control': 'public, max-age=31536000, immutable',
-    //   },
-    // });
   } catch (error) {
     console.error('PDF download error:', error);
     return NextResponse.json({ error: 'PDF not found' }, { status: 404 });
