@@ -1,9 +1,9 @@
 import React from "react";
-import EventActions from "../components/EventActions";
+import EventActions from "./EventActions";
 import { events } from "../constants/event";
 
-const Yantrautsav  = () => {
-  const event = events.find(e => e.title === "Yantrautsav ")!;
+const YantraUtsav = () => {
+  const event = events.find(e => e.title === "YantraUtsav")!;
 
   return (
     <div className="Event bg-[#022333]/40 p-6 md:p-10 shadow-lg">
@@ -72,4 +72,4 @@ const Yantrautsav  = () => {
 };
 
 
-export default Yantrautsav ;
+export default YantraUtsav;
