@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const ALLOWED_EVENTS = ['resqlympics', 'yantroutsav', 'chakravyuh'] as const;
+const ALLOWED_EVENTS = ['resqlympics', 'yantrautsav', 'chakravyuh'] as const;
 type EventType = typeof ALLOWED_EVENTS[number];
 
 const PDF_CONFIG: Record<EventType, { filename: string; displayName: string }> = {
   resqlympics: { filename: 'resqlympics.pdf', displayName: 'ResQlympics-Rulebook.pdf' },
-  yantroutsav: { filename: 'yantroutsav.pdf', displayName: 'YantroUtsav-Rulebook.pdf' },
+  yantrautsav: { filename: 'yantrautsav.pdf', displayName: 'Yantrautsav-Rulebook.pdf' },
   chakravyuh: { filename: 'chakravyuh.pdf', displayName: 'Chakravyuh-Rulebook.pdf' },
 };
 

@@ -20,7 +20,7 @@ export interface EventConfig {
 export const events: EventConfig[] = [
   {
     id: 1,
-    title: "YantroUtsav",
+    title: "Yantrautsav ",
     category: "Combat",
     description: "An innovation where creators and robotics bring bold ideas to life",
     date: "March 15, 2025",
@@ -33,7 +33,7 @@ export const events: EventConfig[] = [
     glowColor: "#0a91ab",
     coverImage: "/events/yan2.svg",
     hoverImage: "/events/yan1.svg",
-    rulebookPath: "/api/download/yantroutsav",
+    rulebookPath: "/api/download/Yantrautsav ",
     registrationUrl: "https://unstop.com/o/Dy8trh4?lb=t3QuFZhk&utm_medium=Share&utm_source=roboras52032&utm_campaign=Competitions", 
   },
   {
