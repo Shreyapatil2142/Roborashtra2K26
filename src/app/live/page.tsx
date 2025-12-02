@@ -15,7 +15,7 @@ export default function Home() {
         });
     }, []);
     useEffect(() => {
-        const countToDate = new Date("2026-02-06T08:00:00").getTime();
+        const countToDate = new Date("2026-02-02T08:00:00").getTime();
 
         const interval = setInterval(() => {
             const currentDate = new Date().getTime();
