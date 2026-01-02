@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Star } from "lucide-react";
+import { Star,Zap } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";
@@ -104,7 +104,7 @@ export default function Sponsors() {
         {/* Sponsor Tiers */}
         {[
           { tier: "title", icon: Star, config: tierConfig.title },
-          // { tier: "platinum", icon: Zap, config: tierConfig.platinum },
+          { tier: "platinum", icon: Zap, config: tierConfig.platinum },
           // { tier: "gold", icon: null, config: tierConfig.gold },
           // { tier: "silver", icon: null, config: tierConfig.silver },
         ].map(({ tier, icon, config }, idx) => (

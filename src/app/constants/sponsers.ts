@@ -21,9 +21,9 @@ export const sponsors: Record<Tier, Sponsor[]> = {
     { id: 1, name: "Unstop", logo: "unstop.svg", tier: "title" },
   ],
   platinum: [
-    { id: 3, name: "CyberSystems", logo: "CS", tier: "platinum" },
-    { id: 4, name: "AI Dynamics", logo: "AID", tier: "platinum" },
-    { id: 5, name: "FutureTech", logo: "FT", tier: "platinum" },
+    { id: 3, name: "Ventek", logo: "VENTEK.svg", tier: "platinum" },
+    // { id: 4, name: "AI Dynamics", logo: "AID", tier: "platinum" },
+    // { id: 5, name: "FutureTech", logo: "FT", tier: "platinum" },
   ],
   gold: [
     { id: 6, name: "MechCorp", logo: "MC", tier: "gold" },
@@ -51,7 +51,7 @@ export const tierConfig: Record<Tier, TierConfig> = {
   },
   platinum: {
     color: "#e5e7eb",
-    size: "w-40 h-28",
+    size: "w-50 h-30",
     textSize: "text-3xl",
     glow: "shadow-gray-300/30",
     label: "PLATINUM PARTNERS",
