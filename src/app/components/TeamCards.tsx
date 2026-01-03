@@ -10,6 +10,7 @@ interface TeamCardProps {
   linkedin?: string;
   contact?: string;
   mail?: string;
+  onImageLoad?: () => void;
 }
 
 const TeamCard: React.FC<TeamCardProps> = ({
@@ -19,6 +20,7 @@ const TeamCard: React.FC<TeamCardProps> = ({
   linkedin,
   contact,
   mail,
+  onImageLoad,
 }) => {
   return (
     <div
@@ -31,7 +33,9 @@ const TeamCard: React.FC<TeamCardProps> = ({
           alt="Card Background"
           fill
           className="object-contain select-none pointer-events-none z-10 absolute"
-          priority
+          
+          loading="lazy" // explicit (optional)
+        onLoadingComplete={onImageLoad} // 🔥 key part
         />
       </div>
 

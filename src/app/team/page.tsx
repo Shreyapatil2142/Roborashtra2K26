@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import { useState, useRef } from "react";
 import TeamCard from "@/app/components/TeamCards";
 import { teamData } from "../constants/TeamData";
@@ -12,8 +12,16 @@ export default function TeamPage() {
   const categories = Object.keys(teamData) as (keyof typeof teamData)[];
   const [activeCategory, setActiveCategory] = useState<keyof typeof teamData>(categories[0]);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const totalImages = teamData[activeCategory]?.length || 0;
 
- 
+  const handleImageLoad = () => {
+    setLoadedImages((prev) => prev + 1);
+  };
+  useEffect(() => {
+    setLoadedImages(0);
+  }, [activeCategory]);
+
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
     const scrollAmount = 200; // adjust for faster/slower scroll
@@ -106,10 +114,9 @@ export default function TeamPage() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`flex-shrink-0 px-4 py-1 rounded-xl transition-all duration-300 
-                ${
-                  activeCategory === cat
-                    ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
-                    : "text-white hover:text-yellow-300 hover:bg-white/10"
+                ${activeCategory === cat
+                  ? "bg-yellow-400 text-blue-900 shadow-md scale-105"
+                  : "text-white hover:text-yellow-300 hover:bg-white/10"
                 }`}
             >
               {cat.replace(/([A-Z])/g, " $1").trim()}
@@ -136,13 +143,19 @@ export default function TeamPage() {
         {activeCategory.replace(/([A-Z])/g, " $1").trim()} Team
       </h1>
 
+     
+
+
       {/* Members */}
       <div
         className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 mt-6 px-4 mb-16 z-10"
       >
         {teamData[activeCategory]?.map((member, index) => (
           <div key={index} data-aos="zoom-in-up">
-            <TeamCard {...member} />
+            <TeamCard
+              {...member}
+              onImageLoad={handleImageLoad}
+            />
           </div>
         ))}
       </div>

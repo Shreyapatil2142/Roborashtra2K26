@@ -38,7 +38,7 @@ const ResQlympics = () => {
 
           <span className="headContact text-[#ffc045] font-bold mt-4">
             For any event related query <br />
-            Contact Sana (Event Lead): 8087666355
+            Contact Atharva (Workshop Head): 8263936211
           </span>
 
           <span className="text-red-500 font-bold block mt-2">
@@ -47,7 +47,7 @@ const ResQlympics = () => {
 
           <div className="wpYoutube mt-6 flex flex-col gap-4">
             <a
-              href="http://wa.me/+918087666355"
+              href="http://wa.me/+918263936211"
               rel="noopener noreferrer"
               target="_blank"
             >
