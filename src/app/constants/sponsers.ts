@@ -1,5 +1,5 @@
 // For Sponsers section
-export type Tier = "title" | "platinum" | "gold" | "silver";
+export type Tier = "title" | "platinum" | "gold" | "platform" | "silver";
 
 export interface Sponsor {
   id: number;
@@ -17,8 +17,11 @@ export interface TierConfig {
 }
 
 export const sponsors: Record<Tier, Sponsor[]> = {
+  platform: [
+    { id: 1, name: "Unstop", logo: "unstop.svg", tier: "platform" },
+  ],
   title: [
-    { id: 1, name: "Unstop", logo: "unstop.svg", tier: "title" },
+    { id: 2, name: "Mitsubishi", logo: "Mitsubishi.png", tier: "title" },
   ],
   platinum: [
     { id: 3, name: "Ventek", logo: "VENTEK.svg", tier: "platinum" },
@@ -26,10 +29,10 @@ export const sponsors: Record<Tier, Sponsor[]> = {
     // { id: 5, name: "FutureTech", logo: "FT", tier: "platinum" },
   ],
   gold: [
-    { id: 6, name: "MechCorp", logo: "MC", tier: "gold" },
-    { id: 7, name: "NanoBot Ltd", logo: "NB", tier: "gold" },
-    { id: 8, name: "Quantum Labs", logo: "QL", tier: "gold" },
-    { id: 9, name: "Neural Networks", logo: "NN", tier: "gold" },
+    { id: 4, name: "Coming soon", logo: "comingsoon.png", tier: "gold" },
+    // { id: 7, name: "NanoBot Ltd", logo: "NB", tier: "gold" },
+    // { id: 8, name: "Quantum Labs", logo: "QL", tier: "gold" },
+    // { id: 9, name: "Neural Networks", logo: "NN", tier: "gold" },
   ],
   silver: [
     { id: 10, name: "CodeBase", logo: "CB", tier: "silver" },
@@ -42,24 +45,31 @@ export const sponsors: Record<Tier, Sponsor[]> = {
 };
 
 export const tierConfig: Record<Tier, TierConfig> = {
+  platform: {
+    color: "#ff5733",
+    size: "w-48 h-40",
+    textSize: "text-4xl",
+    glow: "shadow-[#ff5733]/60",
+    label: "PLATFORM PARTNER",
+  },
   title: {
     color: "#ffc045",
-    size: "w-48 h-32",
+    size: "w-48 h-40",
     textSize: "text-4xl",
     glow: "shadow-[#ffc045]/50",
     label: "TITLE SPONSORS",
   },
   platinum: {
     color: "#e5e7eb",
-    size: "w-50 h-30",
-    textSize: "text-3xl",
+    size: "w-48 h-40",
+    textSize: "text-4xl",
     glow: "shadow-gray-300/30",
     label: "PLATINUM PARTNERS",
   },
   gold: {
     color: "#0a91ab",
-    size: "w-32 h-24",
-    textSize: "text-2xl",
+    size: "w-48 h-40",
+    textSize: "text-4xl",
     glow: "shadow-[#0a91ab]/40",
     label: "GOLD SPONSORS",
   },

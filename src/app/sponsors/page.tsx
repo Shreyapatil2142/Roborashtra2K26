@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Star,Zap } from "lucide-react";
+import { Star, Zap } from "lucide-react";
 import { sponsors, tierConfig, Sponsor, TierConfig } from "../constants/sponsers";
 import SidebarStrip from "@/app/components/SidebarStrip";
 import Image from "next/image";
-export type Tier = "title" | "platinum" | "gold" | "silver";
+export type Tier = "platform" | "title" | "platinum" | "gold" | "silver";
 import BecomeSponsor from "@/app/components/BecomeSponsor";
 
 export default function Sponsors() {
@@ -55,7 +55,7 @@ export default function Sponsors() {
           <div>
             {/* {sponsor.logo} */}
             <Image
-              src={`/${sponsor.logo}`}
+              src={`/sponsors/${sponsor.logo}`}
               alt={sponsor.name}
               width={512}
               height={512}
@@ -102,52 +102,101 @@ export default function Sponsors() {
         </div>
 
         {/* Sponsor Tiers */}
-        {[
-          { tier: "title", icon: Star, config: tierConfig.title },
-          { tier: "platinum", icon: Zap, config: tierConfig.platinum },
-          // { tier: "gold", icon: null, config: tierConfig.gold },
-          // { tier: "silver", icon: null, config: tierConfig.silver },
-        ].map(({ tier, icon, config }, idx) => (
-          <div
-            key={tier}
-            data-aos="fade-up"
-            data-aos-delay={200 * (idx + 1)}
-            className="mb-16"
-          >
-            {icon && (
-              <div
-                data-aos="zoom-in"
-                className="flex items-center justify-center gap-4 mb-8"
-              >
-                {React.createElement(icon, { className: `h-6 w-6 text-[#ffc045]` })}
-                <h3
-                  className={`text-2xl font-bold ${tier === "title" ? "text-[#ffc045]" : "text-gray-300"
-                    } font-mono`}
-                >
-                  {config.label}
-                </h3>
-                {React.createElement(icon, { className: `h-6 w-6 text-[#ffc045]` })}
-              </div>
-            )}
-            {!icon && (
-              <h3
-                className={`text-lg font-bold font-mono text-center mb-8 ${tier === "gold" ? "text-[#0a91ab]" : "text-[#065471]"
-                  }`}
-              >
-                {config.label}
-              </h3>
-            )}
+        {/* TITLE SPONSORS */}
+        <div data-aos="fade-up" className="mb-20">
+          <div className="flex items-center justify-center gap-4 mb-10">
+            <Star className="h-6 w-6 text-[#ffc045]" />
+            <h3 className="text-3xl font-bold text-[#ffc045] font-mono">
+              {tierConfig.title.label}
+            </h3>
+            <Star className="h-6 w-6 text-[#ffc045]" />
+          </div>
 
-            <div
-              className={`flex justify-center gap-${tier === "silver" ? 3 : tier === "gold" ? 4 : 6
-                } flex-wrap`}
-            >
-              {sponsors[tier as Tier].map((sponsor: Sponsor) => (
-                <SponsorCard key={sponsor.id} sponsor={sponsor} config={config} />
+          <div className="flex justify-center gap-8 flex-wrap">
+            {sponsors.title.map((sponsor) => (
+              <SponsorCard
+                key={sponsor.id}
+                sponsor={sponsor}
+                config={tierConfig.title}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* PLATINUM + GOLD */}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20"
+        >
+          {/* Platinum */}
+          <div>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <Zap className="h-6 w-6 text-[#ffc045]" />
+              <h3 className="text-2xl font-bold text-gray-300 font-mono">
+                {tierConfig.platinum.label}
+              </h3>
+              <Zap className="h-6 w-6 text-[#ffc045]" />
+            </div>
+
+            <div className="flex justify-center gap-6 flex-wrap">
+              {sponsors.platinum.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.id}
+                  sponsor={sponsor}
+                  config={tierConfig.platinum}
+                />
               ))}
             </div>
           </div>
-        ))}
+
+          {/* Gold */}
+          <div>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <Star className="h-6 w-6 text-[#0a91ab]" />
+              <h3 className="text-2xl font-bold text-[#ffc045] font-mono">
+                {tierConfig.gold.label}
+              </h3>
+              <Star className="h-6 w-6 text-[#0a91ab]" />
+            </div>
+
+            <div className="flex justify-center gap-6 flex-wrap">
+              {sponsors.gold.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.id}
+                  sponsor={sponsor}
+                  config={tierConfig.gold}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* PLATFORM SPONSORS */}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="400"
+          className="mb-20"
+        >
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <Zap className="h-6 w-6 text-[#0a91ab]" />
+            <h3 className="text-2xl font-bold text-gray-300 font-mono">
+              {tierConfig.platform.label}
+            </h3>
+            <Zap className="h-6 w-6 text-[#0a91ab]" />
+          </div>
+
+          <div className="flex justify-center gap-6 flex-wrap">
+            {sponsors.platform.map((sponsor) => (
+              <SponsorCard
+                key={sponsor.id}
+                sponsor={sponsor}
+                config={tierConfig.platform}
+              />
+            ))}
+          </div>
+        </div>
+
 
         {/* Call to Action */}
         <div data-aos="fade-up" data-aos-delay="400" className="text-center mt-16">
@@ -175,7 +224,7 @@ export default function Sponsors() {
 
           </div>
         </div>
-        
+
         {/* Modal Popup */}
         {showSponsorForm && (
           <div className="fixed inset-0 z-[999] flex items-center justify-center">
