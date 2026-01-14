@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
-
+ 
 export default function ParticleLogo() {
   const mountRef = useRef(null);
 
