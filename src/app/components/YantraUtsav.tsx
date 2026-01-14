@@ -38,6 +38,10 @@ const YantraUtsav = () => {
           <span className="text-red-500 font-bold block mt-2">
             NO Refund available
           </span>
+          <span className="text-yellow-400 block mt-2">
+            Important Note: <br />
+            NO ACCOMMODATION WILL BE PROVIDED (WE WILL ASSIST WITH SUGGESTIONS)
+          </span>
 
           <div className="wpYoutube mt-6 flex flex-col gap-4">
             <a
