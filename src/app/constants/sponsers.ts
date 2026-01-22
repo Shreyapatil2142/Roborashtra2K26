@@ -29,7 +29,7 @@ export const sponsors: Record<Tier, Sponsor[]> = {
     // { id: 5, name: "FutureTech", logo: "FT", tier: "platinum" },
   ],
   gold: [
-    { id: 4, name: "Bank Of Maharashtra", logo: "IOM.png", tier: "gold" },
+    { id: 4, name: "Bank Of Maharashtra", logo: "BOM.png", tier: "gold" },
     // { id: 7, name: "NanoBot Ltd", logo: "NB", tier: "gold" },
     // { id: 8, name: "Quantum Labs", logo: "QL", tier: "gold" },
     // { id: 9, name: "Neural Networks", logo: "NN", tier: "gold" },
