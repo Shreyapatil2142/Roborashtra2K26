@@ -13,10 +13,10 @@ const YantraUtsav = () => {
         </h1>
 
         <div className="Content leading-relaxed text-white/90">
-          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav </span> - Unleash Your Robotics Genius! 🤖🚀
+          🎉 Welcome to <span className="text-[#ffc045] font-bold">Yantrautsav</span> - Unleash Your Robotics Genius! 🤖🚀
           <br />
           <br />
-          Join Yantrautsav , where aspiring innovators showcase their creativity and robotics skills! Whether you are a beginner or a pro, this is your chance to bring your bold ideas to life.
+          Join Yantrautsav, where aspiring innovators showcase their creativity and robotics skills! Whether you are a beginner or a pro, this is your chance to bring your bold ideas to life.
           <br />
           <br />
 
