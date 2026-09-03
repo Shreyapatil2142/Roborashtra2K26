@@ -7,34 +7,34 @@ export interface FAQEntry {
 
 export const FAQ_DATA: FAQEntry[] = [
   {
-    question: "What resources are available for troubleshooting technical difficulties during the competition?",
+    question: "What is Roborashtra?",
     answer:
-      "In our college, we have a shop dedicated to electronic components where you can purchase necessary items for troubleshooting technical difficulties during the competition.",
+      "Roborashtra is a student-driven robotics and technology initiative focused on innovation, hands-on learning, and skill development. It brings together enthusiasts to explore robotics, AI, electronics, and emerging technologies through workshops, projects, competitions, and mentorship.",
   },
   {
-    question: "Can we bring our own tools and equipment for robot maintenance?",
+    question: "How to register for Roborashtra 2K26?",
     answer:
-      "Yes, participants are required to bring their own tools and equipment for robot maintenance.",
+      "Registrations for Roborashtra 2K26 will be available on Unstop. Visit the official event page, fill in the required details, and complete the registration process from - https://hosturl.link/HlZkHv",
   },
   {
     question:
-      "Are there any restrictions on the use of certain materials or components in the construction of the robots?",
+      " Is Arduino Nano allowed?",
     answer:
-      "Participants must adhere to the components and materials specified in the respective domain rulebook.",
+      "Yes, Arduino Nano is allowed. The Chakravyuh rulebook does not restrict the use of any specific microcontroller. Arduino Nano supports autonomous operation, which is mandatory in the competition. Since the bot is not connected to the internet or wireless devices, Arduino Nano fully complies with control rules.Therefore, using Arduino Nano is completely legal and acceptable.",
   },
   {
-    question: "Where will I be staying during the competition?",
+    question: "What is the maximum voltage allowed?",
     answer:
-      "We will notify you soon about accommodation arrangements for the competition. Please stay tuned for further updates.",
+      "Maximum allowed voltage is 12.5V. Only onboard power sources are permitted (battery or rechargeable cells). The total supply voltage of the bot must not exceed 12.5V. Exceeding this limit may lead to disqualification during compliance check. Proper voltage regulation must be ensured for Arduino Nano and sensors.",
   },
   {
-    question: "What are the allowed dimensions and weight limits for the robots?",
+    question: "Is manual control allowed during the run?",
     answer:
-      "Please refer to the rulebook for specific guidelines regarding dimensions and weight limits.",
+      "No, manual control is not allowed. The only exception is Mode switching (line following → maze solving), if not automatic Any other form of manual intervention is considered rule violation.",
   },
   {
-    question: "Can only undergraduate students apply to the event?",
+    question: " How can the bot switch between line following and maze solving modes?",
     answer:
-      "In CamWarrior, both UG and PG students can apply, whereas for other events, only undergraduate students are eligible.",
+      "Mode switching can be manual or automatic. The rulebook allows two methods of mode switching: Manual switching using a button Automatic switching through programming logic Manual switching is allowed only once, at the stage transition. After switching, the bot must continue autonomously. This flexibility allows teams to choose a suitable control strategy.",
   },
 ];

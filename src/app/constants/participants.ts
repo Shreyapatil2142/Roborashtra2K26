@@ -6,16 +6,16 @@ export interface Participant {
   image: string;
   color: string;
   category: "Junior" | "Senior";
-  competition: "YantraUtsav" | "ResQlympic";
+  competition: "YantraUtsav" | "ResQlympic" | "Chakravyuh";
 }
 
 export const participants: Participant[] = [
   // Junior - YantraUtsav
   {
     id: 1,
-    name: "Ranveersing Rajput and Team",
+    name: "Code Storms",
     position: "1st Place",
-    college: "",
+    college: "Kendriya Vidyalaya No. 1",
     image: "/winners/YJ1.jpg",
     color: "#0a91ab",
     category: "Junior",
@@ -23,9 +23,9 @@ export const participants: Participant[] = [
   },
   {
     id: 2,
-    name: "Arjun Anand Arbuj and Team",
+    name: "Team AVSS",
     position: "2nd Place",
-    college: "",
+    college: "Novel International School, Pune",
     image: "/winners/YJ2.jpg",
     color: "#ffc045",
     category: "Junior",
@@ -33,9 +33,9 @@ export const participants: Participant[] = [
   },
   {
     id: 3,
-    name: "Team War Machine",
+    name: "Sanskriti TechForce",
     position: "3rd Place",
-    college: "",
+    college: "Sanskriti School, Pune",
     image: "/winners/YJ3.jpg",
     color: "#ff5733",
     category: "Junior",
@@ -45,9 +45,9 @@ export const participants: Participant[] = [
   // Senior - YantraUtsav
   {
     id: 7,
-    name: "Team Pinnnacle Minds",
+    name: "Team Solder & Forget",
     position: "1st Place",
-    college: "Rajarajeswari College of Engineering, Bengaluru",
+    college: "Shri Vile Parle Kelavani Mandal's Dwarkadas J. Sanghvi College of Engineering, Mumbai",
     image: "/winners/YS1.jpg",
     color: "#0a91ab",
     category: "Senior",
@@ -55,9 +55,9 @@ export const participants: Participant[] = [
   },
   {
     id: 8,
-    name: "Team No-BOT",
+    name: "Team PIL Dynamics",
     position: "2nd Place",
-    college: "Dr. D. Y. Patil College of Engineering (DYPCOE), Akurdi, Pune",
+    college: "Madhav Institute of Technology and Science, Gwalior",
     image: "/winners/YS2.jpg",
     color: "#ffc045",
     category: "Senior",
@@ -65,44 +65,76 @@ export const participants: Participant[] = [
   },
   {
     id: 9,
-    name: "Team Roboyuush",
+    name: "Team Draic",
     position: "3rd Place",
-    college: "Walchand College of Engineering (WCE), Sangli",
+    college: "D. Y. Patil College of Engineering, Akurdi, Pune",
     image: "/winners/YS3.jpg",
     color: "#ff5733",
     category: "Senior",
     competition: "YantraUtsav",
   },
 
-  // Senior - ResQlympic
+  // ResQlympic
   {
     id: 10,
     name: "Team UVIRA3",
     position: "1st Place",
     college: "KPR Institute of Engineering and Technology (KPRIET), Coimbatore",
-    image: "/winners/R1.jpg",
+    image: "/winners/res1.jpg",
     color: "#0a91ab",
     category: "Senior",
     competition: "ResQlympic",
   },
   {
     id: 11,
-    name: "Samyank Ghangale and Team",
+    name: "Techover",
     position: "2nd Place",
     college: "Dr. D. Y. Patil College of Engineering (DYPCOE), Akurdi, Pune",
-    image: "/winners/R2.jpg",
+    image: "/winners/res2.jpg",
     color: "#ffc045",
     category: "Senior",
     competition: "ResQlympic",
   },
   {
     id: 12,
-    name: "Team UVIRA Z",
+    name: "IIC SIT",
     position: "3rd Place",
-    college: "KPR Institute of Engineering and Technology (KPRIET), Coimbatore",
-    image: "/winners/R3.jpg",
+    college: "Sinhgad Institute of Technology, Lonavala",
+    image: "/winners/res3.jpg",
     color: "#ff5733",
     category: "Senior",
     competition: "ResQlympic",
+  },
+
+  // Chakravyuh
+  {
+    id: 13,
+    name: "Error 404: Line not found",
+    position: "1st Place",
+    college: "JSPM Rajarshi Shahu College of Engineering",
+    image: "/winners/chak1.jpg",
+    color: "#ff5733",
+    category: "Senior",
+    competition: "Chakravyuh",
+  },
+  {
+    id: 14,
+    name: "Imposter",
+    position: "2nd Place",
+    college: "Sinhgad Institute of Technology, Lonavala",
+    image: "/winners/chak2.jpg",
+    color: "#ff5733",
+    category: "Senior",
+    competition: "Chakravyuh",
+  },
+  {
+    id: 15,
+    name: "Bermuda Blaster",
+    position: "3rd Place",
+    college: "New Pune Public School",
+    image: "/winners/chak3.jpg",
+    color: "#ff5733",
+    category: "Senior",
+    competition: "Chakravyuh",
   },
 ];

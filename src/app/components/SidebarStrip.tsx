@@ -28,7 +28,7 @@ const menuItems = [
   { label: "Sponsors", icon: <HeartHandshake size={18} />, href: "/sponsors" },
   { label: "Team", icon: <Users size={18} />, href: "/team" },
   { label: "FAQ", icon: <HelpCircle size={18} />, href: "/faq" },
-  { label: "Live", icon: <Radio size={18} />, href: "/live" },
+  { label: "News", icon: <Radio size={18} />, href: "/news" },
 ];
 
 export default function SidebarStrip() {

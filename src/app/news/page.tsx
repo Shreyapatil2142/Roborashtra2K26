@@ -18,30 +18,22 @@ export default function NewsPage() {
 
   return (
     /* Background changed to the theme's dark navy #022333 */
-    <div className="relative min-h-screen bg-[#022333] overflow-x-hidden">
-      {/* Floating Particles Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <FloatingParticles count={60} color="#0a91ab" size={3} />
-      </div>
-
-      {/* Sidebar Strip Implementation */}
+    <section className="w-full max-h-screen flex flex-col items-center justify-start py-10 bg-transparent overflow-x-hidden">
       <SidebarStrip />
-      
 
-      <main className="relative z-10 pt-20">
+      <main className="w-[80%] mx-auto relative z-10 flex flex-col gap-16">
         {/* News Section */}
         <div className="container mx-auto px-4 ">
-          <div className="text-center mb-16" data-aos="fade-up">
-            {/* Heading color changed to Light Yellow (#ffc045) */}
-            <h1 className="text-4xl md:text-7xl font-bold text-[#ffc045] mb-4 animate-glow tracking-widest font-mokoto">
-              NEWS & UPDATES
-            </h1>
-            
-            {/* Decorative Underline */}
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ffc045] to-transparent mx-auto mb-6" />
-            
-            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
-              Stay updated with the latest from <span className="text-[#0a91ab] font-bold">RoboRashtra 2026</span>
+
+          <div data-aos="fade-up" className="text-center">
+            <h2 className="mt-12 sm:mb-2 font-mokoto tracking-widest text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <span className="text-white">NEWS & </span>
+              <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
+                UPDATES
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
+              Stay updated with the latest from RoboRashtra 2026
             </p>
           </div>
 
@@ -51,11 +43,11 @@ export default function NewsPage() {
           </div>
         </div>
 
-    
+
       </main>
 
       {/* Footer Glow */}
       <div className="fixed bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#022333] to-transparent pointer-events-none -z-1" />
-    </div>
+    </section>
   );
 }

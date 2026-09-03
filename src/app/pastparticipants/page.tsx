@@ -23,7 +23,7 @@ interface CSVParticipant {
 
 export default function ParticipantsSection() {
   const [search, setSearch] = useState("");
-  const [competition, setCompetition] = useState<"YantraUtsav" | "ResQlympic">(
+  const [competition, setCompetition] = useState<"YantraUtsav" | "ResQlympic" | "Chakravyuh">(
     "YantraUtsav"
   );
   const [category, setCategory] = useState<"Junior" | "Senior">("Junior");
@@ -81,7 +81,8 @@ export default function ParticipantsSection() {
         p.competition === "ResQlympic" &&
         p.name.toLowerCase().includes(search.toLowerCase())
       );
-    } else {
+    } 
+    else if (competition === "YantraUtsav") {
       // YantraUtsav has Junior / Senior
       return (
         p.competition === "YantraUtsav" &&
@@ -89,6 +90,13 @@ export default function ParticipantsSection() {
         p.name.toLowerCase().includes(search.toLowerCase())
       );
     }
+    else {
+      // ResQlympic has no categories
+      return (
+        p.competition === "Chakravyuh" &&
+        p.name.toLowerCase().includes(search.toLowerCase())
+      );
+    } 
   });
 
   return (
@@ -110,10 +118,10 @@ export default function ParticipantsSection() {
 
         {/* Competition Selection */}
         <div className="flex justify-center gap-6 mb-6">
-          {["YantraUtsav", "ResQlympic"].map((comp) => (
+          {["YantraUtsav", "ResQlympic","Chakravyuh"].map((comp) => (
             <button
               key={comp}
-              onClick={() => setCompetition(comp as "YantraUtsav" | "ResQlympic")}
+              onClick={() => setCompetition(comp as "YantraUtsav" | "ResQlympic" | "Chakravyuh")}
               className={`px-6 py-2 rounded-md font-mono font-bold transition-all ${competition === comp
                 ? "bg-[#ffc045] text-black scale-105"
                 : "bg-[#022333]/50 border border-gray-600 text-gray-300 hover:bg-[#0a91ab]/30"

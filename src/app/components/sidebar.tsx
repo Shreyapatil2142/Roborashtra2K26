@@ -17,7 +17,7 @@ const rightButtons = [
   { label: "Sponsors", href: "/sponsors" },
   { label: "Team", href: "/team" },
   { label: "FAQ", href: "/faq" },
-  { label: "Live", href: "/live" },
+  { label: "News", href: "/news" },
 ];
 
 export default function Sidebar() {
