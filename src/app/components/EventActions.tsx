@@ -9,18 +9,20 @@ interface EventActionsProps {
   registrationUrl: string;
   eventTitle: string;
   className?: string;
+  isConcluded?: boolean;
 }
 
 export default function EventActions({ 
   rulebookPath, 
   registrationUrl, 
   eventTitle,
-  className = '' 
+  className = '',
+  isConcluded = true // Default to true since 2K26 is concluded
 }: EventActionsProps) {
   const [isDownloading, setIsDownloading] = useState(false);
 
   const extractFilename = (contentDisposition: string | null): string => {
-    if (!contentDisposition) return `${eventTitle}-rulebook.pdf`;
+    if (!contentDisposition) return `${eventTitle}-rulebook-PS.pdf`;
     
     // Try filename*=UTF-8 first (for Unicode support)
     const utf8Match = contentDisposition.match(/filename\*=UTF-8''([^;]+)/i);
@@ -30,7 +32,7 @@ export default function EventActions({
     
     // Fall back to regular filename
     const match = contentDisposition.match(/filename="?([^";]+)"?/);
-    return match && match[1] ? match[1] : `${eventTitle}-rulebook.pdf`;
+    return match && match[1] ? match[1] : `${eventTitle}-rulebook-PS.pdf`;
   };
 
   const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -77,10 +79,10 @@ export default function EventActions({
         href={rulebookPath}
         onClick={handleDownload}
         className="inline-block flex-1 min-w-[150px]"
-        aria-label={`Download ${eventTitle} rulebook`}
+        aria-label={`Download ${eventTitle} Rulebook and Problem Statement`}
       >
         <Button 
-          className="w-full bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-6"
+          className="w-full bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-6 transition-all shadow-[0_0_15px_rgba(255,192,69,0.3)]"
           disabled={isDownloading}
         >
           {isDownloading ? (
@@ -91,23 +93,34 @@ export default function EventActions({
           ) : (
             <span className="flex items-center justify-center gap-2">
               <Download className="h-4 w-4" />
-              Download Rulebook
+              Download PS & Rulebook
             </span>
           )}
         </Button>
       </a>
 
-      <a
-        href={registrationUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block flex-1 min-w-[150px]"
-        aria-label={`Register for ${eventTitle}`}
-      >
-        <Button className="w-full bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-6">
-          Register Now
-        </Button>
-      </a>
+      {isConcluded ? (
+        <div className="flex-1 min-w-[150px]">
+          <Button 
+            disabled 
+            className="w-full bg-[#15317E]/60 text-cyan-200 border border-cyan-500/40 font-semibold px-6 py-6 cursor-not-allowed flex items-center justify-center gap-2 opacity-90"
+          >
+            <span>🔒 2K26 Concluded</span>
+          </Button>
+        </div>
+      ) : (
+        <a
+          href={registrationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block flex-1 min-w-[150px]"
+          aria-label={`Register for ${eventTitle}`}
+        >
+          <Button className="w-full bg-[#ffc045] hover:bg-[#ffc045]/80 text-black font-semibold px-6 py-6">
+            Register Now
+          </Button>
+        </a>
+      )}
     </div>
   );
 }

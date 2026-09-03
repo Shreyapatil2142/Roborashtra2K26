@@ -33,18 +33,28 @@ export default function EventsPage() {
       <div className="md:max-w-7xl max-w-3/4 mx-auto relative z-10">
 
         {/* Section Header */}
-        <div data-aos="fade-up" className="text-center mb-16">
+        <div data-aos="fade-up" className="text-center mb-12">
+
+          {/* Event Status Badges */}
+          <div className="flex flex-wrap justify-center items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4382D]/20 border border-[#F4382D]/50 text-[#F4382D] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_0_10px_rgba(244,56,45,0.3)]">
+              <span className="w-2 h-2 rounded-full bg-[#F4382D] animate-ping" />
+              Roborashtra 2K26 — Event Concluded
+            </span>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0154C8]/20 border border-[#0154C8]/50 text-cyan-300 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-[0_0_10px_rgba(1,84,200,0.3)]">
+              🚀 Roborashtra 2K27 — Upcoming
+            </span>
+          </div>
 
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mokoto tracking-widest wrap-normal font-bold mb-6">
-            <span className="text-white">Championship_</span>
+            <span className="text-white">Archived_</span>
             <span className="bg-gradient-to-r from-[#0a91ab] to-[#ffc045] bg-clip-text text-transparent">
-              Events
+              Problem Statements
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Three legendary competitions. One ultimate champion. Experience the
-            future of robotics across multiple domains.
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Roborashtra 2K26 has officially concluded! You can still explore the flagship competition details and <span className="text-[#ffc045] font-semibold">download full Problem Statements (PS) & Rulebooks</span> for reference below.
           </p>
 
         </div>
@@ -103,6 +113,40 @@ export default function EventsPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Roborashtra 2K27 Upcoming Teaser Banner */}
+        <div data-aos="fade-up" className="mt-16 bg-gradient-to-r from-[#000000] via-[#15317E]/40 to-[#000000] border-2 border-[#0154C8]/50 rounded-2xl p-8 text-center relative overflow-hidden shadow-[0_0_30px_rgba(1,84,200,0.3)]">
+          <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-[#F4382D]/10 rounded-full blur-2xl pointer-events-none" />
+          
+          <span className="inline-block px-4 py-1 rounded-full bg-[#0154C8]/30 border border-[#0154C8] text-cyan-300 text-xs font-bold uppercase tracking-widest mb-4">
+            Next Generation Assembly
+          </span>
+          
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-wider">
+            ROBORASHTRA <span className="text-[#ffc045]">2K27</span> IS UPCOMING
+          </h3>
+          
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto mb-6">
+            Get ready for bigger arenas, higher prize pools, and next-level combat & autonomous robotics challenges. Follow our official channels for early registrations and new Problem Statement drops!
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://www.instagram.com/roborashtra.pccoer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-[#0154C8] hover:bg-[#0154C8]/80 text-white font-bold rounded-xl transition-all shadow-[0_0_15px_rgba(1,84,200,0.5)]"
+            >
+              Follow @roborashtra.pccoer
+            </a>
+            <a
+              href="/glimps"
+              className="px-6 py-3 bg-transparent border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-200 font-bold rounded-xl transition-all"
+            >
+              View 2K26 Gallery & Highlights
+            </a>
+          </div>
         </div>
 
         {openEvent && (

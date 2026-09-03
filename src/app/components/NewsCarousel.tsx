@@ -15,6 +15,14 @@ interface NewsItem {
 const newsData: NewsItem[] = [
   {
     id: 1,
+    title: "Roborashtra 2K26 Concludes & 2K27 Teaser",
+    description: "Roborashtra 2K26 has officially concluded with ₹1,90,000 in prizes distributed across YantroUtsav, ResQlympics, and Chakravyuh! Problem statements are archived, and Roborashtra 2K27 teaser is live.",
+    imageUrl: "/news/P_pic1.webp",
+    link: "/events",
+    linkText: "Explore 2K26 PS & 2K27 Teaser"
+  },
+  {
+    id: 2,
     title: "राष्ट्रीय रोबोराष्ट्र २०२६",
     description: "पीसीसीओईआर आयोजित राष्ट्रीय रोबोराष्ट्र २०२६ स्पर्धेत एक लाख नव्वद हजार रुपयांची पारितोषिके वाटप",
     imageUrl: "/news/P_pic1.webp",
@@ -22,7 +30,7 @@ const newsData: NewsItem[] = [
     linkText: "Read Full Article"
   },
   {
-    id: 2,
+    id: 3,
     title: "Innovation & Technology Showcase",
     description: "RoboRashtra 2026 featured cutting-edge robotics projects and innovative engineering solutions",
     imageUrl: "/news/linkdin_pic1.jpg",
@@ -30,7 +38,7 @@ const newsData: NewsItem[] = [
     linkText: "View Details"
   },
   {
-    id: 3,
+    id: 4,
     title: "Championship Winners Announced",
     description: "Exciting competition concluded with outstanding performances from engineering students across the nation",
     imageUrl: "/news/p_pic2.webp",
@@ -38,7 +46,7 @@ const newsData: NewsItem[] = [
     linkText: "Read More"
   },
   {
-    id: 4,
+    id: 5,
     title: "National RoboRashtra 2026",
     description: "PCCOER organized National RoboRashtra 2026 competition with prize money of ₹1,90,000 distributed among winners",
     imageUrl: "/news/linkdin_pic2.jpg",
