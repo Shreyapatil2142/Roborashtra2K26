@@ -16,7 +16,7 @@ const Btn4: React.FC<Btn4Props> = ({ link, text = "START" }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
-          className="relative w-52 h-16 text-[#ddebf0] text-2xl font-bold tracking-widest font-[mokoto]
+          className="relative w-52 h-16 text-[#ddebf0] text-xl p-2 font-bold tracking-widest font-[mokoto]
                      bg-transparent border-none outline-none obverflow-hidden cursor-pointer"
         >
           {text}
@@ -48,7 +48,7 @@ const Btn4: React.FC<Btn4Props> = ({ link, text = "START" }) => {
             }}
           ></span>
 
-          
+
           {/* Hover animations (via Tailwind + Motion) */}
           <style>{`
             button:hover div[style*="polygon"] {
