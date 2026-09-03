@@ -9,26 +9,40 @@ export interface Glimpse {
 }
 
 export const glimpses: Glimpse[] = [
-  
   {
     id: 1,
+    title: "RoboRashtra 2k25",
+    date: "Feb 2025",
+    image: "/glimps/robo1.jpg",
+    description: "Epic battles between autonomous fighting robots",
+    stats: "32+ Teams",
+    images: [
+      "/glimps/robo1.jpg",
+      "/glimps/robo2.jpg",
+      "/glimps/robo3.jpg",
+      "/glimps/robo4.jpg",
+      "/glimps/robo5.jpg",
+      "/glimps/robo6.jpg",
+    ],
+  },
+  {
+    id: 2,
     title: "YantraUtsav",
     date: "Feb 2025",
     image: "/glimps/robo3.jpg",
     description: "Cutting-edge AI demonstrations and breakthroughs",
     stats: "150+ Participants",
     images: [
-      "/glimps/yan1.JPG",
-      "/glimps/yan2.JPG",
-      "/glimps/yan3.JPG",
-      "/glimps/yan4.JPG",
-      "/glimps/yan5.JPG",
+      "/glimps/yan1.jpg",
+      "/glimps/yan2.jpg",
+      "/glimps/yan3.jpg",
+      "/glimps/yan4.jpg",
+      "/glimps/yan5.jpg",
       "/glimps/yan6.jpg",
-     
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "ResQlypmic",
     date: "Feb 2025",
     image: "/glimps/res5.jpg",
@@ -44,7 +58,7 @@ export const glimpses: Glimpse[] = [
     ],
   },
   {
-    id:3,
+    id: 4,
     title: "Chakravyuh",
     date: "Feb 2025",
     image: "/glimps/chak4.jpg",
@@ -56,7 +70,6 @@ export const glimpses: Glimpse[] = [
       "/glimps/chak3.jpg",
       "/glimps/chak4.jpg",
       "/glimps/chak5.jpg",
-      "/glimps/chak1.jpg",
     ],
   },
 ];

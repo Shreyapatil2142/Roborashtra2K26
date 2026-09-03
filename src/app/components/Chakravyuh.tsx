@@ -3,7 +3,8 @@ import EventActions from "../components/EventActions";
 import { events } from "../constants/event";
 
 const Chakravyuh = () => {
-  const event = events.find(e => e.title === "Chakravyuh")!;
+  const event = events.find(e => e.title.toLowerCase() === "chakravyuh") || events[2];
+  if (!event) return null;
 
   return (
     <div className="Event bg-[#022333]/40 p-6 md:p-10 shadow-lg">

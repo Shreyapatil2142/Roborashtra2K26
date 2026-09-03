@@ -171,9 +171,8 @@ export default function EventsPage() {
 
               {/* Render Correct Component */}
               {openEvent === "ResQlympics" && <ResQlympics />}
-              {openEvent === "YantroUtsav" && <YantroUtsav />}
-              {openEvent === "Chakravyuh" && <Chakravyuh />
-              }
+              {(openEvent === "YantraUtsav" || openEvent === "YantroUtsav") && <YantroUtsav />}
+              {openEvent === "Chakravyuh" && <Chakravyuh />}
             </div>
           </div>
         )}
