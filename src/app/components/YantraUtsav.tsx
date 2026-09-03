@@ -3,7 +3,8 @@ import EventActions from "./EventActions";
 import { events } from "../constants/event";
 
 const YantraUtsav = () => {
-  const event = events.find(e => e.title === "YantraUtsav")!;
+  const event = events.find(e => e.title.toLowerCase() === "yantrautsav" || e.title.toLowerCase() === "yantroutsav") || events[0];
+  if (!event) return null;
 
   return (
     <div className="Event bg-[#022333]/40 p-6 md:p-10 shadow-lg">
